@@ -1,0 +1,505 @@
+.header {
+    z-index: 1;
+}
+.title, .content, .chosse, .change, .box-logo {
+    z-index: 1; 
+}
+
+*{
+    margin: 0px;
+}
+
+.container{
+    width: 100%;
+}
+
+.box_slider{
+    height: 600px;
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+}
+
+.box_img{
+    width: 100%;
+    height: 100%;
+    position: relative;
+    display: flex;
+    overflow: hidden;
+}
+
+.box_img img{
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    flex-shrink: 0;
+    transition: transform 0.5s ease-in-out; 
+}
+
+.header{
+    display: flex;
+    width: 100%;
+    height: 60px;
+    margin-top: 10px;
+    position: absolute;
+}
+
+.box_logo{
+    width: 30%;
+}
+
+.box_logo img{
+    height: 50px;
+    width: 50px;
+}
+
+.nav{
+    width: 40%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    justify-content: space-evenly;
+    border: 1px solid black;
+    border-radius: 45px;
+    font-size: 20px;
+    color: white;
+    background-color: rgba(128, 128, 128, 0.5); 
+}
+
+.chatbox{
+    width: 10%;
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    cursor: pointer;
+}
+
+.chatbox i{
+    font-size: 30px;
+    color: white;
+    cursor: pointer;
+}
+
+.inform{
+    width: 10%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.inform i{
+    font-size: 30px;
+    color: white;
+    cursor: pointer;
+}
+
+.account{
+    width: 10%;
+    display: flex;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+}
+
+.account i{
+    font-size: 40px;
+    color: white;
+    cursor: pointer;
+}
+
+.change{
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: end;
+    bottom: 5px;
+    gap: 5px;
+}
+
+.change1{
+    height: 20px;
+    width: 20px;
+    border-radius: 50%;
+    background-color: white;
+}
+
+.change2{
+    height: 20px;
+    width: 20px;
+    border-radius: 50%;
+    background-color: rgba(128, 128, 128, 0.5);
+}
+
+.change3{
+    height: 20px;
+    width: 20px;
+    border-radius: 50%;
+    background-color: rgba(128, 128, 128, 0.5);
+}
+
+.change4{
+    height: 20px;
+    width: 20px;
+    border-radius: 50%;
+    background-color: rgba(128, 128, 128, 0.5);
+}
+
+.title{
+    position: absolute;
+    top: 30%;
+    left: 50%;
+    transform: translate(-50%);
+    color: white;
+}
+
+.content{
+    position: absolute;
+    top: 38%;
+    left: 50%;
+    transform: translate(-50%);
+    color: white;
+    width: 450px;
+    font-size: 20px;
+}
+
+.chosse{
+    position: absolute;
+    width: 500px;
+    height: 40px;
+    top: 60%;
+    left: 50%;
+    transform: translate(-50%);
+    display: flex;
+    justify-content: space-around;
+}
+
+.chosse1{
+    padding: 10px;
+    font-size: 20px;
+    border-radius: 10px;
+    width: 150px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: green;
+    color: white;
+}
+
+.introduce{
+    width: 100%;
+    height: 400px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.box-introduce{
+    width: 8    0%;
+    height: 80%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.card-introduce{
+    width: 32%;
+    height: 100%;
+    background-color: blue;
+}
+
+.body-top{
+    display: flex;
+    justify-content: space-around;
+    height: 100px;
+}
+
+.add{
+    height: 100%;
+    width: 20%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+.add button{
+    font-size: 30px;
+    border-radius: 30px;
+    background-color: green;
+    padding: 8px 20px; 
+    color: white;
+    box-sizing: border-box;
+    border: 1px solid black;
+    margin-left: 25px;
+    cursor: pointer;
+}
+
+.searchBox{
+    height: 100%;
+    width: 80%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.search-bar{
+    display: flex;
+    width: 90%;
+    height: 50px;
+    justify-content: space-between;
+    border: 1px solid black;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.search-bar input{
+    font-size: 20px;
+}
+
+.search-job{
+    width: 65%;
+    border: none;
+}
+
+.search-address{
+    width: 35%;
+    border: none;
+    border-left: 1px solid black;
+
+}
+
+.search-bar button{
+    width: 10%;
+    border: none;
+    border-left: 1px solid black;
+    background-color: green;
+}
+
+.search-bar button i{
+    font-size: 30px;
+    color: white;
+}
+
+.body-content{
+    display: flex;
+    gap: 2%;
+    margin-left: 2%;
+}
+
+.fifter {
+    width: 18%;
+    border-radius: 15px;
+    background-color: rgb(168, 195, 168);
+    border: 1px solid black;
+    overflow: hidden;
+    color: white;
+    box-sizing: border-box;
+    padding: 10px;
+}
+
+.fifter-job, .fifter-address {
+    background-color: white; 
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 15px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.fifter-job h1, .fifter-address h1 {
+    margin: 0;
+    padding: 10px;
+    border: 1px solid black;
+    border-radius: 10px;
+    text-align: center;
+    background-color: rgb(200, 200, 200);
+    color: black;
+}
+
+.fifter-job h2, .fifter-address h2 {
+    margin: 10px 0;
+    padding-left: 20px;
+    color: black;
+}
+
+.fifter-job h1:hover, .fifter-address h1:hover{
+    background-color: rgb(168, 195, 168);
+}
+
+.box-post{
+    width: 78%;
+    height: 570px;
+    /* background-color: rgb(200, 200, 200); */
+    background-color: rgb(168, 195, 168);
+    border-radius: 15px;
+    display: flex;
+    overflow: hidden;
+    justify-content: center;
+    align-items: center;
+}
+
+.post{
+    width: 97%;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.post1{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.left{
+    width: 48%;
+    background-color: white;
+    height: 120px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.right{
+    width: 48%;
+    background-color: white;
+    height: 120px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.card-profile{
+    width: 20%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.avatar{
+    height: 75%;
+    width: 80%;
+    border: 1px solid black;
+}
+
+.avatar img{
+    height: 100%;
+    width: 100%;
+}
+
+.name{
+    margin-top: 5px;
+}
+
+.card-content{
+    width: 75%;
+    height: 100%;
+}
+
+.card-content h3{
+    margin-top: 7px;
+}
+
+.main-content{
+    height: 70%;
+    width: 98%;
+    border: 1px solid black;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    padding-left: 3px;
+}
+
+.body-foot{
+    width: 100%;
+    height: 900px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.advert{
+    width: 70%;
+    height: 80%;
+    background-color: yellow;
+}
+
+.box1{
+    width: 100%;
+    height: 70%;
+    background-color: red;
+    display: flex;
+}
+
+.box1-1{
+    width: 15%;
+    height: 100%;
+    background-color: grey;
+    display: flex;
+    align-items: center;
+}
+
+.box1-1 div{
+    width: 100%;
+    height: 80%;
+    border: 1px solid black;
+}
+
+.box1-2{
+    width: 70%;
+    height: 100%;
+    background-color: orange;
+}
+
+.box1-2-top{
+    width: 100%;
+    height: 20%;
+    border: 1px solid black;
+}
+
+.box1-2-bottom{
+    width: 100%;
+    height: 80%;
+    border: 1px solid black;
+}
+
+.box1-3{
+    width: 15%;
+    height: 100%;
+    background-color: pink;
+    display: flex;
+    align-items: center;
+}
+
+.box1-3 div{
+    width: 100%;
+    height: 80%;
+    border: 1px solid black;
+}
+
+.box2{
+    width: 100%;
+    height: 15%;
+    background-color: blue;
+    display: flex;
+    justify-content: center;
+}
+
+.box2 div{
+    width: 55%;
+    height: 100%;
+    border: 1px solid black;
+}
+
+.box3{
+    width: 100%;
+    height: 15%;
+    background-color: green;
+    display: flex;
+    justify-content: center;
+}
+
+.box3 div{
+    width: 35%;
+    height: 100%;
+    border: 1px solid black;
+}
