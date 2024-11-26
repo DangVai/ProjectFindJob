@@ -1,10 +1,3 @@
-.header {
-    z-index: 1;
-}
-.title, .content, .chosse, .change, .box-logo {
-    z-index: 1; 
-}
-
 *{
     margin: 0px;
 }
@@ -17,7 +10,8 @@
     height: 600px;
     width: 100%;
     overflow: hidden;
-    position: relative;
+    padding-top: 80px;
+    z-index: 1;
 }
 
 .box_img{
@@ -39,22 +33,31 @@
 .header{
     display: flex;
     width: 100%;
-    height: 60px;
-    margin-top: 10px;
-    position: absolute;
+    height: 80px;
+    align-items: center;
+    position: fixed;
+    z-index: 3;
+    background-color: rgb(152, 255, 152);
 }
 
 .box_logo{
     width: 30%;
+    display: flex;
+    align-items: center;
 }
 
 .box_logo img{
-    height: 50px;
-    width: 50px;
+    height: 70px;
+    width: 70px;
+    position: relative;
+    left: 80px;
+    border-radius: 50px;
+    border: 1px solid black;
 }
 
 .nav{
     width: 40%;
+    height: 70%;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -64,6 +67,10 @@
     font-size: 20px;
     color: white;
     background-color: rgba(128, 128, 128, 0.5); 
+}
+
+.nav p{
+    cursor: pointer;
 }
 
 .chatbox{
@@ -76,7 +83,7 @@
 
 .chatbox i{
     font-size: 30px;
-    color: white;
+    color: black;
     cursor: pointer;
 }
 
@@ -89,7 +96,7 @@
 
 .inform i{
     font-size: 30px;
-    color: white;
+    color: black;
     cursor: pointer;
 }
 
@@ -103,7 +110,7 @@
 
 .account i{
     font-size: 40px;
-    color: white;
+    color: black;
     cursor: pointer;
 }
 
@@ -116,6 +123,7 @@
     align-items: end;
     bottom: 5px;
     gap: 5px;
+    z-index: 2;
 }
 
 .change1{
@@ -152,6 +160,7 @@
     left: 50%;
     transform: translate(-50%);
     color: white;
+    z-index: 2;
 }
 
 .content{
@@ -162,6 +171,7 @@
     color: white;
     width: 450px;
     font-size: 20px;
+    z-index: 2;
 }
 
 .chosse{
@@ -173,18 +183,21 @@
     transform: translate(-50%);
     display: flex;
     justify-content: space-around;
+    z-index: 2;
 }
 
 .chosse1{
     padding: 10px;
     font-size: 20px;
     border-radius: 10px;
-    width: 150px;
+    width: 180px;
     display: flex;
     justify-content: center;
     align-items: center;
     background-color: green;
     color: white;
+    border: none;
+    cursor: pointer;
 }
 
 .introduce{
@@ -255,6 +268,7 @@
 
 .search-bar input{
     font-size: 20px;
+    padding: 10px;
 }
 
 .search-job{
@@ -274,6 +288,7 @@
     border: none;
     border-left: 1px solid black;
     background-color: green;
+    cursor: pointer;
 }
 
 .search-bar button i{
@@ -314,12 +329,14 @@
     text-align: center;
     background-color: rgb(200, 200, 200);
     color: black;
+    cursor: pointer;
 }
 
 .fifter-job h2, .fifter-address h2 {
     margin: 10px 0;
     padding-left: 20px;
     color: black;
+    cursor: pointer;
 }
 
 .fifter-job h1:hover, .fifter-address h1:hover{
