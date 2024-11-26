@@ -27,7 +27,12 @@
                 <i class="fa-regular fa-bell"></i>
             </div>
             <div class="account">
-                <i class="fa-regular fa-user"></i>
+                <div class="box-account">
+                    <i class="fa-regular fa-user"></i>
+                </div>
+            </div>
+            <div class="name-user">
+                <p>Viet Tien</p>
                 <div class="dropdown-menu" id="account-menu">
                     <ul>
                         <li><a href="#">Đăng ký</a></li>
@@ -44,7 +49,7 @@
                     <h2>Việc làm Hand and Foot uy tin - Thời gian linh hoạt</h2>
                 </div>
                 <div class="content">
-                    <p>Khám phá hàng ngàn việc làm hấp dẫn và những con người uy tín, tài năng chỉ với một cái nhấp chuột. Hành trình thành công của bạn bắt đầu ngay tại bây giờ!</p>
+                    <p>Khám phá hàng ngàn việc làm hấp dẫn và những con người uy tín, tài năng chỉ với một cái nhấp chuột. Việc gì cũng trở nên dễ dàng và nhanh gọn ngay tại bây giờ!</p>
                 </div>
                 <div class="chosse">
                     <button class="chosse1">Muốn tìm việc</button>
@@ -303,25 +308,34 @@
                 </div>
             </div>
         </div>
+        <div class="promote">
+            <h1>QUẢNG BÁ CÔNG VIỆC</h1>
+        </div>
         <div class="body-foot">
             <div class="advert">
-                <div class="box1">
-                    <div class="box1-1">
-                        <div></div>
+                <div class="card-advert">
+                    <div class="advert-img">
+                        <img src="https://kinhtenongthon.vn/data/data/baoinktnt/2023/05/05/8b.jpg" alt="">
                     </div>
-                    <div class="box1-2">
-                        <div class="box1-2-top"></div>
-                        <div class="box1-2-bottom"></div>
-                    </div>
-                    <div class="box1-3">
-                        <div></div>
+                    <div class="advert-content">
+                        <p>Người làm vườn thường làm việc ngoài trời, sử dụng các dụng cụ như xẻng, cuốc, kéo cắt cỏ để giữ cho cây cối và cảnh quan xanh tốt. Đây là công việc đòi hỏi sự kiên nhẫn, tỉ mỉ và tình yêu thiên nhiên, mang lại không gian sống trong lành và gần gũi với môi trường.</p>
                     </div>
                 </div>
-                <div class="box2">
-                    <div></div>
+                <div class="card-advert">
+                    <div class="advert-img">
+                        <img src="https://afamilycdn.com/150157425591193600/2023/9/20/vc3ac-sao-be1baa1n-ce1baa7n-thuc3aa-ngc6b0e1bb9di-trc3b4ng-tre1babb-te1baa1i-nhc3a03f-16951990556701460520031.jpg" alt="">
+                    </div>
+                    <div class="advert-content">
+                        <p>Chúng tôi chăm sóc trẻ chuyên nghiệp và tận tâm, nơi các bé được yêu thương, học hỏi và phát triển trong một môi trường an toàn và ấm áp.  Với không gian vui nhộn, đầy màu sắc cùng các hoạt động giáo dục thú vị, chúng tôi cam kết mang đến cho các bé niềm vui mỗi ngày, giúp phụ huynh hoàn toàn yên tâm khi giao phó những thiên thần nhỏ của mình cho chúng tôi.</p>
+                    </div>
                 </div>
-                <div class="box3">
-                    <div></div>
+                <div class="card-advert">
+                    <div class="advert-img">
+                        <img src="https://vesinhnhatoancau.com/wp-content/uploads/2022/01/don-nha-theo-gio-dan-phuong-1.jpg" alt="">
+                    </div>
+                    <div class="advert-content">
+                        <p>Chúng tôi đảm bảo mang lại không gian sống và làm việc sạch sẽ, gọn gàng và trong lành. Dù là dọn dẹp nhà ở, văn phòng, hay các công trình lớn, chúng tôi luôn cam kết chất lượng vượt mong đợi, giúp bạn tiết kiệm thời gian và tận hưởng cuộc sống thoải mái hơn. Hãy để chúng tôi làm sạch, để bạn sống khỏe!</p>
+                    </div>
                 </div>
             </div>
         </div>
