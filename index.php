@@ -156,6 +156,7 @@ $userEmail = $_SESSION['user']['email'];
                                     <p><b>Price:</b> 150.000đ</p>
                                     <p><b>Address:</b> Sơn Trà</p>
                                     <p><b>Content:</b> Lorem ipsum dolor sit amet consectetur adipisic...</p>
+                                    <a href="public/details_job.php?id_post=<?php echo $post['id_post']; ?>">Xem Chi Tiết</a>
                                 </div>
                             </div>
                         </div>
