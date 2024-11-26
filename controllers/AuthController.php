@@ -2,9 +2,11 @@
 session_start();
 require_once '../config/db.php';
 
+
 class AuthController
 {
     private $conn;
+
 
     public function __construct($conn)
     {

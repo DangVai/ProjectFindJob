@@ -1,7 +1,9 @@
 <?php
 // config/db.php
 $host = "localhost";
-$db_name = "hand&foot";
+
+$db_name = "handandfoot";
+
 $username = "root";
 $password = "";
 
