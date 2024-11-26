@@ -57,6 +57,9 @@ $total_pages = ceil($total_notifications['total'] / $limit);
     <link rel="stylesheet" href="cssfile/home.css">
     <link rel="stylesheet" href="cssfile/account.css">
     <link rel="stylesheet" href="cssfile/footer.css">
+    <link rel="stylesheet" href="cssfile/profile.css">
+    <link rel="stylesheet" href="cssfile/edit.css">
+
 </head>
 <body>
     <div class="container">
@@ -82,8 +85,10 @@ $total_pages = ceil($total_notifications['total'] / $limit);
                     <ul>
                         <li><a href="public/register.php">Đăng ký</a></li>
                         <li><a href="public/login.php">Đăng nhập</a></li>
-                        <li><a href="controllers/logout.php">Đăng xuất</a></li>
-                        <li><a href="#">Profile</a></li>
+
+                        <li><a href="public/logout.php">Đăng xuất</a></li>
+                        <li><a href="public/profile.php">Profile</a></li>
+
                     </ul>
                 </div>
             </div>

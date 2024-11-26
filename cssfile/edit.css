@@ -1,0 +1,99 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f9f9f9;
+}
+
+.container {
+    max-width: 1000px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* Center items */
+}
+
+h1 {
+    color: #333;
+    text-align: center;
+    /* Center the heading */
+    margin-bottom: 30px;
+}
+
+form {
+    width: 100%;
+    /* Make the form take full width */
+    max-width: 800px;
+    /* Set a maximum width for the form */
+}
+
+.form-group {
+    margin-bottom: 20px;
+    width: 100%;
+    /* Allow full width within the form */
+    align-items: center;
+    /* Center items in the form group */
+}
+
+label {
+    font-weight: bold;
+    margin-bottom: 5px;
+    display: block;
+    /* Make label a block element */
+}
+
+.form-control,
+.form-control-file {
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    padding: 10px;
+    transition: border-color 0.3s ease;
+    width: 100%;
+    /* Make inputs take full width */
+}
+
+.form-control:focus,
+.form-control-file:focus {
+    border-color: #67E667;
+    outline: none;
+}
+
+.btn {
+    margin-top: 20px;
+    padding: 10px 15px;
+    /* Add padding for buttons */
+    border-radius: 5px;
+}
+
+.btn-primary {
+    background-color: #007bff;
+    color: white;
+    border: none;
+}
+
+.btn-primary:hover {
+    background-color: #0056b3;
+}
+
+.btn-secondary {
+    background-color: #6c757d;
+    color: white;
+    border: none;
+}
+
+.btn-secondary:hover {
+    background-color: #5a6268;
+}
+
+.profile-image {
+    display: block;
+    max-width: 200px;
+    height: auto;
+    margin: 20px auto;
+    border-radius: 5px;
+}
