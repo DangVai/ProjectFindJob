@@ -21,9 +21,9 @@ try {
     WHERE p.id_post = :id_post
     ";
 
-    $stmt = $conn->prepare($sql);  // Chuẩn bị câu lệnh SQL
-    $stmt->bindParam(':id_post', $id_post, PDO::PARAM_INT);  // Gắn giá trị id_post vào câu lệnh
-    $stmt->execute();  // Thực thi câu lệnh SQL
+    $stmt = $conn->prepare($sql);  
+    $stmt->bindParam(':id_post', $id_post, PDO::PARAM_INT); 
+    $stmt->execute(); 
 
     // Kiểm tra xem có bài viết nào được tìm thấy không
     if ($stmt->rowCount() > 0) {
