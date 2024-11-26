@@ -45,8 +45,10 @@ $total_notifications = $conn->query("
 ")->fetch_assoc();
 $total_pages = ceil($total_notifications['total'] / $limit);
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -75,11 +77,12 @@ $total_pages = ceil($total_notifications['total'] / $limit);
             </div>
             <div class="account">
                 <i class="fa-regular fa-user"></i>
+                <span><?php echo($userName)?></span>
                 <div class="dropdown-menu" id="account-menu">
                     <ul>
                         <li><a href="public/register.php">Đăng ký</a></li>
                         <li><a href="public/login.php">Đăng nhập</a></li>
-                        <li><a href="public/logout.php">Đăng xuất</a></li>
+                        <li><a href="controllers/logout.php">Đăng xuất</a></li>
                         <li><a href="#">Profile</a></li>
                     </ul>
                 </div>
@@ -190,6 +193,7 @@ $total_pages = ceil($total_notifications['total'] / $limit);
                                     <p><b>Price:</b> 150.000đ</p>
                                     <p><b>Address:</b> Sơn Trà</p>
                                     <p><b>Content:</b> Lorem ipsum dolor sit amet consectetur adipisic...</p>
+                                    <a href="./public/details_job.php?id_post=<?php echo $post['id_post']; ?>">Xem Chi Tiết</a>
                                 </div>
                             </div>
                         </div>
