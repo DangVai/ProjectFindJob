@@ -7,6 +7,7 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
     <link rel="stylesheet" href="cssfile/home.css">
     <link rel="stylesheet" href="cssfile/account.css">
+    <link rel="stylesheet" href="cssfile/footer.css">
 </head>
 <body>
     <div class="container">
@@ -43,7 +44,7 @@
                     <h2>Việc làm Hand and Foot uy tin - Thời gian linh hoạt</h2>
                 </div>
                 <div class="content">
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur earum architecto mollitia cupiditate laudantium labore nihil, ea delectus officiis amet eligendi voluptates, deleniti praesentium.</p>
+                    <p>Khám phá hàng ngàn việc làm hấp dẫn và những con người uy tín, tài năng chỉ với một cái nhấp chuột. Hành trình thành công của bạn bắt đầu ngay tại bây giờ!</p>
                 </div>
                 <div class="chosse">
                     <button class="chosse1">Muốn tìm việc</button>
@@ -321,6 +322,27 @@
                 </div>
                 <div class="box3">
                     <div></div>
+                </div>
+            </div>
+        </div>
+        <div class="footer">
+            <div class="footer-container">
+                <div class="footer-section">
+                    <h3>Về Chúng Tôi</h3>
+                    <p>Chúng tôi cung cấp việc làm và làm việc uy tín, chất lượng với thời gian linh hoạt, đáp ứng nhu cầu của người tìm việc và nhà tuyển dụng.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Liên Hệ</h3>
+                    <p><i class="fa-solid fa-envelope"></i> support@example.com</p>
+                    <p><i class="fa-solid fa-phone"></i> +84 123 456 789</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Kết Nối Với Chúng Tôi</h3>
+                    <div class="social-icons">
+                        <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+                        <a href="#"><i class="fa-brands fa-twitter"></i></a>
+                        <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                    </div>
                 </div>
             </div>
         </div>
