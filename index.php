@@ -1,3 +1,50 @@
+<?php
+session_start();
+
+if (isset($_SESSION['username'])) {
+    $userName = $_SESSION['username'];
+} else {
+    $userName = "Guest"; // Giá trị mặc định nếu không có session
+}
+?>
+
+
+<?php
+
+require 'config/db.php';
+
+// Lấy thông tin user_id từ session
+$userId = isset($_SESSION['user_id']) ? (int) $_SESSION['user_id'] : 0;
+
+// Xác định số lượng thông báo mỗi trang
+$limit = 10; // Lấy 10 thông báo mỗi lần
+$page = isset($_GET['page']) ? (int) $_GET['page'] : 1; // Lấy trang hiện tại từ URL
+$offset = ($page - 1) * $limit; // Tính toán offset để lấy đúng dữ liệu
+
+// Truy vấn để lấy thông báo
+$notifications = $conn->query("
+    SELECT notifications.id, post.noi_dung AS title, users.fullname AS name, notifications.created_at 
+    FROM notifications
+    JOIN post ON notifications.id_post = post.id_post
+    JOIN users ON notifications.user_id = users.user_id
+    WHERE notifications.is_read = 0 AND notifications.user_id = $userId
+    ORDER BY notifications.created_at DESC
+    LIMIT $limit OFFSET $offset
+");
+
+// Kiểm tra lỗi truy vấn
+if ($notifications === false) {
+    die("Lỗi truy vấn: " . mysqli_error($conn));
+}
+
+// Đếm tổng số thông báo để tính số trang
+$total_notifications = $conn->query("
+    SELECT COUNT(*) AS total 
+    FROM notifications 
+    WHERE is_read = 0 AND user_id = $userId
+")->fetch_assoc();
+$total_pages = ceil($total_notifications['total'] / $limit);
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -20,7 +67,7 @@
                 <p><b>Planters</b></p>
             </div>
             <div class="chatbox">
-                <i class="fa-regular fa-comment-dots"></i>
+                <a href="public/chat.php"><i class="fa-regular fa-comment-dots"></i></a>
             </div>
             <div class="inform">
                 <i class="fa-regular fa-bell"></i>
@@ -29,9 +76,9 @@
                 <i class="fa-regular fa-user"></i>
                 <div class="dropdown-menu" id="account-menu">
                     <ul>
-                        <li><a href="#">Đăng ký</a></li>
-                        <li><a href="#">Đăng nhập</a></li>
-                        <li><a href="#">Đăng xuất</a></li>
+                        <li><a href="public/register.php">Đăng ký</a></li>
+                        <li><a href="public/login.php">Đăng nhập</a></li>
+                        <li><a href="public/logout.php">Đăng xuất</a></li>
                         <li><a href="#">Profile</a></li>
                     </ul>
                 </div>
