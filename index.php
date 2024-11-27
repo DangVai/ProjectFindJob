@@ -7,6 +7,8 @@ if (isset($_SESSION['username'])) {
     $userName = "Guest"; // Giá trị mặc định nếu không có session
 }
 ?>
+
+
 <?php
 
 require 'config/db.php';
@@ -46,6 +48,7 @@ $total_pages = ceil($total_notifications['total'] / $limit);
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -53,6 +56,10 @@ $total_pages = ceil($total_notifications['total'] / $limit);
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
     <link rel="stylesheet" href="cssfile/home.css">
     <link rel="stylesheet" href="cssfile/account.css">
+    <link rel="stylesheet" href="cssfile/footer.css">
+    <link rel="stylesheet" href="cssfile/profile.css">
+    <link rel="stylesheet" href="cssfile/edit.css">
+
 </head>
 <body>
     <div class="container">
@@ -73,13 +80,15 @@ $total_pages = ceil($total_notifications['total'] / $limit);
             </div>
             <div class="account">
                 <i class="fa-regular fa-user"></i>
-                <span><?php echo $userName; ?></span>
+                <span><?php echo($userName)?></span>
                 <div class="dropdown-menu" id="account-menu">
                     <ul>
                         <li><a href="public/register.php">Đăng ký</a></li>
                         <li><a href="public/login.php">Đăng nhập</a></li>
+
                         <li><a href="controllers/logout.php">Đăng xuất</a></li>
-                        <li><a href="#">Profile</a></li>
+                        <li><a href="public/profile.php">Profile</a></li>
+
                     </ul>
                 </div>
             </div>
@@ -90,7 +99,7 @@ $total_pages = ceil($total_notifications['total'] / $limit);
                     <h2>Việc làm Hand and Foot uy tin - Thời gian linh hoạt</h2>
                 </div>
                 <div class="content">
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur earum architecto mollitia cupiditate laudantium labore nihil, ea delectus officiis amet eligendi voluptates, deleniti praesentium.</p>
+                    <p>Khám phá hàng ngàn việc làm hấp dẫn và những con người uy tín, tài năng chỉ với một cái nhấp chuột. Hành trình thành công của bạn bắt đầu ngay tại bây giờ!</p>
                 </div>
                 <div class="chosse">
                     <button class="chosse1">Muốn tìm việc</button>
@@ -189,6 +198,7 @@ $total_pages = ceil($total_notifications['total'] / $limit);
                                     <p><b>Price:</b> 150.000đ</p>
                                     <p><b>Address:</b> Sơn Trà</p>
                                     <p><b>Content:</b> Lorem ipsum dolor sit amet consectetur adipisic...</p>
+                                    <a href="./public/details_job.php?id_post=<?php echo $post['id_post']; ?>">Xem Chi Tiết</a>
                                 </div>
                             </div>
                         </div>
@@ -368,6 +378,27 @@ $total_pages = ceil($total_notifications['total'] / $limit);
                 </div>
                 <div class="box3">
                     <div></div>
+                </div>
+            </div>
+        </div>
+        <div class="footer">
+            <div class="footer-container">
+                <div class="footer-section">
+                    <h3>Về Chúng Tôi</h3>
+                    <p>Chúng tôi cung cấp việc làm và làm việc uy tín, chất lượng với thời gian linh hoạt, đáp ứng nhu cầu của người tìm việc và nhà tuyển dụng.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Liên Hệ</h3>
+                    <p><i class="fa-solid fa-envelope"></i> support@example.com</p>
+                    <p><i class="fa-solid fa-phone"></i> +84 123 456 789</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Kết Nối Với Chúng Tôi</h3>
+                    <div class="social-icons">
+                        <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+                        <a href="#"><i class="fa-brands fa-twitter"></i></a>
+                        <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                    </div>
                 </div>
             </div>
         </div>

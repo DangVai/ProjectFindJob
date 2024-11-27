@@ -1,7 +1,7 @@
 <?php
 // config/db.php
 $host = "localhost";
-$db_name = "handandfoot";
+$db_name = "mydatabase";
 $username = "root";
 $password = "";
 
