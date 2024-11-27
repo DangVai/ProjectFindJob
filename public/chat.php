@@ -1,4 +1,6 @@
-<?php require_once "../controllers/send_message.php" ?>
+<?php
+require_once "../controllers/send_message.php";
+?>
 <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
@@ -22,12 +24,13 @@
             <div class="col-md-4 col-xl-3 chat">
                 <div class="card mb-sm-3 mb-md-0 contacts_card">
                     <div class="card-header">
-                        <div class="input-group">
-                            <input type="text" placeholder="Search..." class="form-control search">
-                            <div class="input-group-prepend">
-                                <span class="input-group-text search_btn"><i class="fas fa-search"></i></span>
+                        <form method="POST" class="input-group">
+                            <input type="text" name="search" value="" placeholder="Search..."
+                                class="form-control search">
+                            <div class="input-group-append">
+                                <button type="submit" class="btn btn-secondary"><i class="fas fa-search"></i></button>
                             </div>
-                        </div>
+                        </form>
                     </div>
                     <div class="card-body contacts_body">
                         <ul class="contacts">
@@ -42,7 +45,21 @@
                                             </div>
                                             <div class="user_info">
                                                 <span><?php echo htmlspecialchars($user['fullname']); ?></span>
-                                                <p>ID: <?php echo $user['user_id']; ?></p>
+                                                <p style="font-size: 15px;">
+                                                    <?php
+                                                    $stmt = mysqli_prepare($conn, $sql_latest_chat);
+                                                    mysqli_stmt_bind_param($stmt, "iiii", $userId, $user['user_id'], $user['user_id'], $userId);
+                                                    mysqli_stmt_execute($stmt);
+                                                    $latest_chat = mysqli_stmt_get_result($stmt);
+
+                                                    if ($latest_chat && mysqli_num_rows($latest_chat) > 0) {
+                                                        $last_message = mysqli_fetch_assoc($latest_chat);
+                                                        echo htmlspecialchars($last_message['message']);
+                                                    } else {
+                                                        echo "Chưa có tin nhắn.";
+                                                    }
+                                                    ?>
+                                                </p>
                                             </div>
                                         </div>
                                     </a>
@@ -55,7 +72,6 @@
 
             <!-- Chat Box -->
             <div class="col-md-8 col-xl-6 chat">
-
                 <div class="card">
                     <div class="card-header msg_head">
                         <div class="d-flex bd-highlight">
