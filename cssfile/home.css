@@ -36,7 +36,7 @@
     height: 80px;
     align-items: center;
     position: fixed;
-    z-index: 3;
+    z-index: 4;
     background-color: rgb(166, 244, 179);
     border: 1px solid black;
 }
@@ -199,7 +199,7 @@
     transform: translate(-50%);
     display: flex;
     justify-content: space-around;
-    z-index: 2;
+    z-index: 3;
 }
 
 .chosse1{
@@ -214,6 +214,11 @@
     color: white;
     border: none;
     cursor: pointer;
+}
+
+.chosse1:hover{
+    background-color: white;
+    color: black;
 }
 
 .introduce{
@@ -264,6 +269,11 @@
     cursor: pointer;
 }
 
+.add button:hover{
+    background-color: rgb(5, 99, 5);
+    font-size: 32px;
+}
+
 .searchBox{
     height: 100%;
     width: 80%;
@@ -312,6 +322,10 @@
     color: white;
 }
 
+.search-bar button:hover{
+    background-color: rgb(40, 50, 238);
+}
+
 .body-content{
     display: flex;
     gap: 2%;
@@ -345,7 +359,6 @@
     text-align: center;
     background-color: rgb(200, 200, 200);
     color: black;
-    cursor: pointer;
 }
 
 .fifter-job h2, .fifter-address h2 {
@@ -366,8 +379,14 @@
     border-radius: 15px;
     display: flex;
     overflow: hidden;
-    justify-content: center;
+    justify-content: space-evenly;
     align-items: center;
+}
+
+.scroll{
+    height: 100%;
+    width: 1%;
+    overflow-y: scroll; 
 }
 
 .post{
@@ -468,18 +487,27 @@
 .card-advert{
     width: 430px;
     height: 100%;
-    border: 1px solid black;
+    border: 3px solid rgb(173, 168, 168);
+    border-radius: 15px;
+    overflow: hidden;
 }
 
 .advert-img{
     height: 75%;
     width: 100%;
+    position: relative;
+    overflow: hidden;
 }
 
 .advert-img img{
     height: 100%;
     width: 100%;
     object-fit: cover;
+    transition: transform 0.9s ease;
+}
+
+.advert-img:hover img {
+    transform: scale(1.2);
 }
 
 .advert-content{
@@ -490,3 +518,4 @@
     padding: 7px;
     box-sizing: border-box;
 }
+
