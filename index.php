@@ -7,8 +7,6 @@ if (isset($_SESSION['username'])) {
     $userName = "Guest"; // Giá trị mặc định nếu không có session
 }
 ?>
-
-
 <?php
 
 require 'config/db.php';
@@ -45,6 +43,7 @@ $total_notifications = $conn->query("
 ")->fetch_assoc();
 $total_pages = ceil($total_notifications['total'] / $limit);
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -74,11 +73,12 @@ $total_pages = ceil($total_notifications['total'] / $limit);
             </div>
             <div class="account">
                 <i class="fa-regular fa-user"></i>
+                <span><?php echo $userName; ?></span>
                 <div class="dropdown-menu" id="account-menu">
                     <ul>
                         <li><a href="public/register.php">Đăng ký</a></li>
                         <li><a href="public/login.php">Đăng nhập</a></li>
-                        <li><a href="public/logout.php">Đăng xuất</a></li>
+                        <li><a href="controllers/logout.php">Đăng xuất</a></li>
                         <li><a href="#">Profile</a></li>
                     </ul>
                 </div>
