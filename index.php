@@ -7,6 +7,7 @@
         <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
         <link rel="stylesheet" href="cssfile/home.css">
         <link rel="stylesheet" href="cssfile/account.css">
+        <link rel="stylesheet" href="cssfile/header.css">
         <link rel="stylesheet" href="cssfile/footer.css">
     </head>
     <body>
@@ -50,10 +51,6 @@
                     </div>
                     <div class="content">
                         <p>Khám phá hàng ngàn việc làm hấp dẫn và những con người uy tín, tài năng chỉ với một cái nhấp chuột. Việc gì cũng trở nên dễ dàng và nhanh gọn ngay tại bây giờ!</p>
-                    </div>
-                    <div class="chosse">
-                        <button class="chosse1">Muốn tìm việc</button>
-                        <button class="chosse1">Muốn tuyển việc</button>
                     </div>
                     <div class="change">
                         <div class="change1"></div>
@@ -100,6 +97,7 @@
                 </div>
                 <div class="box-post">
                     <div class="post">
+                        <?php require_once "models/Post2.php" ?>
                         <div class="post1">
                             <div class="left">
                                 <div class="card-profile">
@@ -211,7 +209,7 @@
                                     <div class="name">hồ viết tiến</div>
                                 </div>
                                 <div class="card-content">
-                                    <h3>Title of job</h3>
+                                    <h3><?php echo $posts[1]["role"]?></h3>
                                     <div class="main-content">
                                         <p><b>Price:</b> 150.000đ</p>
                                         <p><b>Address:</b> Sơn Trà</p>
@@ -229,7 +227,7 @@
                                 <div class="card-content">
                                     <h3>Title of job</h3>
                                     <div class="main-content">
-                                            <p><b>Price:</b> 150.000đ</p>
+                                            <p><b>Price:</b> <?php echo $posts[3]["price"]?></p>
                                             <p><b>Address:</b> Sơn Trà</p>
                                             <p><b>Content:</b> Lorem ipsum dolor sit amet consectetur adipisic...</p>
                                     </div>
