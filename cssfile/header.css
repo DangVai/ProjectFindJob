@@ -1,0 +1,99 @@
+.header{
+    display: flex;
+    width: 100%;
+    height: 80px;
+    align-items: center;
+    position: fixed;
+    z-index: 4;
+    background-color: rgb(166, 244, 179);
+    border: 1px solid black;
+}
+
+.box_logo{
+    width: 30%;
+    display: flex;
+    align-items: center;
+}
+
+.box_logo img{
+    height: 70px;
+    width: 70px;
+    position: relative;
+    left: 80px;
+    border-radius: 50px;
+    border: 1px solid black;
+}
+
+.nav{
+    width: 40%;
+    height: 70%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    justify-content: space-evenly;
+    border: 1px solid black;
+    border-radius: 45px;
+    font-size: 20px;
+    color: white;
+    background-color: rgba(128, 128, 128, 0.5); 
+    
+}
+
+.nav p{
+    cursor: pointer;
+}
+
+.nav p:hover{
+    font-size: 30px;
+}
+
+.chatbox{
+    width: 10%;
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    cursor: pointer;
+}
+
+.chatbox i{
+    font-size: 30px;
+    color: black;
+    cursor: pointer;
+}
+
+.inform{
+    width: 10%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.inform i{
+    font-size: 30px;
+    color: black;
+    cursor: pointer;
+}
+
+.account{
+    width: 4%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+}
+
+.box-account{
+    border: 1px solid black;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+}
+
+.box-account i{
+    font-size: 40px;
+    color: black;
+    cursor: pointer;
+}
