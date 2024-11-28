@@ -1,20 +1,95 @@
-    <!DOCTYPE html>
-    <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Document</title>
-        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
-        <link rel="stylesheet" href="cssfile/home.css">
-        <link rel="stylesheet" href="cssfile/account.css">
-        <link rel="stylesheet" href="cssfile/header.css">
-        <link rel="stylesheet" href="cssfile/footer.css">
-    </head>
-    <body>
-        <div class="container">
-            <div class="header">
-                <div class="box_logo">
-                    <img src="https://files.oaiusercontent.com/file-JnPcSl24aD1n46Abo1tsEsvk?se=2024-11-19T08%3A21%3A19Z&sp=r&sv=2024-08-04&sr=b&rscc=max-age%3D604800%2C%20immutable%2C%20private&rscd=attachment%3B%20filename%3Df06b750f-85fe-44ca-b237-45a456ef83c5.webp&sig=Bae6Pyxch/izjVZ08WlUzzcXN8BAhQOd3moTg19ydtY%3D" alt="">
+<?php
+session_start();
+
+if (isset($_SESSION['username'])) {
+    $userName = $_SESSION['username'];
+} else {
+    $userName = "Guest"; // Giá trị mặc định nếu không có session
+}
+?>
+
+
+<?php
+
+require 'config/db.php';
+
+// Lấy thông tin user_id từ session
+$userId = isset($_SESSION['user_id']) ? (int) $_SESSION['user_id'] : 0;
+
+// Xác định số lượng thông báo mỗi trang
+$limit = 10; // Lấy 10 thông báo mỗi lần
+$page = isset($_GET['page']) ? (int) $_GET['page'] : 1; // Lấy trang hiện tại từ URL
+$offset = ($page - 1) * $limit; // Tính toán offset để lấy đúng dữ liệu
+
+// Truy vấn để lấy thông báo
+$notifications = $conn->query("
+    SELECT notifications.id, post.noi_dung AS title, users.fullname AS name, notifications.created_at 
+    FROM notifications
+    JOIN post ON notifications.id_post = post.id_post
+    JOIN users ON notifications.user_id = users.user_id
+    WHERE notifications.is_read = 0 AND notifications.user_id = $userId
+    ORDER BY notifications.created_at DESC
+    LIMIT $limit OFFSET $offset
+");
+
+// Kiểm tra lỗi truy vấn
+if ($notifications === false) {
+    die("Lỗi truy vấn: " . mysqli_error($conn));
+}
+
+// Đếm tổng số thông báo để tính số trang
+$total_notifications = $conn->query("
+    SELECT COUNT(*) AS total 
+    FROM notifications 
+    WHERE is_read = 0 AND user_id = $userId
+")->fetch_assoc();
+$total_pages = ceil($total_notifications['total'] / $limit);
+?>
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="cssfile/home.css">
+    <link rel="stylesheet" href="cssfile/account.css">
+    <link rel="stylesheet" href="cssfile/footer.css">
+    <link rel="stylesheet" href="cssfile/profile.css">
+    <link rel="stylesheet" href="cssfile/edit.css">
+    <link rel="stylesheet" href="cssfile/header.css">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="box_logo">
+                <img src="https://files.oaiusercontent.com/file-JnPcSl24aD1n46Abo1tsEsvk?se=2024-11-19T08%3A21%3A19Z&sp=r&sv=2024-08-04&sr=b&rscc=max-age%3D604800%2C%20immutable%2C%20private&rscd=attachment%3B%20filename%3Df06b750f-85fe-44ca-b237-45a456ef83c5.webp&sig=Bae6Pyxch/izjVZ08WlUzzcXN8BAhQOd3moTg19ydtY%3D" alt="">
+            </div>
+            <div class="nav">
+                <p><b>Home</b></p>
+                <p><b>About Us</b></p>
+                <p><b>Planters</b></p>
+            </div>
+            <div class="chatbox">
+                <a href="public/chat.php"><i class="fa-regular fa-comment-dots"></i></a>
+            </div>
+            <div class="inform">
+                <i class="fa-regular fa-bell"></i>
+            </div>
+            <div class="account">
+                <i class="fa-regular fa-user"></i>
+                <span><?php echo($userName)?></span>
+                <div class="dropdown-menu" id="account-menu">
+                    <ul>
+                        <li><a href="public/register.php">Đăng ký</a></li>
+                        <li><a href="public/login.php">Đăng nhập</a></li>
+
+                        <li><a href="public/logout.php">Đăng xuất</a></li>
+                        <li><a href="public/profile.php">Profile</a></li>
+
+                    </ul>
                 </div>
                 <div class="nav">
                     <p><b>Home</b></p>
@@ -122,6 +197,7 @@
                                         </div>
                                         <div class="name">hồ viết tiến</div>
                                 </div>
+<!-- <<<<<<< tien_homePage
                                 <div class="card-content">
                                     <h3>Title of job</h3>
                                     <div class="main-content">
@@ -129,6 +205,15 @@
                                             <p><b>Address:</b> Sơn Trà</p>
                                             <p><b>Content:</b> Lorem ipsum dolor sit amet consectetur adipisic...</p>
                                     </div>
+<!--                                 <div class="name">hồ viết tiến</div>
+                            </div>
+                            <div class="card-content">
+                                <h3>Title of job</h3>
+                                <div class="main-content">
+                                    <p><b>Price:</b> 150.000đ</p>
+                                    <p><b>Address:</b> Sơn Trà</p>
+                                    <p><b>Content:</b> Lorem ipsum dolor sit amet consectetur adipisic...</p>
+                                    <a href="./public/details_job.php?id_post=<?php echo $post['id_post']; ?>">Xem Chi Tiết</a> -->
                                 </div>
                             </div>
                         </div>
@@ -364,6 +449,5 @@
 
         <script src="jsfile/slideHomePage.js"></script>
         <script src="jsfile/account.js"></script>
-
-    </body>
-    </html>
+</body>
+</html>
