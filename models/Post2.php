@@ -7,3 +7,5 @@ $posts = [];
 while ($row = mysqli_fetch_array($result)) {
     $posts[] = $row;
 }
+
+// lấy dữ liệu từ php về lưu vào array

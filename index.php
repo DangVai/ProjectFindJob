@@ -97,7 +97,7 @@
                 </div>
                 <div class="box-post">
                     <div class="post">
-                        <?php require_once "models/Post2.php" ?>
+                        
                         <div class="post1">
                             <div class="left">
                                 <div class="card-profile">
@@ -209,7 +209,7 @@
                                     <div class="name">hồ viết tiến</div>
                                 </div>
                                 <div class="card-content">
-                                    <h3><?php echo $posts[1]["role"]?></h3>
+                                    <h3>title</h3>
                                     <div class="main-content">
                                         <p><b>Price:</b> 150.000đ</p>
                                         <p><b>Address:</b> Sơn Trà</p>
@@ -227,7 +227,7 @@
                                 <div class="card-content">
                                     <h3>Title of job</h3>
                                     <div class="main-content">
-                                            <p><b>Price:</b> <?php echo $posts[3]["price"]?></p>
+                                            <p><b>Price:</b>150.000đ</p>
                                             <p><b>Address:</b> Sơn Trà</p>
                                             <p><b>Content:</b> Lorem ipsum dolor sit amet consectetur adipisic...</p>
                                     </div>
