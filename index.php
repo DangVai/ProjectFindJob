@@ -56,7 +56,7 @@ $total_pages = ceil($total_notifications['total'] / $limit);
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
     <link rel="stylesheet" href="cssfile/home.css">
     <link rel="stylesheet" href="cssfile/account.css">
-    <link rel="stylesheet" href="cssfile/footer.css">
+    <link rel="stylesheet" href="cssfile/footers.css">
     <link rel="stylesheet" href="cssfile/profile.css">
     <link rel="stylesheet" href="cssfile/edit.css">
     <link rel="stylesheet" href="cssfile/header.css">
