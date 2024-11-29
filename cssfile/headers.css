@@ -5,8 +5,7 @@
     align-items: center;
     position: fixed;
     z-index: 4;
-    background-color: rgb(166, 244, 179);
-    border: 1px solid black;
+    background-color: rgb(5, 99, 20);
 }
 
 .box_logo{
@@ -21,7 +20,6 @@
     position: relative;
     left: 80px;
     border-radius: 50px;
-    border: 1px solid black;
 }
 
 .nav{
@@ -31,7 +29,7 @@
     justify-content: center;
     align-items: center;
     justify-content: space-evenly;
-    border: 1px solid black;
+    border: 1px solid white;
     border-radius: 45px;
     font-size: 20px;
     color: white;
@@ -57,7 +55,7 @@
 
 .chatbox i{
     font-size: 30px;
-    color: black;
+    color: white;
     cursor: pointer;
 }
 
@@ -70,7 +68,7 @@
 
 .inform i{
     font-size: 30px;
-    color: black;
+    color: white;
     cursor: pointer;
 }
 
@@ -83,7 +81,7 @@
 }
 
 .box-account{
-    border: 1px solid black;
+    border: 3px solid white;
     width: 50px;
     height: 50px;
     display: flex;
@@ -94,6 +92,6 @@
 
 .box-account i{
     font-size: 40px;
-    color: black;
+    color: white;
     cursor: pointer;
 }
