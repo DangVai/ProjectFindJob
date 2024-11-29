@@ -22,3 +22,7 @@
 .dropdown-menu.active {
     display: block; 
 }
+
+.name-user p{
+    color: white;
+}
