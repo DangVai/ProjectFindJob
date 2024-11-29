@@ -157,17 +157,19 @@ $total_pages = ceil($total_notifications['total'] / $limit);
                                 <div class="name">hồ viết tiến</div>
                             </div>
                             <div class="card-content">
-                                <h3>Title of job</h3>
-                                <div class="package">VIP</div>
-                                <div class="time-post">
-                                    <p>12:00</p>
-                                    <p>23-11-2024</p>
+                                <div class="title-content">
+                                    <h3>Title of job</h3>
+                                    <div class="package">VIP</div>
+                                    <div class="time-post">
+                                        <p>12:00</p>
+                                        <p>23-11-2024</p>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="main-content">
-                                <p><b>Price:</b> 150.000đ</p>
-                                <p><b>Address:</b> Sơn Trà</p>
-                                <p><b>Content:</b> Lorem ipsum dolor sit amet consectetur ...</p>
+                                <div class="main-content">
+                                    <p><b>Price:</b> 150.000đ</p>
+                                    <p><b>Address:</b> Sơn Trà</p>
+                                    <p><b>Content:</b> Lorem ipsum dolor sit amet consectetur ...</p>
+                                </div>
                             </div>
                         </div>
                         <div class="right">
