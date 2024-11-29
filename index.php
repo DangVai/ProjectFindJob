@@ -73,161 +73,101 @@ $total_pages = ceil($total_notifications['total'] / $limit);
                 <p><b>Planters</b></p>
             </div>
             <div class="chatbox">
-                <a href="public/chat.php"><i class="fa-regular fa-comment-dots"></i></a>
+                <i class="fa-regular fa-comment-dots"></i>
             </div>
             <div class="inform">
                 <i class="fa-regular fa-bell"></i>
             </div>
             <div class="account">
-                <i class="fa-regular fa-user"></i>
-                <span><?php echo($userName)?></span>
+                <div class="box-account">
+                    <i class="fa-regular fa-user"></i>
+                </div>
+            </div>
+            <div class="name-user">
+                <p><?php echo($userName)?></p>
                 <div class="dropdown-menu" id="account-menu">
                     <ul>
                         <li><a href="public/register.php">Đăng ký</a></li>
                         <li><a href="public/login.php">Đăng nhập</a></li>
-
                         <li><a href="public/logout.php">Đăng xuất</a></li>
                         <li><a href="public/profile.php">Profile</a></li>
-
                     </ul>
                 </div>
-                <div class="nav">
-                    <p><b>Home</b></p>
-                    <p><b>About Us</b></p>
-                    <p><b>Planters</b></p>
+            </div>
+        </div>
+        <div class="box_slider">
+            <div class="box_img">
+                <div class="title">
+                    <h2>Việc làm Hand and Foot uy tin - Thời gian linh hoạt</h2>
                 </div>
-                <div class="chatbox">
-                    <i class="fa-regular fa-comment-dots"></i>
+                <div class="content">
+                    <p>Khám phá hàng ngàn việc làm hấp dẫn và những con người uy tín và tài năng chỉ với một cái nhấp chuột. Công việc gì cũng trở nên dễ dàng và nhanh gọn ngay tại bây giờ!</p>
                 </div>
-                <div class="inform">
-                    <i class="fa-regular fa-bell"></i>
+                <div class="change">
+                    <div class="change1"></div>
+                    <div class="change2"></div>
+                    <div class="change3"></div>
+                    <div class="change4"></div>
                 </div>
-                <div class="account">
-                    <div class="box-account">
-                        <i class="fa-regular fa-user"></i>
-                    </div>
-                </div>
-                <div class="name-user">
-                    <p><?php echo($userName)?></p>
-                    <div class="dropdown-menu" id="account-menu">
-                        <ul>
-                            <li><a href="public/register.php">Đăng ký</a></li>
-                            <li><a href="public/login.php">Đăng nhập</a></li>
-                            <li><a href="public/logout.php">Đăng xuất</a></li>
-                            <li><a href="public/profile.php">Profile</a></li>
-                        </ul>
-                    </div>
+                <img src="https://www.nlvgarden.org/wp-content/uploads/2020/08/meaning-01a.jpg" alt="">
+                <img src="https://cdn-www.vinid.net/2020/03/D%E1%BB%8Bch-v%E1%BB%A5-d%E1%BB%8Dn-d%E1%BA%B9p-nh%C3%A0-c%E1%BB%ADa-l%C3%A0-l%C3%A0m-g%C3%AC.jpg" alt="">
+                <img src="https://ktmt.vnmediacdn.com/stores/news_dataimages/nguyenthiluan/052019/27/14/in_article/2300_71546H-2.jpg" alt="">
+                <img src="https://png.pngtree.com/thumb_back/fh260/background/20210910/pngtree-gardener-pruning-greenery-in-spring-image_839423.jpg" alt="">
+            </div>    
+        </div>
+        <div class="body-top">
+            <div class="add">
+                <button>Thêm Bài +</button>
+            </div>
+            <div class="searchBox">
+                <div class="search-bar">
+                    <input type="text" class="search-job" placeholder="Tìm kiếm việc làm">
+                    <input type="text" class="search-address" placeholder="Địa chỉ">
+                    <button>
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                    </button>
                 </div>
             </div>
-            <div class="box_slider">
-                <div class="box_img">
-                    <div class="title">
-                        <h2>Việc làm Hand and Foot uy tin - Thời gian linh hoạt</h2>
-                    </div>
-                    <div class="content">
-                        <p>Khám phá hàng ngàn việc làm hấp dẫn và những con người uy tín, tài năng chỉ với một cái nhấp chuột. Việc gì cũng trở nên dễ dàng và nhanh gọn ngay tại bây giờ!</p>
-                    </div>
-                    <div class="change">
-                        <div class="change1"></div>
-                        <div class="change2"></div>
-                        <div class="change3"></div>
-                        <div class="change4"></div>
-                    </div>
-                    <img src="https://www.nlvgarden.org/wp-content/uploads/2020/08/meaning-01a.jpg" alt="">
-                    <img src="https://cdn-www.vinid.net/2020/03/D%E1%BB%8Bch-v%E1%BB%A5-d%E1%BB%8Dn-d%E1%BA%B9p-nh%C3%A0-c%E1%BB%ADa-l%C3%A0-l%C3%A0m-g%C3%AC.jpg" alt="">
-                    <img src="https://ktmt.vnmediacdn.com/stores/news_dataimages/nguyenthiluan/052019/27/14/in_article/2300_71546H-2.jpg" alt="">
-                    <img src="https://png.pngtree.com/thumb_back/fh260/background/20210910/pngtree-gardener-pruning-greenery-in-spring-image_839423.jpg" alt="">
-                </div>    
-            </div>
-            <div class="body-top">
-                <div class="add">
-                    <button>Thêm Bài +</button>
+        </div>
+        <div class="body-content">
+            <div class="fifter">
+                <div class="fifter-job">
+                    <h1>Lĩnh Vực</h1>
+                    <h2>Làm Vườn</h2>
+                    <h2>Dọn Dẹp</h2>
+                    <h2>Bóc Vác</h2>
+                    <h2>Khác</h2>
                 </div>
-                <div class="searchBox">
-                    <div class="search-bar">
-                        <input type="text" class="search-job" placeholder="Tìm kiếm việc làm">
-                        <input type="text" class="search-address" placeholder="Địa chỉ">
-                        <button>
-                            <i class="fa-solid fa-magnifying-glass"></i>
-                        </button>
-                    </div>
+                <div class="fifter-address">
+                    <h1>Địa Chỉ</h1>
+                    <h2>Sơn Trà</h2>
+                    <h2>Cẩm Lệ</h2>
+                    <h2>Liên Chiểu</h2>
+                    <h2>Khác</h2>
                 </div>
             </div>
-            <div class="body-content">
-                <div class="fifter">
-                    <div class="fifter-job">
-                        <h1>Lĩnh Vực</h1>
-                        <h2>Làm Vườn</h2>
-                        <h2>Dọn Dẹp</h2>
-                        <h2>Bóc Vác</h2>
-                        <h2>Khác</h2>
-                    </div>
-                    <div class="fifter-address">
-                        <h1>Địa Chỉ</h1>
-                        <h2>Sơn Trà</h2>
-                        <h2>Cẩm Lệ</h2>
-                        <h2>Liên Chiểu</h2>
-                        <h2>Khác</h2>
-                    </div>
-                </div>
-                <div class="box-post">
-                    <div class="post">
-                        
-                        <div class="post1">
-                            <div class="left">
-                                <div class="card-profile">
-                                    <div class="avatar">
-                                        <img src="https://media.istockphoto.com/id/1142192548/vi/vec-to/h%E1%BB%93-s%C6%A1-avatar-ng%C6%B0%E1%BB%9Di-%C4%91%C3%A0n-%C3%B4ng-h%C3%ACnh-b%C3%B3ng-khu%C3%B4n-m%E1%BA%B7t-nam-ho%E1%BA%B7c-bi%E1%BB%83u-t%C6%B0%E1%BB%A3ng-b%E1%BB%8B-c%C3%B4-l%E1%BA%ADp-tr%C3%AAn-n%E1%BB%81n-tr%E1%BA%AFng.jpg?s=170667a&w=0&k=20&c=BJHP79YRvSNDATYVu-SDYae8UWCzGaave5JhBYxsjro=" alt="">
-                                    </div>
-                                    <div class="name">hồ viết tiến</div>
+            <div class="box-post">
+                <div class="post">
+                    <div class="post1">
+                        <div class="left">
+                            <div class="card-profile">
+                                <div class="avatar">
+                                    <img src="https://media.istockphoto.com/id/1142192548/vi/vec-to/h%E1%BB%93-s%C6%A1-avatar-ng%C6%B0%E1%BB%9Di-%C4%91%C3%A0n-%C3%B4ng-h%C3%ACnh-b%C3%B3ng-khu%C3%B4n-m%E1%BA%B7t-nam-ho%E1%BA%B7c-bi%E1%BB%83u-t%C6%B0%E1%BB%A3ng-b%E1%BB%8B-c%C3%B4-l%E1%BA%ADp-tr%C3%AAn-n%E1%BB%81n-tr%E1%BA%AFng.jpg?s=170667a&w=0&k=20&c=BJHP79YRvSNDATYVu-SDYae8UWCzGaave5JhBYxsjro=" alt="">
                                 </div>
-                                <div class="card-content">
-                                    <h3>Title of job</h3>
-                                    <div class="main-content">
-                                        <p><b>Price:</b> 150.000đ</p>
-                                        <p><b>Address:</b> Sơn Trà</p>
-                                        <p><b>Content:</b> Lorem ipsum dolor sit amet consectetur adipisic...</p>
-                                    </div>
+                                <div class="name">hồ viết tiến</div>
+                            </div>
+                            <div class="card-content">
+                                <h3>Title of job</h3>
+                                <div class="package">VIP</div>
+                                <div class="time-post">
+                                    <p>12:00</p>
+                                    <p>23-11-2024</p>
                                 </div>
                             </div>
-                            <div class="right">
-                                <div class="card-profile">
-                                        <div class="avatar">
-                                            <img src="https://media.istockphoto.com/id/1142192548/vi/vec-to/h%E1%BB%93-s%C6%A1-avatar-ng%C6%B0%E1%BB%9Di-%C4%91%C3%A0n-%C3%B4ng-h%C3%ACnh-b%C3%B3ng-khu%C3%B4n-m%E1%BA%B7t-nam-ho%E1%BA%B7c-bi%E1%BB%83u-t%C6%B0%E1%BB%A3ng-b%E1%BB%8B-c%C3%B4-l%E1%BA%ADp-tr%C3%AAn-n%E1%BB%81n-tr%E1%BA%AFng.jpg?s=170667a&w=0&k=20&c=BJHP79YRvSNDATYVu-SDYae8UWCzGaave5JhBYxsjro=" alt="">
-                                        </div>
-                                        <div class="name">hồ viết tiến</div>
-                                </div>
-                                <div class="card-content">
-                                    <h3>Title of job</h3>
-                                    <div class="main-content">
-                                            <p><b>Price:</b> 150.000đ</p>
-                                            <p><b>Address:</b> Sơn Trà</p>
-                                            <p><b>Content:</b> Lorem ipsum dolor sit amet consectetur adipisic...</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="post1">
-                            <div class="left">
-                                <div class="card-profile">
-                                    <div class="avatar">
-                                        <img src="https://media.istockphoto.com/id/1142192548/vi/vec-to/h%E1%BB%93-s%C6%A1-avatar-ng%C6%B0%E1%BB%9Di-%C4%91%C3%A0n-%C3%B4ng-h%C3%ACnh-b%C3%B3ng-khu%C3%B4n-m%E1%BA%B7t-nam-ho%E1%BA%B7c-bi%E1%BB%83u-t%C6%B0%E1%BB%A3ng-b%E1%BB%8B-c%C3%B4-l%E1%BA%ADp-tr%C3%AAn-n%E1%BB%81n-tr%E1%BA%AFng.jpg?s=170667a&w=0&k=20&c=BJHP79YRvSNDATYVu-SDYae8UWCzGaave5JhBYxsjro=" alt="">
-                                    </div>
-                                    <div class="name">hồ viết tiến</div>
-                                </div>
-                                <div class="card-content">
-                                    <h3>Title of job</h3>
-                                    <div class="package">VIP</div>
-                                    <div class="time-post">
-                                        <p>12:00</p>
-                                        <p>23-11-2024</p>
-                                    </div>
-                                </div>
-                                <div class="main-content">
-                                    <p><b>Price:</b> 150.000đ</p>
-                                    <p><b>Address:</b> Sơn Trà</p>
-                                    <p><b>Content:</b> Lorem ipsum dolor sit amet consectetur ...</p>
-                                </div>
+                            <div class="main-content">
+                                <p><b>Price:</b> 150.000đ</p>
+                                <p><b>Address:</b> Sơn Trà</p>
+                                <p><b>Content:</b> Lorem ipsum dolor sit amet consectetur ...</p>
                             </div>
                         </div>
                         <div class="right">
@@ -448,7 +388,7 @@ $total_pages = ceil($total_notifications['total'] / $limit);
                     </div>  
                 </div>
             </div>
-        </div>
+        <</div>
         <div class="promote">
             <h1>QUẢNG BÁ CÔNG VIỆC</h1>
         </div>
