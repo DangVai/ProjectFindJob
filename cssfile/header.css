@@ -1,4 +1,4 @@
-.header{
+.header {
     display: flex;
     width: 100%;
     height: 80px;
@@ -8,13 +8,13 @@
     background-color: rgb(5, 99, 20);
 }
 
-.box_logo{
+.box_logo {
     width: 30%;
     display: flex;
     align-items: center;
 }
 
-.box_logo img{
+.box_logo img {
     height: 70px;
     width: 70px;
     position: relative;
@@ -22,7 +22,7 @@
     border-radius: 50px;
 }
 
-.nav{
+.nav {
     width: 40%;
     height: 70%;
     display: flex;
@@ -33,19 +33,18 @@
     border-radius: 45px;
     font-size: 20px;
     color: white;
-    background-color: rgba(128, 128, 128, 0.5); 
-    
+    background-color: rgba(128, 128, 128, 0.5);
 }
 
-.nav p{
+.nav p {
     cursor: pointer;
 }
 
-.nav p:hover{
+.nav p:hover {
     font-size: 30px;
 }
 
-.chatbox{
+.chatbox {
     width: 10%;
     display: flex;
     justify-content: end;
@@ -53,34 +52,33 @@
     cursor: pointer;
 }
 
-.chatbox i{
+.chatbox i {
     font-size: 30px;
     color: white;
     cursor: pointer;
 }
 
-.inform{
+.inform {
     width: 10%;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-.inform i{
+.inform i {
     font-size: 30px;
     color: white;
     cursor: pointer;
 }
 
-.account{
+.account {
     width: 4%;
     display: flex;
     align-items: center;
     justify-content: center;
-    
 }
 
-.box-account{
+.box-account {
     border: 3px solid white;
     width: 50px;
     height: 50px;
@@ -90,7 +88,7 @@
     border-radius: 50%;
 }
 
-.box-account i{
+.box-account i {
     font-size: 40px;
     color: white;
     cursor: pointer;

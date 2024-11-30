@@ -1,11 +1,11 @@
 .account {
     position: relative;
     display: inline-block;
-    cursor: pointer; 
+    cursor: pointer;
 }
 
 .dropdown-menu {
-    display: none; 
+    display: none;
     position: absolute;
     top: 100%;
     right: 0;
@@ -20,9 +20,9 @@
 }
 
 .dropdown-menu.active {
-    display: block; 
+    display: block;
 }
 
-.name-user p{
+.name-user p {
     color: white;
 }

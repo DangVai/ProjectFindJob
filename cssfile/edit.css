@@ -27,6 +27,7 @@ h1 {
 
 form {
     width: 100%;
+    margin-left: 20px;
     /* Make the form take full width */
     max-width: 800px;
     /* Set a maximum width for the form */
@@ -49,7 +50,7 @@ label {
 
 .form-control,
 .form-control-file {
-    border-radius: 8px;
+    border-radius: 30px;
     border: 1px solid #ccc;
     padding: 10px;
     transition: border-color 0.3s ease;
@@ -71,13 +72,13 @@ label {
 }
 
 .btn-primary {
-    background-color: #007bff;
+    background-color: #2bf65b;
     color: white;
     border: none;
 }
 
 .btn-primary:hover {
-    background-color: #0056b3;
+    background-color: #95f990;
 }
 
 .btn-secondary {
