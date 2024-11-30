@@ -1,7 +1,8 @@
-.text-center{
+.text-center {
     text-align: center;
 }
-.container{
+
+.container {
     position: absolute;
     top: 50%;
     left: 50%;
@@ -9,9 +10,10 @@
     padding: 40px;
     transform: translate(-50%, -50%);
     box-sizing: border-box;
-    box-shadow: 0 15px 25px rgba(0,0,0,.6);
+    box-shadow: 0 15px 25px rgba(0, 0, 0, .6);
     border-radius: 10px;
 }
+
 .form-group input {
     width: 100%;
     padding: 12px 20px;
@@ -22,11 +24,14 @@
     box-sizing: border-box;
     border-radius: 4px 0 0 4px;
 }
+
 .form-group_password {
     display: flex;
-    gap: 10px; /* khoảng cách giữa hai trường */
+    gap: 10px;
+    /* khoảng cách giữa hai trường */
     align-items: center;
 }
+
 .form-group_password input {
     width: 100%;
     padding: 12px 20px;
@@ -37,6 +42,7 @@
     box-sizing: border-box;
     border-radius: 4px 0 0 4px;
 }
+
 .input-group {
     display: flex;
     align-items: center;
@@ -46,6 +52,7 @@
     /* background-color: #ffffff; */
     padding: 8px;
 }
+
 .input-group-addon i {
     font-size: 16px;
     width: 33px;
@@ -58,43 +65,46 @@
     padding: 4px;
     background-color: #ffffff;
 }
+
 .form-control {
-    border: 1px solid #ced4da;   
-    border-radius: 4px;          
+    border: 1px solid #ced4da;
+    border-radius: 4px;
     padding: 8px;
 }
-
-
 
 .form-control {
     border-radius: 0 4px 4px 0;
 }
+
 .btn-primary {
     display: block;
     background-color: #4CAF50;
     color: white;
     padding: 14px 20px;
-    margin: 8px auto; /* Căn giữa nút */
+    margin: 8px auto;
+    /* Căn giữa nút */
     border: none;
     cursor: pointer;
-    width: 90%; /* Điều chỉnh theo ý muốn */
+    width: 90%;
+    /* Điều chỉnh theo ý muốn */
     border-radius: 4px;
 }
 
-    .container {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        width: 500px;
-        padding: 40px;
-        transform: translate(-50%, -50%);
-        box-sizing: border-box;
-        background-color: rgb(183 224 191 / 70%);
-        box-shadow: 2px 19px 25px 3px rgba(0, 0, 0, .6);
-        border-radius: 10px;
-        color: #000000;
-    }
-    
+.container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 500px;
+    padding: 40px;
+    transform: translate(-50%, -50%);
+    box-sizing: border-box;
+    background-color: rgb(183 224 191 / 70%);
+    box-shadow: 2px 19px 25px 3px rgba(0, 0, 0, .6);
+    border-radius: 10px;
+    color: #000000;
+}
+
 body {
-    background-image:url("https://hoanghamobile.com/tin-tuc/wp-content/uploads/2023/07/hinh-dep-5.jpg"); /* Light gray background */
+    background-image: url("https://hoanghamobile.com/tin-tuc/wp-content/uploads/2023/07/hinh-dep-5.jpg");
+    /* Light gray background */
 }
