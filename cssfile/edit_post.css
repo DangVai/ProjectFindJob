@@ -1,0 +1,25 @@
+/* Đảm bảo body có chiều cao toàn màn hình */
+body, html {
+    height: 100%;
+    margin: 0;
+}
+
+/* Căn giữa container */
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    overflow-y: auto;  /* Cho phép cuộn dọc */
+}
+
+/* Đảm bảo container có chiều cao tối đa và cuộn khi cần */
+.container form {
+    max-height: 80vh; /* 80% chiều cao màn hình */
+    overflow-y: auto; /* Cuộn dọc nếu nội dung quá dài */
+    width: 100%;
+    padding: 20px;
+    background-color: #fff; /* Thêm nền trắng để dễ nhìn */
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
