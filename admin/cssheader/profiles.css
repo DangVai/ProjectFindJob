@@ -1,0 +1,75 @@
+/* General body styling */
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+/* Container that wraps the content */
+.profile-container {
+    width: 100%;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Header Styling */
+.profile-title {
+    text-align: center;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+/* Table styling */
+.profile-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+.profile-table th,
+.profile-table td {
+    padding: 12px 15px;
+    text-align: left;
+    border: 1px solid #ddd;
+}
+
+.profile-table th {
+    background-color: #f7f7f7;
+    font-weight: bold;
+    color: #333;
+}
+
+.profile-table td {
+    background-color: #fafafa;
+}
+
+/* Profile image styling */
+.profile-image {
+    border-radius: 50%;
+    max-width: 100px;
+    height: auto;
+}
+
+/* Styling for the address section */
+.profile-address {
+    font-style: italic;
+    color: #555;
+}
+
+/* Responsive design for smaller screens */
+@media screen and (max-width: 768px) {
+    .profile-container {
+        width: 90%;
+        padding: 15px;
+    }
+
+    .profile-table th,
+    .profile-table td {
+        padding: 8px 10px;
+    }
+}

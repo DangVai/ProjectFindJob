@@ -73,7 +73,7 @@ $total_pages = ceil($total_notifications['total'] / $limit);
                 <p><b>Planters</b></p>
             </div>
             <div class="chatbox">
-                <i class="fa-regular fa-comment-dots"></i>
+                <a href="public/chat.php"><i class="fa-regular fa-comment-dots"></i></a>
             </div>
             <div class="inform">
                 <i class="fa-regular fa-bell"></i>

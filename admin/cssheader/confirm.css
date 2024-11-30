@@ -1,0 +1,104 @@
+/* Tổng quát */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f5f5f5;
+  color: #333;
+}
+
+/* Thông báo */
+.success-message {
+  color: #155724;
+  background-color: #d4edda;
+  border: 1px solid #c3e6cb;
+  padding: 10px;
+  margin: 10px 0;
+  border-radius: 5px;
+}
+
+.error-message {
+  color: #721c24;
+  background-color: #f8d7da;
+  border: 1px solid #f5c6cb;
+  padding: 10px;
+  margin: 10px 0;
+  border-radius: 5px;
+}
+
+/* Danh sách bài viết */
+.post-list {
+  padding: 20px;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.post-item {
+  margin-bottom: 20px;
+  padding: 15px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  background-color: #fafafa;
+}
+
+.post-item h3 {
+  font-size: 1.5em;
+  margin-bottom: 10px;
+  color: #0056b3;
+}
+
+.post-item .post-info {
+  font-size: 0.9em;
+  color: #555;
+}
+
+.post-item img {
+  margin-top: 10px;
+  max-width: 100%;
+  height: auto;
+  border-radius: 5px;
+}
+
+/* Hành động */
+.post-actions {
+  margin-top: 10px;
+}
+
+.post-actions .button {
+  padding: 8px 15px;
+  text-decoration: none;
+  font-size: 0.9em;
+  border-radius: 4px;
+  color: #fff;
+  display: inline-block;
+  margin-right: 5px;
+}
+
+.post-actions .button.approve {
+  background-color: #28a745;
+  border: 1px solid #28a745;
+}
+
+.post-actions .button.approve:hover {
+  background-color: #218838;
+  border-color: #1e7e34;
+}
+
+.post-actions .button.reject {
+  background-color: #dc3545;
+  border: 1px solid #dc3545;
+}
+
+.post-actions .button.reject:hover {
+  background-color: #c82333;
+  border-color: #bd2130;
+}
+
+/* Không có bài viết */
+.no-posts {
+  font-size: 1.2em;
+  text-align: center;
+  color: #888;
+  padding: 20px;
+}

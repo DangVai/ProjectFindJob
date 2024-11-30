@@ -56,6 +56,30 @@
             <div class="form-group">
                 <input type="password" class="form-control" name="password" placeholder="Nhập mật khẩu" required />
             </div>
+            <?php
+            $error = $_GET['error'] ?? '';
+            switch ($error) {
+                case 'missing_fields':
+                    $errorMessage = 'Vui lòng điền đầy đủ email và mật khẩu.';
+                    break;
+                case 'email_not_found':
+                    $errorMessage = 'Email không tồn tại.';
+                    break;
+                case 'wrong_password':
+                    $errorMessage = 'Mật khẩu không chính xác.';
+                    break;
+                case 'invalid_credentials':
+                    $errorMessage = 'Thông tin đăng nhập không hợp lệ.';
+                    break;
+                default:
+                    $errorMessage = '';
+                    break;
+            }
+
+            if (!empty($errorMessage)) {
+                echo "<p style='color: red;'>$errorMessage</p>";
+            }
+            ?>
             <button type="submit" name="login" class="btn-primary">Login</button>
             <div class="form-group">
                 <div class="custom-control custom-checkbox small">
@@ -65,7 +89,9 @@
             </div>
 
             <div class="text-center">
-                <a class="small" href="forgot-password.php">Forgot Password?</a>
+                <a class="small" href="forgot-password.php">
+                    <p>Forgot Password?</p>
+                </a>
             </div>
             <a href="index.html" class="btn btn-google btn-user btn-block">
                 <i class="fab fa-google fa-fw"></i> Login with Google</a>
