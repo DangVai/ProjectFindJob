@@ -1,5 +1,6 @@
 <?php
 include '../controllers/edit_data.php';
+
 ?>
 <!DOCTYPE html>
 <html lang="vi">
@@ -21,7 +22,7 @@ include '../controllers/edit_data.php';
       <div class="row gx-5">
         <!-- Profile Edit Form Column -->
         <div class="col-md-8 col-lg-9">
-          <form method="post" action="../php/update_profile.php" enctype="multipart/form-data">
+          <form method="post" action="../controllers/edit_data.php" enctype="multipart/form-data">
             <div class="form-group">
               <label for="fullname">Họ và Tên:</label>
               <input type="text" class="form-control" id="fullname" name="fullname" value="<?php echo htmlspecialchars($fullname); ?>" required>
