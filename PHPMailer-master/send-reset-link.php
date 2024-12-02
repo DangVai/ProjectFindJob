@@ -1,74 +1,72 @@
 <?php
-require '../config/db.php';
-require 'src/PHPMailer.php';
-require 'src/SMTP.php';
-require 'src/Exception.php';
-
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 
+require 'src/Exception.php';
+require 'src/PHPMailer.php';
+require 'src/SMTP.php';
+
+// Biến kiểm tra trạng thái gửi email
+$isEmailSent = false;
+
+// Kiểm tra nếu form đã được submit
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $email = $_POST['email'] ?? '';
+    $email = $_POST['email'];
 
-    if (!empty($email)) {
-        // Kiểm tra email có tồn tại
-        $query = "SELECT * FROM users WHERE email = ?";
-        $stmt = mysqli_prepare($conn, $query);
-        mysqli_stmt_bind_param($stmt, "s", $email);
-        mysqli_stmt_execute($stmt);
-        $result = mysqli_stmt_get_result($stmt);
+    // Kiểm tra email hợp lệ
+    if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+        die("Invalid email format.");
+    }
 
-        if ($user = mysqli_fetch_assoc($result)) {
-            // Tạo token đặt lại mật khẩu
-            $token = bin2hex(random_bytes(32));
-            $expiry = date("Y-m-d H:i:s", strtotime("+1 hour"));
+    // Kết nối cơ sở dữ liệu
+    $conn = new mysqli('localhost', 'root', '', 'mydatabase');
+    if ($conn->connect_error) {
+        die("Connection failed: " . $conn->connect_error);
+    }
 
-            // Lưu token và thời hạn vào database
-            $updateQuery = "UPDATE users SET reset_token = ?, token_expiry = ? WHERE email = ?";
-            $updateStmt = mysqli_prepare($conn, $updateQuery);
-            mysqli_stmt_bind_param($updateStmt, "sss", $token, $expiry, $email);
-            mysqli_stmt_execute($updateStmt);
+    // Kiểm tra xem email có tồn tại không
+    $sql = "SELECT user_id FROM users WHERE email = ?";
+    $stmt = $conn->prepare($sql);
+    $stmt->bind_param("s", $email);
+    $stmt->execute();
+    $result = $stmt->get_result();
 
-            // Tạo liên kết đặt lại mật khẩu
-            $resetLink = "http://yourwebsite.com/reset-password.php?token=$token";
+    if ($result->num_rows > 0) {
+        // Email tồn tại, gửi liên kết đặt lại mật khẩu
+        $mail = new PHPMailer(true);
 
-            // Gửi email với PHPMailer
-            $mail = new PHPMailer(true);
+        try {
+            // Cấu hình SMTP
+            $mail->isSMTP();
+            $mail->Host = 'smtp.gmail.com';
+            $mail->SMTPAuth = true;
+            $mail->Username = 'dangvai30@gmail.com';
+            $mail->Password = 'vhjz fvwk huze xbqs';
+            $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
+            $mail->Port = 587;
 
-            try {
-                $mail->isSMTP();
-                $mail->Host = 'smtp.gmail.com';
-                $mail->SMTPAuth = true;
-                $mail->Username = 'dangvai30@gmail.com';
-                $mail->Password = 'vhjz fvwk huze xbqs';
-                $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
-                $mail->Port = 587;
+            // Cấu hình email
+            $mail->setFrom('dangvai30@gmail.com', 'Your Website'); // Thay bằng email của bạn
+            $mail->addAddress($email); // Gửi email đến người dùng
+            $mail->isHTML(true);
+            $mail->Subject = 'Password Reset Link';
+            $mail->Body = "
+                <h3>Password Reset Request</h3>
+                <p>Click the link below to reset your password:</p>
+                <a href='http://localhost/findjob1/ProjectFindJob/public/reset-password.php?email=$email'>Reset Password</a>
+            ";
 
-                $mail->setFrom('dangvai30@gmail.com', 'Admin');
-                $mail->addAddress($email);
-
-                $mail->isHTML(true);
-                $mail->Subject = 'Password Reset Request';
-                $mail->Body = "Hello,<br><br>
-                    You requested to reset your password. Click the link below to reset it:<br><br>
-                    <a href='$resetLink'>Reset Password</a><br><br>
-                    If you did not request this, please ignore this email.<br><br>
-                    Thank you.";
-
-                $mail->send();
-                header("Location: ../public/login.php?message=email_sent");
-                exit();
-            } catch (Exception $e) {
-                header("Location: ../public/login.php?error=email_failed");
-                exit();
-            }
-        } else {
-            header("Location: ../public/login.php?error=email_not_found");
-            exit();
+            // Gửi email
+            $mail->send();
+            $isEmailSent = true; // Cập nhật biến khi email gửi thành công
+        } catch (Exception $e) {
+            echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
         }
     } else {
-        header("Location: ../public/login.php?error=missing_email");
-        exit();
+        echo "Email does not exist in our records.";
     }
+
+    $stmt->close();
+    $conn->close();
 }
 ?>
