@@ -1,0 +1,59 @@
+.top-footer{
+    height: 5px;
+    width: 100%;
+    background-color: rgb(91, 183, 91);
+}
+
+.footer{
+    height: 300px;
+    width: 100%;
+    background-color: rgb(1, 35, 4);
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    color: yellow;
+}
+
+.left-footer{
+    height: 70%;
+    width: 30%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: justify;
+}
+
+.left-footer h1{
+    margin-bottom: 20px;
+    color: yellow;
+}
+
+.left-footer p{
+    font-size: 22px;
+}
+
+.right-footer{
+    height: 60%;
+    width: 50%;
+    display: flex;
+    justify-content: space-around;
+    line-height: 30px;
+}
+
+.feature h3{
+    margin-bottom: 10px;
+}
+
+.components h3{
+    margin-bottom: 10px;
+}
+
+.contact h3{
+    margin-bottom: 10px;
+}
+
+.logo{
+    width: 100px;
+    display: flex;
+    justify-content: space-between;
+}
