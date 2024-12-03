@@ -1,0 +1,130 @@
+
+		.table-container {
+			overflow-x: auto; /* Giúp bảng cuộn ngang trên thiết bị nhỏ */
+			}
+
+			/* Tổng thể bảng */
+			table {
+			width: 100%;
+			border-collapse: collapse;
+			margin: 20px 0;
+			font-family: Arial, sans-serif;
+			}
+
+			th {
+			text-align: left;
+			padding: 10px;
+			background-color: #f9f9f9;
+			border-bottom: 2px solid #ddd;
+			font-weight: bold;
+			}
+
+			td {
+			padding: 10px;
+			border-bottom: 1px solid #ddd;
+			vertical-align: middle;
+			}
+			td button{
+				width: 100px;
+				height: 30px;
+			}
+			tr:nth-child(even) {
+			background-color: #f9f9f9; /* Màu nền hàng chẵn */
+			}
+
+			tr:hover {
+			background-color: #f1f1f1; /* Màu nền khi hover */
+			}
+
+			/* Checkbox */
+			.checkbox-cell {
+			width: 50px;
+			}
+
+			.checkbox {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			}
+
+			/* Cột hình ảnh */
+			.image-cell .image img {
+			width: 40px;
+			height: 40px;
+			border-radius: 50%;
+			}
+
+			/* Thanh tiến độ */
+			.progress-cell progress {
+			width: 100px;
+			height: 8px;
+			appearance: none;
+			border-radius: 5px;
+			background-color: #e6e6e6;
+			}
+
+			progress::-webkit-progress-bar {
+			background-color: #e6e6e6;
+			}
+
+			progress::-webkit-progress-value {
+			background-color: #4caf50;
+			border-radius: 5px;
+			}
+
+			progress::-moz-progress-bar {
+			background-color: #4caf50;
+			border-radius: 5px;
+			}
+
+			/* Ngày tạo */
+			td[data-label="Created"] {
+			font-size: 14px;
+			color: #555;
+			}
+
+			/* Nút hành động */
+			.actions-cell {
+			text-align: right;
+			}
+
+			.actions-cell .button {
+			background-color: #4caf50;
+			color: white;
+			border: none;
+			padding: 8px 10px;
+			border-radius: 4px;
+			cursor: pointer;
+			font-size: 14px;
+			margin-right: 5px;
+			transition: background-color 0.3s;
+			}
+
+			.actions-cell .button:hover {
+			background-color: #45a049;
+			}
+
+			.actions-cell .button.red {
+			background-color: #f44336;
+			}
+
+			.actions-cell .button.red:hover {
+			background-color: #e53935;
+			}
+
+			/* Responsive */
+			@media (max-width: 768px) {
+			table {
+				font-size: 12px;
+			}
+
+			.image-cell .image img {
+				width: 30px;
+				height: 30px;
+			}
+
+			.actions-cell .button {
+				padding: 5px 8px;
+				font-size: 12px;
+			}
+			}

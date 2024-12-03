@@ -59,7 +59,7 @@ $total_pages = ceil($total_notifications['total'] / $limit);
     <link rel="stylesheet" href="cssfile/footer.css">
     <link rel="stylesheet" href="cssfile/profile.css">
     <link rel="stylesheet" href="cssfile/edit.css">
-    <link rel="stylesheet" href="cssfile/headers.css">
+    <link rel="stylesheet" href="cssfile/fix-header.css">
 </head>
 <body>
     <div class="container-homePage">
@@ -73,7 +73,7 @@ $total_pages = ceil($total_notifications['total'] / $limit);
                 <p><b>Contact</b></p>
             </div>
             <div class="chatbox">
-                <i class="fa-regular fa-comment-dots"></i>
+                <a href="public/chat.php"><i class="fa-regular fa-comment-dots"></i></a>
             </div>
             <div class="inform">
                 <i class="fa-regular fa-bell"></i>
@@ -84,7 +84,7 @@ $total_pages = ceil($total_notifications['total'] / $limit);
                 </div>
             </div>
             <div class="name-user">
-                <p><?php echo($userName)?></p>
+                <p><?php echo ($userName) ?></p>
                 <div class="dropdown-menu" id="account-menu">
                     <div>
                         <a href=""><i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i> Profile</a>
@@ -110,7 +110,8 @@ $total_pages = ceil($total_notifications['total'] / $limit);
                     <h1>Việc làm Hand and Foot uy tin - Thời gian linh hoạt</h1>
                 </div>
                 <div class="content">
-                    <p>Khám phá hàng ngàn việc làm hấp dẫn và những con người uy tín và tài năng chỉ với một cái nhấp chuột. Công việc gì cũng trở nên dễ dàng và nhanh gọn ngay tại bây giờ!</p>
+                    <p>Khám phá hàng ngàn việc làm hấp dẫn và những con người uy tín và tài năng chỉ với một cái nhấp
+                        chuột. Công việc gì cũng trở nên dễ dàng và nhanh gọn ngay tại bây giờ!</p>
                 </div>
                 <div class="change">
                     <div class="change1"></div>
@@ -119,10 +120,13 @@ $total_pages = ceil($total_notifications['total'] / $limit);
                     <div class="change4"></div>
                 </div>
                 <img src="https://www.nlvgarden.org/wp-content/uploads/2020/08/meaning-01a.jpg" alt="">
-                <img src="https://cdn-www.vinid.net/2020/03/D%E1%BB%8Bch-v%E1%BB%A5-d%E1%BB%8Dn-d%E1%BA%B9p-nh%C3%A0-c%E1%BB%ADa-l%C3%A0-l%C3%A0m-g%C3%AC.jpg" alt="">
-                <img src="https://ktmt.vnmediacdn.com/stores/news_dataimages/nguyenthiluan/052019/27/14/in_article/2300_71546H-2.jpg" alt="">
-                <img src="https://png.pngtree.com/thumb_back/fh260/background/20210910/pngtree-gardener-pruning-greenery-in-spring-image_839423.jpg" alt="">
-            </div>    
+                <img src="https://cdn-www.vinid.net/2020/03/D%E1%BB%8Bch-v%E1%BB%A5-d%E1%BB%8Dn-d%E1%BA%B9p-nh%C3%A0-c%E1%BB%ADa-l%C3%A0-l%C3%A0m-g%C3%AC.jpg"
+                    alt="">
+                <img src="https://ktmt.vnmediacdn.com/stores/news_dataimages/nguyenthiluan/052019/27/14/in_article/2300_71546H-2.jpg"
+                    alt="">
+                <img src="https://png.pngtree.com/thumb_back/fh260/background/20210910/pngtree-gardener-pruning-greenery-in-spring-image_839423.jpg"
+                    alt="">
+            </div>
         </div>
         <div class="body-top">
             <div class="add">
@@ -168,7 +172,8 @@ $total_pages = ceil($total_notifications['total'] / $limit);
                         <div class="post" data-address="<?php echo $post['dia_chi']; ?>" data-field="<?php echo $post['linh_vuc']; ?>">
                             <div class="card-profile">
                                 <div class="avatar">
-                                    <img src="https://media.istockphoto.com/id/1142192548/vi/vec-to/h%E1%BB%93-s%C6%A1-avatar-ng%C6%B0%E1%BB%9Di-%C4%91%C3%A0n-%C3%B4ng-h%C3%ACnh-b%C3%B3ng-khu%C3%B4n-m%E1%BA%B7t-nam-ho%E1%BA%B7c-bi%E1%BB%83u-t%C6%B0%E1%BB%A3ng-b%E1%BB%8B-c%C3%B4-l%E1%BA%ADp-tr%C3%AAn-n%E1%BB%81n-tr%E1%BA%AFng.jpg?s=170667a&w=0&k=20&c=BJHP79YRvSNDATYVu-SDYae8UWCzGaave5JhBYxsjro=" alt="">
+                                    <img src="https://media.istockphoto.com/id/1142192548/vi/vec-to/h%E1%BB%93-s%C6%A1-avatar-ng%C6%B0%E1%BB%9Di-%C4%91%C3%A0n-%C3%B4ng-h%C3%ACnh-b%C3%B3ng-khu%C3%B4n-m%E1%BA%B7t-nam-ho%E1%BA%B7c-bi%E1%BB%83u-t%C6%B0%E1%BB%A3ng-b%E1%BB%8B-c%C3%B4-l%E1%BA%ADp-tr%C3%AAn-n%E1%BB%81n-tr%E1%BA%AFng.jpg?s=170667a&w=0&k=20&c=BJHP79YRvSNDATYVu-SDYae8UWCzGaave5JhBYxsjro="
+                                        alt="">
                                 </div>
                                 <div class="name"><?php echo !empty($nameUser) ? $nameUser : "" ;?></div>
                             </div>
@@ -251,12 +256,11 @@ $total_pages = ceil($total_notifications['total'] / $limit);
                         <div><i class="fa-brands fa-linkedin"></i></div>
                     </div>
                 </div>
-            </div>
         </div>
-    </div>
 
     <script src="jsfile/slideHomePage.js"></script>
     <script src="jsfile/account.js"></script>
     <script src="jsfile/filter_addressORfield.js"></script>
 </body>
+
 </html>

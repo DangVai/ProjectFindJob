@@ -1,9 +1,9 @@
-*{
+* {
     margin: 0px;
     box-sizing: border-box;
 }
 
-.container-homePage{
+.container-homePage {
     width: 100%;
 }
 
@@ -15,7 +15,7 @@
     z-index: 1;
 }
 
-.box_img{
+.box_img {
     width: 100%;
     height: 100%;
     position: relative;
@@ -23,15 +23,15 @@
     overflow: hidden;
 }
 
-.box_img img{
+.box_img img {
     height: 100%;
     width: 100%;
     object-fit: cover;
     flex-shrink: 0;
-    transition: transform 0.5s ease-in-out; 
+    transition: transform 0.5s ease-in-out;
 }
 
-.change{
+.change {
     height: 100%;
     width: 100%;
     position: absolute;
@@ -43,28 +43,28 @@
     z-index: 2;
 }
 
-.change1{
+.change1 {
     height: 20px;
     width: 20px;
     border-radius: 50%;
     background-color: white;
 }
 
-.change2{
+.change2 {
     height: 20px;
     width: 20px;
     border-radius: 50%;
     background-color: rgba(128, 128, 128, 0.5);
 }
 
-.change3{
+.change3 {
     height: 20px;
     width: 20px;
     border-radius: 50%;
     background-color: rgba(128, 128, 128, 0.5);
 }
 
-.change4{
+.change4 {
     height: 20px;
     width: 20px;
     border-radius: 50%;
@@ -84,7 +84,7 @@
     color: white;
 }
 
-.content{
+.content {
     position: absolute;
     top: 38%;
     left: 50%;
@@ -96,7 +96,7 @@
     text-align: justify;
 }
 
-.introduce{
+.introduce {
     width: 100%;
     height: 400px;
     display: flex;
@@ -104,39 +104,38 @@
     align-items: center;
 }
 
-.box-introduce{
+.box-introduce {
     width: 80%;
     height: 80%;
     display: flex;
     justify-content: space-between;
 }
 
-.card-introduce{
+.card-introduce {
     width: 32%;
     height: 100%;
     background-color: blue;
 }
 
-.body-top{
+.body-top {
     display: flex;
     justify-content: space-around;
     height: 100px;
 }
 
-.add{
+.add {
     height: 100%;
     width: 20%;
     display: flex;
     justify-content: center;
     align-items: center;
-    
 }
 
-.add button{
+.add button {
     font-size: 30px;
     border-radius: 30px;
     background-color: green;
-    padding: 8px 20px; 
+    padding: 8px 20px;
     color: white;
     box-sizing: border-box;
     border: 1px solid black;
@@ -144,12 +143,12 @@
     cursor: pointer;
 }
 
-.add button:hover{
+.add button:hover {
     background-color: rgb(5, 99, 5);
     font-size: 32px;
 }
 
-.searchBox{
+.searchBox {
     height: 100%;
     width: 80%;
     display: flex;
@@ -157,7 +156,7 @@
     align-items: center;
 }
 
-.search-bar{
+.search-bar {
     display: flex;
     width: 90%;
     height: 50px;
@@ -167,24 +166,23 @@
     overflow: hidden;
 }
 
-.search-bar input{
+.search-bar input {
     font-size: 20px;
     padding: 10px;
 }
 
-.search-job{
+.search-job {
     width: 65%;
     border: none;
 }
 
-.search-address{
+.search-address {
     width: 35%;
     border: none;
     border-left: 1px solid black;
-
 }
 
-.search-bar button{
+.search-bar button {
     width: 10%;
     border: none;
     border-left: 1px solid black;
@@ -192,16 +190,16 @@
     cursor: pointer;
 }
 
-.search-bar button i{
+.search-bar button i {
     font-size: 30px;
     color: white;
 }
 
-.search-bar button:hover{
+.search-bar button:hover {
     background-color: rgb(40, 50, 238);
 }
 
-.body-content{
+.body-content {
     display: flex;
     gap: 2%;
     margin-left: 2%;
@@ -221,15 +219,17 @@
     justify-content: space-between;
 }
 
-.fifter-job, .fifter-address {
-    background-color: white; 
+.fifter-job,
+.fifter-address {
+    background-color: white;
     border-radius: 10px;
     padding: 20px;
     margin-bottom: 15px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
-.fifter-job h1, .fifter-address h1 {
+.fifter-job h1,
+.fifter-address h1 {
     margin: 0;
     padding: 10px;
     border: 1px solid black;
@@ -239,22 +239,25 @@
     color: black;
 }
 
-.fifter-job h2, .fifter-address h2 {
+.fifter-job h2,
+.fifter-address h2 {
     margin: 10px 0;
     padding-left: 20px;
     color: black;
     cursor: pointer;
 }
 
-.fifter-job h1:hover, .fifter-address h1:hover{
+.fifter-job h1:hover,
+.fifter-address h1:hover {
     background-color: rgb(168, 195, 168);
 }
+
 
 .fifter-job h2:hover, .fifter-address h2:hover{
     color: rgb(47, 239, 69);
 }
 
-.box-post{
+.box-post {
     width: 78%;
     height: 591px;
     background-color: rgb(168, 195, 168);
@@ -285,7 +288,7 @@
     justify-content: space-between;
 }
 
-.card-profile{
+.card-profile {
     width: 20%;
     height: 100%;
     display: flex;
@@ -293,27 +296,27 @@
     align-items: center;
 }
 
-.avatar{
+.avatar {
     height: 75%;
     width: 80%;
     border: 1px solid black;
 }
 
-.avatar img{
+.avatar img {
     height: 100%;
     width: 100%;
 }
 
-.name{
+.name {
     margin-top: 5px;
 }
 
-.card-content{
+.card-content {
     width: 75%;
     height: 100%;
 }
 
-.title-content{
+.title-content {
     width: 97%;
     height: 24%;
     display: flex;
@@ -339,7 +342,7 @@
     font-size: 12px;
 }
 
-.main-content{
+.main-content {
     height: 70%;
     width: 98%;
     border: 1px solid black;
@@ -356,7 +359,7 @@
     text-overflow: ellipsis;
 }
 
-.promote{
+.promote {
     height: 100px;
     width: 100%;
     display: flex;
@@ -365,11 +368,11 @@
     margin-top: 10px;
 }
 
-.promote h1{
+.promote h1 {
     color: green;
 }
 
-.body-foot{
+.body-foot {
     width: 100%;
     height: 600px;
     display: flex;
@@ -377,14 +380,14 @@
     align-items: start;
 }
 
-.advert{
+.advert {
     width: 90%;
     height: 95%;
     display: flex;
     justify-content: space-between;
 }
 
-.card-advert{
+.card-advert {
     width: 430px;
     height: 100%;
     border: 3px solid rgb(173, 168, 168);
@@ -392,14 +395,14 @@
     overflow: hidden;
 }
 
-.advert-img{
+.advert-img {
     height: 73%;
     width: 100%;
     position: relative;
     overflow: hidden;
 }
 
-.advert-img img{
+.advert-img img {
     height: 100%;
     width: 100%;
     object-fit: cover;
@@ -410,7 +413,7 @@
     transform: scale(1.2);
 }
 
-.advert-content{
+.advert-content {
     height: 27%;
     width: 100%;
     background-color: rgb(8, 81, 38);
@@ -418,7 +421,6 @@
     padding: 7px;
     box-sizing: border-box;
 }
-
 .text-content{
     font-size: 16px;
     line-height: 1.2;

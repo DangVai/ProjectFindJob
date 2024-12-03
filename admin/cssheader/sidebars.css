@@ -1,0 +1,147 @@
+/* Cấu trúc cơ bản cho sidebar */
+body {
+    font-family: 'Poppins', sans-serif;
+    margin-top: 50px;
+    padding: 0;
+}
+
+.container-wrapper {
+    display: flex;
+    width: 100%;
+}
+
+#nav-sidebar {
+    width: 250px;
+    background-color: #333;
+    color: white;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    padding-top: 82px;
+}
+
+#nav-sidebar ul.menu-list {
+    padding: 0;
+    list-style: none;
+    margin: 0;
+}
+
+#nav-sidebar ul.menu-list .menu-item {
+    padding: 10px 20px;
+}
+
+#nav-sidebar ul.menu-list .menu-item a {
+    color: white;
+    text-decoration: none;
+    display: block;
+    padding: 10px;
+    font-size: 16px;
+    border-bottom: 1px solid #444;
+}
+
+#nav-sidebar ul.menu-list .menu-item.active a,
+#nav-sidebar ul.menu-list .menu-item a:hover {
+    background-color: #575757;
+    color: white;
+}
+
+#nav-sidebar .subscribe-section {
+    margin-top: 20px;
+}
+
+#nav-sidebar .subscribe-section .email-subscribe-form .form-group {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+#nav-sidebar .subscribe-section .email-subscribe-form .form-control {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+#nav-sidebar .subscribe-section .email-subscribe-form .form-icon {
+    margin-right: 10px;
+}
+
+#nav-sidebar .subscribe-section .email-subscribe-form .form-icon .icon-paper-plane {
+    font-size: 20px;
+    color: #333;
+}
+
+/* Tạo kiểu cho phần nội dung chính */
+#main-content {
+    margin-top: -5px;
+    margin-left: 220px; /* Để nội dung không bị che khuất bởi sidebar */
+    padding: 30px;
+    background-color: white;
+    height: 100%;
+    transition: margin-left 0.3s ease;
+}
+
+#main-content h2 {
+    font-size: 28px;
+    font-weight: 600;
+    margin-bottom: 20px;
+}
+
+#main-content p {
+    font-size: 16px;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+/* Đặt kiểu cho nút toggle sidebar */
+.toggle-menu {
+    display: none;
+}
+
+#sidebarToggle {
+    background: none;
+    border: none;
+    font-size: 22px;
+    color: white;
+    position: absolute;
+    top: 20px;
+    left: 20px;
+}
+
+#sidebarToggle i {
+    font-size: 30px;
+}
+
+@media (max-width: 768px) {
+    /* Khi màn hình nhỏ, ẩn sidebar và cho phép toggle */
+    #nav-sidebar {
+        display: none;
+    }
+
+    .container-wrapper.active #nav-sidebar {
+        display: block;
+    }
+
+    #main-content {
+        margin-left: 0;
+    }
+
+    .toggle-menu {
+        display: block;
+        position: fixed;
+        top: 20px;
+        left: 20px;
+        z-index: 1000;
+    }
+}
+
+/* Hiệu ứng transition cho sidebar */
+.container-wrapper.active #nav-sidebar {
+    transform: translateX(0);
+}
+
+#sidebarToggle:focus {
+    outline: none;
+}
