@@ -11,18 +11,18 @@ include '../controllers/edit_data.php';
     <link rel="stylesheet" href="../cssfile/edit.css">
 </head>
 <body>
-  <div class="container-fluid d-flex flex-column justify-content-start align-items-center" style="height: 100vh; background-image: url('ProjectFindJob/uploads/backgroundprofile.jpg'); background-size: cover; background-position: center;">
+  <div class="container-fluid d-flex flex-column justify-content-start align-items-center">
     <!-- Phần Tiêu Đề -->
     <div class="text-center w-100">
       <h1 class="mb-3 pt-4 text-black">Chỉnh sửa hồ sơ</h1>
     </div>
 
     <!-- Profile Container -->
-    <div class="profile-container-bluid w-75 bg-white bg-opacity-75 rounded p-4 mt-4">
+    <div class="profile-container-bluid w-75 bg-white bg-opacity-75 rounded p-4 mt-4" style="border-radius:20px ;background-color:#8dfe9c;box-shadow: 0 10px 6px rgba(0, 0, 0, 0.1);">
       <div class="row gx-5">
         <!-- Profile Edit Form Column -->
         <div class="col-md-8 col-lg-9">
-          <form method="post" action="../controllers/edit_data.php" enctype="multipart/form-data">
+          <form method="post" action="../controllers/edit_data.php" enctype="multipart/form-data"style="margin-left: 145px;">
             <div class="form-group">
               <label for="fullname">Họ và Tên:</label>
               <input type="text" class="form-control" id="fullname" name="fullname" value="<?php echo htmlspecialchars($fullname); ?>" required>

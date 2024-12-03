@@ -11,21 +11,21 @@ document.addEventListener('DOMContentLoaded', () => {
         changePasswordModal.style.display = 'flex';
     });
 
-    // Đóng modal đổi mật khẩu khi click nút đóng
+    // Đóng modal khi click nút x
     changePasswordCloseBtn.addEventListener('click', () => {
         changePasswordModal.style.display = 'none';
     });
 
-    // Đóng modal đổi mật khẩu khi click nút "Hủy"
+    // Đóng modal khi click nút "Hủy"
     cancelChangeBtn.addEventListener('click', () => {
         changePasswordModal.style.display = 'none';
     });
 
     // **Modal xóa tài khoản**
     const deleteAccountModal = document.getElementById('deleteAccountModal');
-    const deleteAccountLink = document.querySelector('.text-danger'); // Nút "Xóa tài khoản"
-    const deleteAccountCloseBtn = document.querySelector('#deleteAccountModal .close-btn'); // Nút đóng trong modal
-    const cancelDeleteBtn = document.getElementById('cancelDeleteBtn'); // Nút "Hủy"
+    const deleteAccountLink = document.querySelector('.text-danger');
+    const deleteAccountCloseBtn = document.querySelector('#deleteAccountModal .close-btn');
+    const cancelDeleteBtn = document.getElementById('cancelDeleteBtn');
 
     // Hiển thị modal xóa tài khoản
     deleteAccountLink.addEventListener('click', (event) => {
@@ -33,7 +33,7 @@ document.addEventListener('DOMContentLoaded', () => {
         deleteAccountModal.style.display = 'flex';
     });
 
-    // Đóng modal xóa tài khoản khi click nút đóng
+    // Đóng modal khi click nút đóng
     deleteAccountCloseBtn.addEventListener('click', () => {
         deleteAccountModal.style.display = 'none';
     });
