@@ -13,34 +13,34 @@ include '../controllers/profile_data.php';
 
 </head>
 <body>
-<div class="container-fluid" style="height: 100vh; background-image: url('ProjectFindJob/uploads/backgroundprofile.jpg'); background-size: cover; background-position: center;">
-  <!-- Phần Tiêu Đề -->
+<div class="container-fluid" style="text-align: center;">
+
   <div class="text-center w-100">
    
     <h1 class="mb-3 pt-5 text-black">Hồ Sơ Của Bạn</h1>
   </div>
 
-  <!-- Phần Profile Container -->
-  <div class="container profile-container-bluid mt-4">
-    <div class="row justify-content-center">
-      <!-- Profile Menu Column (Cột 1) -->
+  
+  <div class="container profile-container-bluid mt-4" style="text-align: center">
+    <div class="row justify-content-center" >
+      <!-- Profile Menu Column -->
       <div class="col-md-3 profile-menu">
         <img src="<?php echo htmlspecialchars($link_anh); ?>" alt="Ảnh đại diện" class="profile-image img-fluid rounded-circle mb-3">
         <div class="menu">
-          <a href="profile.php" class="d-block mb-2">Thông tin</a>
-          <a href="edit.php" class="d-block mb-2">Sửa hồ sơ</a>
+          <a href="profile.php" style=" width: 260px;text-decoration: none; text-align: center;padding: 8px 10px;border-radius: 10px;box-shadow: 0 10px 6px rgba(0, 0, 0, 0.1);border: 1px solid black;">Thông tin</a>
+          <a href="edit.php" style=" width: 260px;text-decoration: none;text-align: center;padding: 8px 10px;border-radius: 10px;box-shadow: 0 10px 6px rgba(0, 0, 0, 0.1);border: 1px solid black;">Sửa hồ sơ</a>
           <div class="settings-dropdown">
-            <a class="d-block mb-2">Cài đặt</a>
+            <a style=" width: 260px;text-decoration: none;text-align: center;padding: 8px 10px;border-radius: 10px;box-shadow: 0 10px 6px rgba(0, 0, 0, 0.1);border: 1px solid black;">Cài đặt</a>
             <div class="dropdown-options">
-              <a href="managePosts.php" class="d-block">Quản lý bài đăng</a>
-              <a href="#" class="d-block change-password-link">Đổi mật khẩu</a>
-              <a href="#" class="d-block text-danger">Xóa tài khoản</a>
+              <a href="managePosts.php" >Quản lý bài đăng</a>
+              <a href="#" class="change-password-link">Đổi mật khẩu</a>
+              <a href="#" class="text-danger">Xóa tài khoản</a>
             </div>
           </div>
         </div>
       </div>
 
-      <!-- Profile Info Column (Cột 2) -->
+      <!-- Profile Info Column -->
       <div class="col-md-5 profile-info">
         <div class="info-box">
           <p><strong>Họ và Tên:</strong> <?php echo htmlspecialchars($fullname); ?></p>
@@ -68,7 +68,7 @@ include '../controllers/profile_data.php';
         </div>
       </div>
 
-      <!-- Review Table Column (Cột 3) -->
+      <!-- Review Table Column -->
       <div class="col-md-4">
         <div class="info-box">
           <h3>Đánh giá</h3>

@@ -19,6 +19,20 @@ if (!isset($_SESSION['user_id'])) {
 
 $user_id = $_SESSION['user_id'];
 
+if (isset($_GET['message'])) {
+    $message = $_GET['message'];
+    if ($message === 'success') {
+        echo '<div class="alert alert-success">Cập nhật thành công!</div>';
+    } elseif ($message === 'error_wrong_password') {
+        echo '<div class="alert alert-danger">Mật khẩu cũ không đúng!</div>';
+    } elseif ($message === 'error_password_mismatch') {
+        echo '<div class="alert alert-danger">Mật khẩu mới không khớp!</div>';
+    } elseif ($message === 'account_deleted') {
+        echo '<div class="alert alert-success">Tài khoản đã được xóa!</div>';
+    }
+}
+
+
 // Lấy thông tin người dùng từ bảng users
 $sql = "SELECT * FROM users WHERE user_id = ?";
 $stmt = $conn->prepare($sql);
