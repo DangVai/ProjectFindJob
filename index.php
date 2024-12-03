@@ -55,11 +55,11 @@ $total_pages = ceil($total_notifications['total'] / $limit);
     <title>Document</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
     <link rel="stylesheet" href="cssfile/home.css">
-    <link rel="stylesheet" href="cssfile/account.css">
-    <link rel="stylesheet" href="cssfile/footers.css">
+    <link rel="stylesheet" href="cssfile/accounts.css">
+    <link rel="stylesheet" href="cssfile/footer.css">
     <link rel="stylesheet" href="cssfile/profile.css">
     <link rel="stylesheet" href="cssfile/edit.css">
-    <link rel="stylesheet" href="cssfile/header.css">
+    <link rel="stylesheet" href="cssfile/fix-header.css">
 </head>
 <body>
     <div class="container-homePage">
@@ -70,7 +70,7 @@ $total_pages = ceil($total_notifications['total'] / $limit);
             <div class="nav">
                 <p><b>Home</b></p>
                 <p><b>About Us</b></p>
-                <p><b>Planters</b></p>
+                <p><b>Contact</b></p>
             </div>
             <div class="chatbox">
                 <a href="public/chat.php"><i class="fa-regular fa-comment-dots"></i></a>
@@ -86,19 +86,28 @@ $total_pages = ceil($total_notifications['total'] / $limit);
             <div class="name-user">
                 <p><?php echo ($userName) ?></p>
                 <div class="dropdown-menu" id="account-menu">
-                    <ul>
-                        <li><a href="public/register.php">Đăng ký</a></li>
-                        <li><a href="public/login.php">Đăng nhập</a></li>
-                        <li><a href="controllers/logout.php">Đăng xuất</a></li>
-                        <li><a href="public/profile.php">Profile</a></li>
-                    </ul>
+                    <div>
+                        <a href=""><i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i> Profile</a>
+                    </div>
+                    <div>
+                        <a href=""><i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i> Settings</a>
+                    </div>
+                    <div>
+                        <a href=""><i class="fas fa-list fa-sm fa-fw mr-2 text-gray-400"></i> Activity Log</a>
+                    </div>
+                    <div>
+                        <a href="public/login.php"><i class="fas fa-sign-in-alt fa-sm fa-fw mr-2 text-gray-400"></i> Log in</a>
+                    </div>
+                    <div>
+                        <a href="index.php"><i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i> Log out</a>
+                    </div>
                 </div>
             </div>
         </div>
         <div class="box_slider">
             <div class="box_img">
                 <div class="title">
-                    <h2>Việc làm Hand and Foot uy tin - Thời gian linh hoạt</h2>
+                    <h1>Việc làm Hand and Foot uy tin - Thời gian linh hoạt</h1>
                 </div>
                 <div class="content">
                     <p>Khám phá hàng ngàn việc làm hấp dẫn và những con người uy tín và tài năng chỉ với một cái nhấp
@@ -151,329 +160,107 @@ $total_pages = ceil($total_notifications['total'] / $limit);
                 </div>
             </div>
             <div class="box-post">
-                <div class="post">
-                    <div class="post1">
-                        <div class="left">
+                <?php require_once "models/Post2.php" ?>
+                <div class="posts">
+                    <?php foreach ($posts as $post): ?>
+                        <?php foreach ($posts_user as $user){
+                            if ($user["user_id"] == $post["user_id"]){
+                              $nameUser =  $user["fullname"];
+                              break;
+                            }
+                        }?>
+                        <div class="post" data-address="<?php echo $post['dia_chi']; ?>" data-field="<?php echo $post['linh_vuc']; ?>">
                             <div class="card-profile">
                                 <div class="avatar">
                                     <img src="https://media.istockphoto.com/id/1142192548/vi/vec-to/h%E1%BB%93-s%C6%A1-avatar-ng%C6%B0%E1%BB%9Di-%C4%91%C3%A0n-%C3%B4ng-h%C3%ACnh-b%C3%B3ng-khu%C3%B4n-m%E1%BA%B7t-nam-ho%E1%BA%B7c-bi%E1%BB%83u-t%C6%B0%E1%BB%A3ng-b%E1%BB%8B-c%C3%B4-l%E1%BA%ADp-tr%C3%AAn-n%E1%BB%81n-tr%E1%BA%AFng.jpg?s=170667a&w=0&k=20&c=BJHP79YRvSNDATYVu-SDYae8UWCzGaave5JhBYxsjro="
                                         alt="">
                                 </div>
-                                <div class="name">hồ viết tiến</div>
+                                <div class="name"><?php echo !empty($nameUser) ? $nameUser : "" ;?></div>
                             </div>
                             <div class="card-content">
                                 <div class="title-content">
-                                    <h3>Title of job</h3>
-                                    <div class="package">VIP</div>
-                                    <div class="time-post">
-                                        <p>12:00</p>
-                                        <p>23-11-2024</p>
-                                    </div>
+                                    <h3><?php echo $post["linh_vuc"]?></h3>
+                                    <div class="package"><?php echo $post["goi_dang_ky"]?></div>
+                                    <p class="time-post">
+                                        <?php echo $post["thoi_gian"]?>
+                                    </p>
                                 </div>
                                 <div class="main-content">
-                                    <p><b>Price:</b> 150.000đ</p>
-                                    <p><b>Address:</b> Sơn Trà</p>
-                                    <p><b>Content:</b> Lorem ipsum dolor sit amet consectetur ...</p>
+                                    <p><b>Price: </b><?php echo $post["price"]?></p>
+                                    <p><b>Address:</b> <?php echo $post["dia_chi"]?></p>
+                                    <p class="content-post"><b>Content: </b><?php echo $post["noi_dung"]?></p>
                                 </div>
                             </div>
                         </div>
-                        <div class="right">
-                            <div class="card-profile">
-                                <div class="avatar">
-                                    <img src="https://media.istockphoto.com/id/1142192548/vi/vec-to/h%E1%BB%93-s%C6%A1-avatar-ng%C6%B0%E1%BB%9Di-%C4%91%C3%A0n-%C3%B4ng-h%C3%ACnh-b%C3%B3ng-khu%C3%B4n-m%E1%BA%B7t-nam-ho%E1%BA%B7c-bi%E1%BB%83u-t%C6%B0%E1%BB%A3ng-b%E1%BB%8B-c%C3%B4-l%E1%BA%ADp-tr%C3%AAn-n%E1%BB%81n-tr%E1%BA%AFng.jpg?s=170667a&w=0&k=20&c=BJHP79YRvSNDATYVu-SDYae8UWCzGaave5JhBYxsjro="
-                                        alt="">
-                                </div>
-                                <div class="name">hồ viết tiến</div>
-                            </div>
-                            <div class="card-content">
-                                <div class="title-content">
-                                    <h3>Title of job</h3>
-                                    <div class="package">VIP</div>
-                                    <div class="time-post">
-                                        <p>12:00</p>
-                                        <p>23-11-2024</p>
-                                    </div>
-                                </div>
-                                <div class="main-content">
-                                    <p><b>Price:</b> 150.000đ</p>
-                                    <p><b>Address:</b> Sơn Trà</p>
-                                    <p><b>Content:</b> Lorem ipsum dolor sit amet consectetur ...</p>
-                                </div>
-                            </div>
-                        </div>
+                    <?php endforeach; ?>
+                </div>
+            </div>
+        </div>
+        <div class="promote">
+            <h1>QUẢNG BÁ CÔNG VIỆC</h1>
+        </div>
+        <div class="body-foot">
+            <div class="advert">
+                <div class="card-advert">
+                    <div class="advert-img">
+                        <img src="https://kinhtenongthon.vn/data/data/baoinktnt/2023/05/05/8b.jpg" alt="">
                     </div>
-                    <div class="post1">
-                        <div class="left">
-                            <div class="card-profile">
-                                <div class="avatar">
-                                    <img src="https://media.istockphoto.com/id/1142192548/vi/vec-to/h%E1%BB%93-s%C6%A1-avatar-ng%C6%B0%E1%BB%9Di-%C4%91%C3%A0n-%C3%B4ng-h%C3%ACnh-b%C3%B3ng-khu%C3%B4n-m%E1%BA%B7t-nam-ho%E1%BA%B7c-bi%E1%BB%83u-t%C6%B0%E1%BB%A3ng-b%E1%BB%8B-c%C3%B4-l%E1%BA%ADp-tr%C3%AAn-n%E1%BB%81n-tr%E1%BA%AFng.jpg?s=170667a&w=0&k=20&c=BJHP79YRvSNDATYVu-SDYae8UWCzGaave5JhBYxsjro="
-                                        alt="">
-                                </div>
-                                <div class="name">hồ viết tiến</div>
-                            </div>
-                            <div class="card-content">
-                                <div class="title-content">
-                                    <h3>Title of job</h3>
-                                    <div class="package">VIP</div>
-                                    <div class="time-post">
-                                        <p>12:00</p>
-                                        <p>23-11-2024</p>
-                                    </div>
-                                </div>
-                                <div class="main-content">
-                                    <p><b>Price:</b> 150.000đ</p>
-                                    <p><b>Address:</b> Sơn Trà</p>
-                                    <p><b>Content:</b> Lorem ipsum dolor sit amet consectetur ...</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="right">
-                            <div class="card-profile">
-                                <div class="avatar">
-                                    <img src="https://media.istockphoto.com/id/1142192548/vi/vec-to/h%E1%BB%93-s%C6%A1-avatar-ng%C6%B0%E1%BB%9Di-%C4%91%C3%A0n-%C3%B4ng-h%C3%ACnh-b%C3%B3ng-khu%C3%B4n-m%E1%BA%B7t-nam-ho%E1%BA%B7c-bi%E1%BB%83u-t%C6%B0%E1%BB%A3ng-b%E1%BB%8B-c%C3%B4-l%E1%BA%ADp-tr%C3%AAn-n%E1%BB%81n-tr%E1%BA%AFng.jpg?s=170667a&w=0&k=20&c=BJHP79YRvSNDATYVu-SDYae8UWCzGaave5JhBYxsjro="
-                                        alt="">
-                                </div>
-                                <div class="name">hồ viết tiến</div>
-                            </div>
-                            <div class="card-content">
-                                <div class="title-content">
-                                    <h3>Title of job</h3>
-                                    <div class="package">VIP</div>
-                                    <div class="time-post">
-                                        <p>12:00</p>
-                                        <p>23-11-2024</p>
-                                    </div>
-                                </div>
-                                <div class="main-content">
-                                    <p><b>Price:</b> 150.000đ</p>
-                                    <p><b>Address:</b> Sơn Trà</p>
-                                    <p><b>Content:</b> Lorem ipsum dolor sit amet consectetur ...</p>
-                                </div>
-                            </div>
-                        </div>
+                    <div class="advert-content">
+                        <p class="text-content">Người làm vườn thường làm việc ngoài trời, sử dụng các dụng cụ như xẻng, cuốc, kéo cắt cỏ để giữ cho cây cối và cảnh quan xanh tốt. Đây là công việc đòi hỏi sự kiên nhẫn, tỉ mỉ và tình yêu thiên nhiên, mang lại không gian sống trong lành và gần gũi với môi trường.</p>
                     </div>
-                    <div class="post1">
-                        <div class="left">
-                            <div class="card-profile">
-                                <div class="avatar">
-                                    <img src="https://media.istockphoto.com/id/1142192548/vi/vec-to/h%E1%BB%93-s%C6%A1-avatar-ng%C6%B0%E1%BB%9Di-%C4%91%C3%A0n-%C3%B4ng-h%C3%ACnh-b%C3%B3ng-khu%C3%B4n-m%E1%BA%B7t-nam-ho%E1%BA%B7c-bi%E1%BB%83u-t%C6%B0%E1%BB%A3ng-b%E1%BB%8B-c%C3%B4-l%E1%BA%ADp-tr%C3%AAn-n%E1%BB%81n-tr%E1%BA%AFng.jpg?s=170667a&w=0&k=20&c=BJHP79YRvSNDATYVu-SDYae8UWCzGaave5JhBYxsjro="
-                                        alt="">
-                                </div>
-                                <div class="name">hồ viết tiến</div>
-                            </div>
-                            <div class="card-content">
-                                <div class="title-content">
-                                    <h3>Title of job</h3>
-                                    <div class="package">VIP</div>
-                                    <div class="time-post">
-                                        <p>12:00</p>
-                                        <p>23-11-2024</p>
-                                    </div>
-                                </div>
-                                <div class="main-content">
-                                    <p><b>Price:</b> 150.000đ</p>
-                                    <p><b>Address:</b> Sơn Trà</p>
-                                    <p><b>Content:</b> Lorem ipsum dolor sit amet consectetur ...</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="right">
-                            <div class="card-profile">
-                                <div class="avatar">
-                                    <img src="https://media.istockphoto.com/id/1142192548/vi/vec-to/h%E1%BB%93-s%C6%A1-avatar-ng%C6%B0%E1%BB%9Di-%C4%91%C3%A0n-%C3%B4ng-h%C3%ACnh-b%C3%B3ng-khu%C3%B4n-m%E1%BA%B7t-nam-ho%E1%BA%B7c-bi%E1%BB%83u-t%C6%B0%E1%BB%A3ng-b%E1%BB%8B-c%C3%B4-l%E1%BA%ADp-tr%C3%AAn-n%E1%BB%81n-tr%E1%BA%AFng.jpg?s=170667a&w=0&k=20&c=BJHP79YRvSNDATYVu-SDYae8UWCzGaave5JhBYxsjro="
-                                        alt="">
-                                </div>
-                                <div class="name">hồ viết tiến</div>
-                            </div>
-                            <div class="card-content">
-                                <div class="title-content">
-                                    <h3>Title of job</h3>
-                                    <div class="package">VIP</div>
-                                    <div class="time-post">
-                                        <p>12:00</p>
-                                        <p>23-11-2024</p>
-                                    </div>
-                                </div>
-                                <div class="main-content">
-                                    <p><b>Price:</b>150.000đ</p>
-                                    <p><b>Address:</b> Sơn Trà</p>
-                                    <p><b>Content:</b> Lorem ipsum dolor sit amet consectetur ...</p>
-                                </div>
-                            </div>
-                        </div>
+                </div>
+                <div class="card-advert">
+                    <div class="advert-img">
+                        <img src="https://afamilycdn.com/150157425591193600/2023/9/20/vc3ac-sao-be1baa1n-ce1baa7n-thuc3aa-ngc6b0e1bb9di-trc3b4ng-tre1babb-te1baa1i-nhc3a03f-16951990556701460520031.jpg" alt="">
                     </div>
-                    <div class="post1">
-                        <div class="left">
-                            <div class="card-profile">
-                                <div class="avatar">
-                                    <img src="https://media.istockphoto.com/id/1142192548/vi/vec-to/h%E1%BB%93-s%C6%A1-avatar-ng%C6%B0%E1%BB%9Di-%C4%91%C3%A0n-%C3%B4ng-h%C3%ACnh-b%C3%B3ng-khu%C3%B4n-m%E1%BA%B7t-nam-ho%E1%BA%B7c-bi%E1%BB%83u-t%C6%B0%E1%BB%A3ng-b%E1%BB%8B-c%C3%B4-l%E1%BA%ADp-tr%C3%AAn-n%E1%BB%81n-tr%E1%BA%AFng.jpg?s=170667a&w=0&k=20&c=BJHP79YRvSNDATYVu-SDYae8UWCzGaave5JhBYxsjro="
-                                        alt="">
-                                </div>
-                                <div class="name">hồ viết tiến</div>
-                            </div>
-                            <div class="card-content">
-                                <div class="title-content">
-                                    <h3>Title of job</h3>
-                                    <div class="package">VIP</div>
-                                    <div class="time-post">
-                                        <p>12:00</p>
-                                        <p>23-11-2024</p>
-                                    </div>
-                                </div>
-                                <div class="main-content">
-                                    <p><b>Price:</b> 150.000đ</p>
-                                    <p><b>Address:</b> Sơn Trà</p>
-                                    <p><b>Content:</b> Lorem ipsum dolor sit amet consectetur ...</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="right">
-                            <div class="card-profile">
-                                <div class="avatar">
-                                    <img src="https://media.istockphoto.com/id/1142192548/vi/vec-to/h%E1%BB%93-s%C6%A1-avatar-ng%C6%B0%E1%BB%9Di-%C4%91%C3%A0n-%C3%B4ng-h%C3%ACnh-b%C3%B3ng-khu%C3%B4n-m%E1%BA%B7t-nam-ho%E1%BA%B7c-bi%E1%BB%83u-t%C6%B0%E1%BB%A3ng-b%E1%BB%8B-c%C3%B4-l%E1%BA%ADp-tr%C3%AAn-n%E1%BB%81n-tr%E1%BA%AFng.jpg?s=170667a&w=0&k=20&c=BJHP79YRvSNDATYVu-SDYae8UWCzGaave5JhBYxsjro="
-                                        alt="">
-                                </div>
-                                <div class="name">hồ viết tiến</div>
-                            </div>
-                            <div class="card-content">
-                                <div class="title-content">
-                                    <h3>Title of job</h3>
-                                    <div class="package">VIP</div>
-                                    <div class="time-post">
-                                        <p>12:00</p>
-                                        <p>23-11-2024</p>
-                                    </div>
-                                </div>
-                                <div class="main-content">
-                                    <p><b>Price:</b> 150.000đ</p>
-                                    <p><b>Address:</b> Sơn Trà</p>
-                                    <p><b>Content:</b> Lorem ipsum dolor sit amet consectetur ...</p>
-                                </div>
-                            </div>
-                        </div>
+                    <div class="advert-content">
+                        <p class="text-content">Chăm sóc trẻ chuyên nghiệp và tận tâm, nơi các bé được yêu thương, học hỏi và phát triển trong một môi trường an toàn và ấm áp.  Với không gian vui nhộn, đầy màu sắc cùng các hoạt động giáo dục thú vị, chúng tôi cam kết mang đến cho các bé niềm vui mỗi ngày, giúp phụ huynh hoàn toàn yên tâm khi giao phó những thiên thần nhỏ của mình cho chúng tôi.</p>
                     </div>
-                    <div class="post1">
-                        <div class="left">
-                            <div class="card-profile">
-                                <div class="avatar">
-                                    <img src="https://media.istockphoto.com/id/1142192548/vi/vec-to/h%E1%BB%93-s%C6%A1-avatar-ng%C6%B0%E1%BB%9Di-%C4%91%C3%A0n-%C3%B4ng-h%C3%ACnh-b%C3%B3ng-khu%C3%B4n-m%E1%BA%B7t-nam-ho%E1%BA%B7c-bi%E1%BB%83u-t%C6%B0%E1%BB%A3ng-b%E1%BB%8B-c%C3%B4-l%E1%BA%ADp-tr%C3%AAn-n%E1%BB%81n-tr%E1%BA%AFng.jpg?s=170667a&w=0&k=20&c=BJHP79YRvSNDATYVu-SDYae8UWCzGaave5JhBYxsjro="
-                                        alt="">
-                                </div>
-                                <div class="name">hồ viết tiến</div>
-                            </div>
-                            <div class="card-content">
-                                <div class="title-content">
-                                    <h3>Title of job</h3>
-                                    <div class="package">VIP</div>
-                                    <div class="time-post">
-                                        <p>12:00</p>
-                                        <p>23-11-2024</p>
-                                    </div>
-                                </div>
-                                <div class="main-content">
-                                    <p><b>Price:</b> 150.000đ</p>
-                                    <p><b>Address:</b> Sơn Trà</p>
-                                    <p><b>Content:</b> Lorem ipsum dolor sit amet consectetur ...</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="right">
-                            <div class="card-profile">
-                                <div class="avatar">
-                                    <img src="https://media.istockphoto.com/id/1142192548/vi/vec-to/h%E1%BB%93-s%C6%A1-avatar-ng%C6%B0%E1%BB%9Di-%C4%91%C3%A0n-%C3%B4ng-h%C3%ACnh-b%C3%B3ng-khu%C3%B4n-m%E1%BA%B7t-nam-ho%E1%BA%B7c-bi%E1%BB%83u-t%C6%B0%E1%BB%A3ng-b%E1%BB%8B-c%C3%B4-l%E1%BA%ADp-tr%C3%AAn-n%E1%BB%81n-tr%E1%BA%AFng.jpg?s=170667a&w=0&k=20&c=BJHP79YRvSNDATYVu-SDYae8UWCzGaave5JhBYxsjro="
-                                        alt="">
-                                </div>
-                                <div class="name">hồ viết tiến</div>
-                            </div>
-                            <div class="card-content">
-                                <div class="title-content">
-                                    <h3>Title of job</h3>
-                                    <div class="package">VIP</div>
-                                    <div class="time-post">
-                                        <p>12:00</p>
-                                        <p>23-11-2024</p>
-                                    </div>
-                                </div>
-                                <div class="main-content">
-                                    <p><b>Price:</b> 150.000đ</p>
-                                    <p><b>Address:</b> Sơn Trà</p>
-                                    <p><b>Content:</b> Lorem ipsum dolor sit amet consectetur ...</p>
-                                </div>
-                            </div>
-                        </div>
+                </div>
+                <div class="card-advert">
+                    <div class="advert-img">
+                        <img src="https://vesinhnhatoancau.com/wp-content/uploads/2022/01/don-nha-theo-gio-dan-phuong-1.jpg" alt="">
+                    </div>
+                    <div class="advert-content">
+                        <p class="text-content">Chúng tôi đảm bảo mang lại không gian sống và làm việc sạch sẽ, gọn gàng và trong lành. Dù là dọn dẹp nhà ở, văn phòng, hay các công trình lớn, chúng tôi luôn cam kết chất lượng vượt mong đợi, giúp bạn tiết kiệm thời gian và tận hưởng cuộc sống thoải mái hơn. Hãy để chúng tôi làm sạch, để bạn sống khỏe!</p>
                     </div>
                 </div>
             </div>
-            << /div>
-                <div class="promote">
-                    <h1>QUẢNG BÁ CÔNG VIỆC</h1>
+        </div>
+        <div class="top-footer"></div>
+        <div class="footer">
+            <div class="left-footer">
+                <h1>FindJob</h1>
+                <p>FindJob offers unparalleled efficiency in addressing the urgent needs of individuals, connecting them with trusted and professional experts who are dedicated to delivering exceptional service in every field.</p>
+            </div>
+            <div class="right-footer">
+                <div class="components">
+                    <h3>Components</h3>
+                    <h5>Home</h5>
+                    <h5>About Us</h5>
+                    <h5>Contact</h5>
                 </div>
-                <div class="body-foot">
-                    <div class="advert">
-                        <div class="card-advert">
-                            <div class="advert-img">
-                                <img src="https://kinhtenongthon.vn/data/data/baoinktnt/2023/05/05/8b.jpg" alt="">
-                            </div>
-                            <div class="advert-content">
-                                <p>Người làm vườn thường làm việc ngoài trời, sử dụng các dụng cụ như xẻng, cuốc, kéo
-                                    cắt cỏ để giữ cho cây cối và cảnh quan xanh tốt. Đây là công việc đòi hỏi sự kiên
-                                    nhẫn, tỉ mỉ và tình yêu thiên nhiên, mang lại không gian sống trong lành và gần gũi
-                                    với môi trường.</p>
-                            </div>
-                        </div>
-                        <div class="card-advert">
-                            <div class="advert-img">
-                                <img src="https://afamilycdn.com/150157425591193600/2023/9/20/vc3ac-sao-be1baa1n-ce1baa7n-thuc3aa-ngc6b0e1bb9di-trc3b4ng-tre1babb-te1baa1i-nhc3a03f-16951990556701460520031.jpg"
-                                    alt="">
-                            </div>
-                            <div class="advert-content">
-                                <p>Chúng tôi chăm sóc trẻ chuyên nghiệp và tận tâm, nơi các bé được yêu thương, học hỏi
-                                    và phát triển trong một môi trường an toàn và ấm áp. Với không gian vui nhộn, đầy
-                                    màu sắc cùng các hoạt động giáo dục thú vị, chúng tôi cam kết mang đến cho các bé
-                                    niềm vui mỗi ngày, giúp phụ huynh hoàn toàn yên tâm khi giao phó những thiên thần
-                                    nhỏ của mình cho chúng tôi.</p>
-                            </div>
-                        </div>
-                        <div class="card-advert">
-                            <div class="advert-img">
-                                <img src="https://vesinhnhatoancau.com/wp-content/uploads/2022/01/don-nha-theo-gio-dan-phuong-1.jpg"
-                                    alt="">
-                            </div>
-                            <div class="advert-content">
-                                <p>Chúng tôi đảm bảo mang lại không gian sống và làm việc sạch sẽ, gọn gàng và trong
-                                    lành. Dù là dọn dẹp nhà ở, văn phòng, hay các công trình lớn, chúng tôi luôn cam kết
-                                    chất lượng vượt mong đợi, giúp bạn tiết kiệm thời gian và tận hưởng cuộc sống thoải
-                                    mái hơn. Hãy để chúng tôi làm sạch, để bạn sống khỏe!</p>
-                            </div>
-                        </div>
-                    </div>
+                <div class="feature">
+                    <h3>Feature</h3>
+                    <h5>Post a job search</h5>
+                    <h5>Apply Jobs</h5>
+                    <h5>Job and address filters</h5>
+                    <h5>Post a job looking for a job</h5>
                 </div>
-                <div class="footer">
-                    <div class="footer-container">
-                        <div class="footer-section">
-                            <h3>Về Chúng Tôi</h3>
-                            <p>Chúng tôi cung cấp việc làm và làm việc uy tín, chất lượng với thời gian linh hoạt, đáp
-                                ứng nhu cầu của người tìm việc và nhà tuyển dụng.</p>
-                        </div>
-                        <div class="footer-section">
-                            <h3>Liên Hệ</h3>
-                            <p><i class="fa-solid fa-envelope"></i> support@example.com</p>
-                            <p><i class="fa-solid fa-phone"></i> +84 123 456 789</p>
-                        </div>
-                        <div class="footer-section">
-                            <h3>Kết Nối Với Chúng Tôi</h3>
-                            <div class="social-icons">
-                                <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
-                                <a href="#"><i class="fa-brands fa-twitter"></i></a>
-                                <a href="#"><i class="fa-brands fa-instagram"></i></a>
-                            </div>
-                        </div>
+                <div class="contact">
+                    <h3>Contact</h3>
+                    <div class="logo">
+                        <div><i class="fa-brands fa-facebook"></i></div>
+                        <div><i class="fa-brands fa-square-instagram"></i></div>
+                        <div><i class="fa-solid fa-envelope"></i></div>
+                        <div><i class="fa-brands fa-linkedin"></i></div>
                     </div>
                 </div>
         </div>
 
-        <script src="jsfile/slideHomePage.js"></script>
-        <script src="jsfile/account.js"></script>
+    <script src="jsfile/slideHomePage.js"></script>
+    <script src="jsfile/account.js"></script>
+    <script src="jsfile/filter_addressORfield.js"></script>
 </body>
 
 </html>

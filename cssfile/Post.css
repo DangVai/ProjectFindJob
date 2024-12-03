@@ -75,27 +75,6 @@
     cursor: pointer;
 }
 
-/* .card:before  {
-    content: '';
-    height: 10px; 
-    background: #bcaaa4; 
-    bottom: 0;
-    left: 0;
-    position: absolute;
-    width: 100%; 
-} */
-
-/* .card:after {
-    content: '';
-    height: 10px;
-    background: #388e3c; 
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 0%; 
-    transition: width 0.5s ease; 
-} */
-
 .card:hover:after {
     width: 100%; 
 }

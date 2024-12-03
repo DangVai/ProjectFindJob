@@ -19,6 +19,18 @@ if (mysqli_num_rows($result) > 0) {
     }
 }
 
+// Truy vấn dữ liệu
+$sql = "SELECT * FROM users";
+$result = mysqli_query($connect, $sql);
+
+// Đảm bảo có dữ liệu
+$posts_user = [];
+if (mysqli_num_rows($result) > 0) {
+    while ($row = mysqli_fetch_assoc($result)) {
+        $posts_user[] = $row;
+    }
+}
+
 // Đóng kết nối
 // mysqli_close($connect);
 ?>

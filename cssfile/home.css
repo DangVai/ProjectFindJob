@@ -1,13 +1,14 @@
 * {
     margin: 0px;
+    box-sizing: border-box;
 }
 
 .container-homePage {
     width: 100%;
 }
 
-.box_slider {
-    height: 600px;
+.box_slider{
+    height: 700px;
     width: 100%;
     overflow: hidden;
     padding-top: 80px;
@@ -70,13 +71,17 @@
     background-color: rgba(128, 128, 128, 0.5);
 }
 
-.title {
+.title{
+    width: 800px;
     position: absolute;
     top: 30%;
     left: 50%;
     transform: translate(-50%);
-    color: white;
     z-index: 2;
+}
+
+.title h1{
+    color: white;
 }
 
 .content {
@@ -204,7 +209,7 @@
     width: 18%;
     border-radius: 15px;
     background-color: rgb(168, 195, 168);
-    border: 1px solid black;
+    border: 1px solid rgb(161, 159, 159);
     overflow: hidden;
     color: white;
     box-sizing: border-box;
@@ -247,45 +252,37 @@
     background-color: rgb(168, 195, 168);
 }
 
+
+.fifter-job h2:hover, .fifter-address h2:hover{
+    color: rgb(47, 239, 69);
+}
+
 .box-post {
     width: 78%;
-    height: 590px;
+    height: 591px;
     background-color: rgb(168, 195, 168);
     border-radius: 15px;
     border-top-right-radius: 15px;
-    display: flex;
     overflow: hidden;
-    justify-content: space-evenly;
-    align-items: center;
-    overflow-y: scroll;
+    overflow-y: scroll; 
+    border: 1px solid rgb(161, 159, 159);
+    align-content: flex-start;
 }
 
-.post {
-    width: 95%;
+.posts{
+    width: 97%;
     display: flex;
-    flex-direction: column;
     gap: 20px;
-    margin-top: 12%;
-    padding-bottom: 2%;
-}
-
-.post1 {
-    width: 100%;
-    display: flex;
+    margin-left: 16px;
+    margin-top: 10px;
+    margin-bottom: 26px;
+    flex-wrap: wrap;
     justify-content: space-between;
 }
 
-.left {
-    width: 48%;
-    background-color: white;
-    height: 120px;
-    display: flex;
-    justify-content: space-between;
-}
-
-.right {
-    width: 48%;
-    background-color: white;
+.post{
+    width: 49%;
+    background-color: rgb(240, 253, 236);
     height: 120px;
     display: flex;
     justify-content: space-between;
@@ -327,12 +324,21 @@
     justify-content: space-between;
 }
 
-.package {
-    border: 1px solid black;
-    padding: 0 10px;
+.title-content h3{
+    width: 58%;
 }
 
-.time-post p {
+.package{
+    width: 17%;
+    border: 1px solid black;
+    padding: 0 10px;
+    display: flex;
+    justify-content: center;
+    background-color: rgb(172, 250, 146);
+    margin-right: 75px;
+}
+
+.time-post{
     font-size: 12px;
 }
 
@@ -344,6 +350,13 @@
     flex-direction: column;
     justify-content: space-evenly;
     padding-left: 3px;
+}
+
+.content-post{
+    width: 375px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .promote {
@@ -361,7 +374,7 @@
 
 .body-foot {
     width: 100%;
-    height: 650px;
+    height: 600px;
     display: flex;
     justify-content: center;
     align-items: start;
@@ -369,7 +382,7 @@
 
 .advert {
     width: 90%;
-    height: 85%;
+    height: 95%;
     display: flex;
     justify-content: space-between;
 }
@@ -407,4 +420,15 @@
     color: white;
     padding: 7px;
     box-sizing: border-box;
+}
+.text-content{
+    font-size: 16px;
+    line-height: 1.2;
+    text-align: justify;
+}
+
+.text-content:first-letter{
+    font-size: 42px;
+    line-height: 38px;
+    float: left;
 }
