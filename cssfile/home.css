@@ -309,6 +309,9 @@
 
 .name {
     margin-top: 5px;
+    width: 200px;
+    display: flex;
+    justify-content: center;
 }
 
 .card-content {
