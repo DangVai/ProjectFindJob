@@ -7,8 +7,17 @@ if (!$connect) {
     die("Kết nối thất bại: " . mysqli_connect_error());
 }
 
+if (isset($_POST['search-button']))  {
+    $seTitle = $_POST['search-title'];
+    $seAddress = $_POST['search-address'];
+}
+else {
+    $seTitle = "";
+    $seAddress = "";
+}
+
 // Truy vấn dữ liệu
-$sql = "SELECT * FROM post";
+$sql = "SELECT * FROM post where linh_vuc like '%$seTitle%'  and dia_chi like '%$seAddress%'";
 $result = mysqli_query($connect, $sql);
 
 // Đảm bảo có dữ liệu

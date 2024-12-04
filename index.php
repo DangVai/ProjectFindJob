@@ -133,13 +133,13 @@ $total_pages = ceil($total_notifications['total'] / $limit);
                 <button>Thêm Bài +</button>
             </div>
             <div class="searchBox">
-                <div class="search-bar">
-                    <input type="text" class="search-job" placeholder="Tìm kiếm việc làm">
-                    <input type="text" class="search-address" placeholder="Địa chỉ">
-                    <button>
+                <form class="search-bar" method="POST" acction="index.php">
+                    <input name="search-title" type="text" class="search-job" placeholder="Tìm kiếm việc làm">
+                    <input name="search-address" type="text" class="search-address" placeholder="Địa chỉ">
+                    <button type="POST" name="search-button">
                         <i class="fa-solid fa-magnifying-glass"></i>
                     </button>
-                </div>
+                </form>
             </div>
         </div>
         <div class="body-content">
@@ -159,7 +159,7 @@ $total_pages = ceil($total_notifications['total'] / $limit);
                     <h2>Khác</h2>
                 </div>
             </div>
-            <div class="box-post">
+            <div class="box-post">   
                 <?php require_once "models/Post2.php" ?>
                 <div class="posts">
                     <?php foreach ($posts as $post): ?>
@@ -175,7 +175,7 @@ $total_pages = ceil($total_notifications['total'] / $limit);
                                     <img src="https://media.istockphoto.com/id/1142192548/vi/vec-to/h%E1%BB%93-s%C6%A1-avatar-ng%C6%B0%E1%BB%9Di-%C4%91%C3%A0n-%C3%B4ng-h%C3%ACnh-b%C3%B3ng-khu%C3%B4n-m%E1%BA%B7t-nam-ho%E1%BA%B7c-bi%E1%BB%83u-t%C6%B0%E1%BB%A3ng-b%E1%BB%8B-c%C3%B4-l%E1%BA%ADp-tr%C3%AAn-n%E1%BB%81n-tr%E1%BA%AFng.jpg?s=170667a&w=0&k=20&c=BJHP79YRvSNDATYVu-SDYae8UWCzGaave5JhBYxsjro="
                                         alt="">
                                 </div>
-                                <div class="name"><?php echo !empty($nameUser) ? $nameUser : "" ;?></div>
+                                <div class="name"><p><?php echo !empty($nameUser) ? $nameUser : "" ;?></p></div>
                             </div>
                             <div class="card-content">
                                 <div class="title-content">
@@ -256,6 +256,7 @@ $total_pages = ceil($total_notifications['total'] / $limit);
                         <div><i class="fa-brands fa-linkedin"></i></div>
                     </div>
                 </div>
+            </div>
         </div>
 
     <script src="jsfile/slideHomePage.js"></script>
