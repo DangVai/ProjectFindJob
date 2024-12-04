@@ -1,3 +1,14 @@
+<script>
+    // Kiểm tra tham số GET 'success' trong URL
+    const urlParams = new URLSearchParams(window.location.search);
+    const successMessage = urlParams.get('success');
+
+    if (successMessage === 'email_sent') {
+        // Hiển thị thông báo khi email gửi thành công
+        alert('Tài khoản của bạn đã đăng ký thành công.');
+    }
+</script>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -46,6 +57,10 @@
     <form action="../controllers/handlelogin.php" method="POST">
         <div class="container">
             <h2 class="text-center">Login</h2>
+
+            <?php if (!empty($messageText)): ?>
+                <p style="color: green;"><?= $messageText ?></p>
+            <?php endif; ?>
 
             <label for="email">Email:</label>
             <div class="form-group">
