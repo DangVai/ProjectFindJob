@@ -87,7 +87,7 @@ $total_pages = ceil($total_notifications['total'] / $limit);
                 <p><?php echo ($userName) ?></p>
                 <div class="dropdown-menu" id="account-menu">
                     <div>
-                        <a href=""><i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i> Profile</a>
+                        <a href="../public/profile.php"><i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i> Profile</a>
                     </div>
                     <div>
                         <a href=""><i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i> Settings</a>
@@ -130,8 +130,11 @@ $total_pages = ceil($total_notifications['total'] / $limit);
         </div>
         <div class="body-top">
             <div class="add">
-                <button>Thêm Bài +</button>
+                <a href="../public/edit_post.php">
+                    <button>Thêm Bài +</button>
+                </a>
             </div>
+
             <div class="searchBox">
                 <form class="search-bar" method="POST" acction="index.php">
                     <input name="search-title" type="text" class="search-job" placeholder="Tìm kiếm việc làm">
@@ -171,12 +174,17 @@ $total_pages = ceil($total_notifications['total'] / $limit);
                         }?>
                         <div class="post" data-address="<?php echo $post['dia_chi']; ?>" data-field="<?php echo $post['linh_vuc']; ?>">
                             <div class="card-profile">
-                                <div class="avatar">
-                                    <img src="https://media.istockphoto.com/id/1142192548/vi/vec-to/h%E1%BB%93-s%C6%A1-avatar-ng%C6%B0%E1%BB%9Di-%C4%91%C3%A0n-%C3%B4ng-h%C3%ACnh-b%C3%B3ng-khu%C3%B4n-m%E1%BA%B7t-nam-ho%E1%BA%B7c-bi%E1%BB%83u-t%C6%B0%E1%BB%A3ng-b%E1%BB%8B-c%C3%B4-l%E1%BA%ADp-tr%C3%AAn-n%E1%BB%81n-tr%E1%BA%AFng.jpg?s=170667a&w=0&k=20&c=BJHP79YRvSNDATYVu-SDYae8UWCzGaave5JhBYxsjro="
-                                        alt="">
-                                </div>
-                                <div class="name"><p><?php echo !empty($nameUser) ? $nameUser : "" ;?></p></div>
+                                <a href="../public/viewProfile.php?user_id=<?php echo $post['user_id'] ?>" >
+                                    <div class="avatar">
+                                        <img src="https://media.istockphoto.com/id/1142192548/vi/vec-to/h%E1%BB%93-s%C6%A1-avatar-ng%C6%B0%E1%BB%9Di-%C4%91%C3%A0n-%C3%B4ng-h%C3%ACnh-b%C3%B3ng-khu%C3%B4n-m%E1%BA%B7t-nam-ho%E1%BA%B7c-bi%E1%BB%83u-t%C6%B0%E1%BB%A3ng-b%E1%BB%8B-c%C3%B4-l%E1%BA%ADp-tr%C3%AAn-n%E1%BB%81n-tr%E1%BA%AFng.jpg?s=170667a&w=0&k=20&c=BJHP79YRvSNDATYVu-SDYae8UWCzGaave5JhBYxsjro="
+                                            alt="">
+                                    </div>
+                                    <div class="name">
+                                        <p><?php echo !empty($nameUser) ? $nameUser : ""; ?></p>
+                                    </div>
+                                </a>
                             </div>
+
                             <div class="card-content">
                                 <div class="title-content">
                                     <h3><?php echo $post["linh_vuc"]?></h3>
