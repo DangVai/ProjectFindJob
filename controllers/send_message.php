@@ -12,7 +12,20 @@ $userId = $_SESSION['user_id'];
 $userName = $_SESSION['username'];
 
 // Lấy danh sách người dùng khác
-$sql_users = "SELECT user_id, fullname FROM users WHERE user_id != ?";
+$sql_users = "
+    SELECT 
+        u.user_id, 
+        u.fullname, 
+        p.link_anh 
+    FROM 
+        users u
+    LEFT JOIN 
+        profile p 
+    ON 
+        u.user_id = p.user_id
+    WHERE 
+        u.user_id != ?
+";
 $stmt = mysqli_prepare($conn, $sql_users);
 mysqli_stmt_bind_param($stmt, "i", $userId);
 mysqli_stmt_execute($stmt);
@@ -56,10 +69,15 @@ if ($receiver_id) {
 
 // Lấy tin nhắn của bạn và người nhận đã chọn
 $sql_chats = "
-        SELECT c.*, u.fullname AS sender_name 
-        FROM chit_chat c
-        JOIN users u ON c.sender_id = u.user_id
-        WHERE (c.sender_id = ? AND c.receiver_id = ?) OR (c.sender_id = ? AND c.receiver_id = ?)
+        SELECT 
+            c.*,
+            u.fullname AS sender_name 
+        FROM 
+            chit_chat c
+        JOIN 
+            users u ON c.sender_id = u.user_id
+        WHERE 
+            (c.sender_id = ? AND c.receiver_id = ?) OR (c.sender_id = ? AND c.receiver_id = ?)
         ORDER BY c.sent_at ASC
     ";
 $stmt = mysqli_prepare($conn, $sql_chats);
@@ -68,11 +86,17 @@ mysqli_stmt_execute($stmt);
 $chats = mysqli_stmt_get_result($stmt);
 
 $sql_latest_chat = "
-        SELECT c.*, u.fullname AS sender_name 
-        FROM chit_chat c
-        JOIN users u ON c.sender_id = u.user_id
-        WHERE (c.sender_id = ? AND c.receiver_id = ?) OR (c.sender_id = ? AND c.receiver_id = ?)
-        ORDER BY c.sent_at DESC
+        SELECT 
+            c.*, 
+            u.fullname AS sender_name 
+        FROM 
+            chit_chat c
+        JOIN 
+            users u ON c.sender_id = u.user_id
+        WHERE 
+            (c.sender_id = ? AND c.receiver_id = ?) OR (c.sender_id = ? AND c.receiver_id = ?)
+        ORDER 
+            BY c.sent_at DESC
         LIMIT 1
     ";
 $stmt = mysqli_prepare($conn, $sql_latest_chat);
