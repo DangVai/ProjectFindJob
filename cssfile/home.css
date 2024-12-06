@@ -7,7 +7,7 @@
     width: 100%;
 }
 
-.box_slider{
+.box_slider {
     height: 700px;
     width: 100%;
     overflow: hidden;
@@ -71,7 +71,7 @@
     background-color: rgba(128, 128, 128, 0.5);
 }
 
-.title{
+.title {
     width: 800px;
     position: absolute;
     top: 30%;
@@ -80,7 +80,7 @@
     z-index: 2;
 }
 
-.title h1{
+.title h1 {
     color: white;
 }
 
@@ -129,6 +129,13 @@
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.add a {
+    color: black;
+    /* Đặt màu chữ là đen */
+    text-decoration: none;
+    /* Loại bỏ gạch chân */
 }
 
 .add button {
@@ -252,8 +259,8 @@
     background-color: rgb(168, 195, 168);
 }
 
-
-.fifter-job h2:hover, .fifter-address h2:hover{
+.fifter-job h2:hover,
+.fifter-address h2:hover {
     color: rgb(47, 239, 69);
 }
 
@@ -264,12 +271,12 @@
     border-radius: 15px;
     border-top-right-radius: 15px;
     overflow: hidden;
-    overflow-y: scroll; 
+    overflow-y: scroll;
     border: 1px solid rgb(161, 159, 159);
     align-content: flex-start;
 }
 
-.posts{
+.posts {
     width: 97%;
     display: flex;
     gap: 20px;
@@ -280,7 +287,7 @@
     justify-content: space-between;
 }
 
-.post{
+.post {
     width: 49%;
     background-color: rgb(240, 253, 236);
     height: 120px;
@@ -294,6 +301,13 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+}
+
+.card-profile {
+    color: black;
+    /* Đặt màu chữ là đen */
+    text-decoration: none;
+    /* Loại bỏ gạch chân */
 }
 
 .avatar {
@@ -327,11 +341,11 @@
     justify-content: space-between;
 }
 
-.title-content h3{
+.title-content h3 {
     width: 58%;
 }
 
-.package{
+.package {
     width: 17%;
     border: 1px solid black;
     padding: 0 10px;
@@ -341,7 +355,7 @@
     margin-right: 75px;
 }
 
-.time-post{
+.time-post {
     font-size: 12px;
 }
 
@@ -355,7 +369,7 @@
     padding-left: 3px;
 }
 
-.content-post{
+.content-post {
     width: 375px;
     white-space: nowrap;
     overflow: hidden;
@@ -424,13 +438,14 @@
     padding: 7px;
     box-sizing: border-box;
 }
-.text-content{
+
+.text-content {
     font-size: 16px;
     line-height: 1.2;
     text-align: justify;
 }
 
-.text-content:first-letter{
+.text-content:first-letter {
     font-size: 42px;
     line-height: 38px;
     float: left;

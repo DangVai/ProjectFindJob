@@ -8,6 +8,8 @@ include '../controllers/profile_data.php';
 <head>
     <meta charset="UTF-8">
     <title>Hồ Sơ Người Dùng</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
      <link rel="stylesheet" href="../cssfile/profile.css">
 
@@ -27,10 +29,10 @@ include '../controllers/profile_data.php';
       <div class="col-md-3 profile-menu">
         <img src="<?php echo htmlspecialchars($link_anh); ?>" alt="Ảnh đại diện" class="profile-image img-fluid rounded-circle mb-3">
         <div class="menu">
-          <a href="profile.php" style=" width: 260px;text-decoration: none; text-align: center;padding: 8px 10px;border-radius: 10px;box-shadow: 0 10px 6px rgba(0, 0, 0, 0.1);border: 1px solid black;">Thông tin</a>
-          <a href="edit.php" style=" width: 260px;text-decoration: none;text-align: center;padding: 8px 10px;border-radius: 10px;box-shadow: 0 10px 6px rgba(0, 0, 0, 0.1);border: 1px solid black;">Sửa hồ sơ</a>
+          <a href="profile.php" >Thông tin</a>
+          <a href="edit.php" >Sửa hồ sơ</a>
           <div class="settings-dropdown">
-            <a style=" width: 260px;text-decoration: none;text-align: center;padding: 8px 10px;border-radius: 10px;box-shadow: 0 10px 6px rgba(0, 0, 0, 0.1);border: 1px solid black;">Cài đặt</a>
+            <a >Cài đặt</a>
             <div class="dropdown-options">
               <a href="managePosts.php" >Quản lý bài đăng</a>
               <a href="#" class="change-password-link">Đổi mật khẩu</a>
@@ -43,29 +45,30 @@ include '../controllers/profile_data.php';
       <!-- Profile Info Column -->
       <div class="col-md-5 profile-info">
         <div class="info-box">
-          <p><strong>Họ và Tên:</strong> <?php echo htmlspecialchars($fullname); ?></p>
-        </div>
-        <div class="info-box">
-          <p><strong>Tên Đăng Nhập:</strong> <?php echo htmlspecialchars($username); ?></p>
-        </div>
-        <div class="info-box">
-          <p><strong>Mật Khẩu:</strong> <em>********</em> (không hiển thị)</p>
-        </div>
-        <div class="info-box">
-          <p><strong>Email:</strong> <?php echo htmlspecialchars($email); ?></p>
-        </div>
-        <div class="info-box">
-          <p><strong>Số Điện Thoại:</strong> <?php echo htmlspecialchars($phone); ?></p>
-        </div>
-        <div class="info-box">
-          <p><strong>Giới Tính:</strong> <?php echo htmlspecialchars($gender); ?></p>
-        </div>
-        <div class="info-box">
-          <p><strong>Ngày Sinh:</strong> <?php echo htmlspecialchars($birthday); ?></p>
-        </div>
-        <div class="info-box">
-          <p><strong>Địa Chỉ:</strong> <?php echo htmlspecialchars($address); ?></p>
-        </div>
+  <p><i class="fas fa-user"></i> <strong>Họ và Tên:</strong> <?php echo htmlspecialchars($fullname); ?></p>
+</div>
+<div class="info-box">
+  <p><i class="fas fa-user-tag"></i> <strong>Tên Đăng Nhập:</strong> <?php echo htmlspecialchars($username); ?></p>
+</div>
+<div class="info-box">
+  <p><i class="fas fa-lock"></i> <strong>Mật Khẩu:</strong> <em>********</em> (không hiển thị)</p>
+</div>
+<div class="info-box">
+  <p><i class="fas fa-envelope"></i> <strong>Email:</strong> <?php echo htmlspecialchars($email); ?></p>
+</div>
+<div class="info-box">
+  <p><i class="fas fa-phone"></i> <strong>Số Điện Thoại:</strong> <?php echo htmlspecialchars($phone); ?></p>
+</div>
+<div class="info-box">
+  <p><i class="fas fa-venus-mars"></i> <strong>Giới Tính:</strong> <?php echo htmlspecialchars($gender); ?></p>
+</div>
+<div class="info-box">
+  <p><i class="fas fa-birthday-cake"></i> <strong>Ngày Sinh:</strong> <?php echo htmlspecialchars($birthday); ?></p>
+</div>
+<div class="info-box">
+  <p><i class="fas fa-map-marker-alt"></i> <strong>Địa Chỉ:</strong> <?php echo htmlspecialchars($address); ?></p>
+</div>
+
       </div>
 
       <!-- Review Table Column -->

@@ -19,20 +19,20 @@
     height: 124px;
 }
 
-.dropdown-menu div{
+.dropdown-menu div {
     height: 25px;
     display: flex;
     align-items: center;
     background-color: rgb(6, 89, 23);
 }
 
-.dropdown-menu div a{
+.dropdown-menu div a {
     text-decoration: none;
     color: white;
     margin-left: 5px;
 }
 
-.dropdown-menu div:hover{
+.dropdown-menu div:hover {
     background-color: rgb(154, 247, 154);
 }
 
@@ -43,4 +43,3 @@
 .name-user p {
     color: white;
 }
-

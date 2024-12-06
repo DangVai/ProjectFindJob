@@ -17,6 +17,64 @@
     <link href="../bootstrap/css/sb-admin-2.min.css" rel="stylesheet">
 </head>
 <style>
+        /* Modal background */
+    .modal-overlay {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.5);
+        z-index: 999;
+    }
+
+    /* Modal content */
+    .modal-content {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background: white;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        width: 300px;
+        text-align: center;
+    }
+
+    /* Close button */
+    .close-modal {
+        display: block;
+        margin-left: auto;
+        margin-right: 0;
+        font-size: 18px;
+        background: none;
+        border: none;
+        color: red;
+        cursor: pointer;
+        position: absolute;
+        top: 10px;
+        right: 15px;
+    }
+
+    .modal-content h2 {
+        margin-top: 0;
+    }
+
+    .modal-content button {
+        margin-top: 10px;
+        background-color: #007bff;
+        color: white;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+    }
+
+    .modal-content button:hover {
+        background-color: #0056b3;
+    }
     .input-group-addon i {
         font-size: 16px;
         width: 33px;
@@ -43,8 +101,33 @@
         border-radius: 10px;
         color: #000000;
     }
-</style>
+        .input-group-addon i {
+        font-size: 16px;
+        width: 33px;
+        height: 37px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border: 1px solid #ced4da;
+        border-radius: 4px;
+        padding: 4px;
+        background-color: #ffffff;
+    }
 
+    .container {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 500px;
+        padding: 40px;
+        transform: translate(-50%, -50%);
+        box-sizing: border-box;
+        background-color: rgb(183 224 191 / 70%);
+        box-shadow: 2px 19px 25px 3px rgba(0, 0, 0, .6);
+        border-radius: 10px;
+        color: #000000;
+    }
+</style>
 <body>
     <form action="../controllers/AuthController.php" method="POST">
         <div class="container">
@@ -122,19 +205,32 @@
                 }
                 echo "</p>";
             }
-            ?>
+            ?>   
             <button type="submit" name="register" class="btn-primary">Register</button>
 
             <hr>
-            <a href="index.html" class="btn btn-google btn-user btn-block">
+            <a href="#" class="btn btn-google btn-user btn-block">
                 <i class="fab fa-google fa-fw"></i> Register with Google
             </a>
-            <a href="index.html" class="btn btn-facebook btn-user btn-block">
+            <a href="#" class="btn btn-facebook btn-user btn-block">
                 <i class="fab fa-facebook-f fa-fw"></i> Register with Facebook
             </a>
             <p>Already have an account? <a href="login.php">Login</a></p>
         </div>
     </form>
+<!-- Modal OTP -->
+<div id="otpModal" class="modal">
+    <div class="modal-content">
+        <span id="closeModal" class="close">&times;</span>
+        <form method="POST" action="../controllers/verify.php">
+            <label for="otp">Enter the OTP sent to your email:</label>
+            <input type="text" name="otp" required>
+            <input type="submit" name="verify_otp" value="Verify OTP">
+          </form>
+    </div>
+</div>
+
 </body>
+<script src="../jsfile/dangky.js"></script>
 
 </html>

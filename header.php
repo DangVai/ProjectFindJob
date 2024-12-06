@@ -22,7 +22,7 @@
         <p><?php echo ($userName) ?></p>
         <div class="dropdown-menu" id="account-menu">
             <div>
-                <a href=""><i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i> Profile</a>
+                <a href="../public/profile.php"><i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i> Profile</a>
             </div>
             <div>
                 <a href=""><i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i> Settings</a>
@@ -34,7 +34,7 @@
                 <a href="public/login.php"><i class="fas fa-sign-in-alt fa-sm fa-fw mr-2 text-gray-400"></i> Log in</a>
             </div>
             <div>
-                <a href="index.php"><i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i> Log out</a>
+                <a href="controllers/logout.php"><i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i> Log out</a>
             </div>
         </div>
     </div>
