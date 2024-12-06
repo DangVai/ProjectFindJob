@@ -40,15 +40,17 @@
 <body>
     <div class="form-container">
         <h2 class="text-center mb-4">Create New Post</h2>
-        <form action="../controllers/PostController.php" method="POST" enctype="multipart/form-data" onsubmit="confirmSubmission(event)">
+        <form action="../controllers/PostController.php" method="POST" enctype="multipart/form-data">
             <div class="mb-3">
                 <label for="postTitle" class="form-label">Post Title</label>
-                <input type="text" class="form-control" id="postTitle" name="postTitle" placeholder="Enter post title" required>
+                <input type="text" class="form-control" id="postTitle" name="postTitle" placeholder="Enter post title"
+                    required>
             </div>
 
             <div class="mb-3">
                 <label for="postContent" class="form-label">Post Content</label>
-                <textarea class="form-control" id="postContent" name="postContent" rows="5" placeholder="Enter post content" required></textarea>
+                <textarea class="form-control" id="postContent" name="postContent" rows="5"
+                    placeholder="Enter post content" required></textarea>
             </div>
 
             <div class="mb-3">
@@ -76,7 +78,8 @@
             <div class="mb-3">
                 <label for="priceRange" class="form-label">Price</label>
                 <div class="d-flex">
-                    <input type="number" class="form-control me-2" id="priceFrom" name="priceFrom" placeholder="Price" min="100" required>
+                    <input type="number" class="form-control me-2" id="priceFrom" name="priceFrom" placeholder="Price"
+                        min="100" required>
                 </div>
             </div>
 
@@ -85,14 +88,8 @@
                 <select class="form-select" id="goi" name="goi" required>
                     <option selected>Chọn gói</option>
                     <option value="Basic">Basic</option>
-                    <option value="Premium">Premium</option>
                     <option value="Vip">Vip</option>
                 </select>
-            </div>
-
-            <div class="mb-3">
-                <label for="phoneNumber" class="form-label">Phone Number</label>
-                <input type="tel" class="form-control" id="phoneNumber" name="phoneNumber" placeholder="Enter phone number" pattern="[0-9]{10}" required>
             </div>
 
             <div class="mb-3">
@@ -120,6 +117,25 @@
         </form>
     </div>
 
+    <script>
+        document.getElementById('goi').addEventListener('change', function () {
+            const selectedPackage = this.value;
+            let amount = 0;
+
+            // Xác định số tiền dựa trên gói
+            if (selectedPackage === 'Vip') {
+                amount = 2000;
+            } else if (selectedPackage === 'Basic') {
+                amount = 1000;
+            }
+
+            if (amount > 0) {
+                const redirectUrl = `../tc-lib-barcode-main/example/vnpay_payment.php?amount=${amount}`;
+                window.location.href = redirectUrl; // Điều hướng đến trang quét mã QR
+            }
+        });
+
+    </script>
 </body>
 
 </html>

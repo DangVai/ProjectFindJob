@@ -3,10 +3,8 @@
 session_start();
 
 // Kết nối cơ sở dữ liệu
-$host = "localhost";
-$db_name = "mydatabase";
-$username = "root";
-$password = "";
+require_once("../config/db.php");
+
 
 try {
     $conn = new PDO("mysql:host=$host;dbname=$db_name;", $username, $password);
@@ -90,11 +88,10 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $field = $_POST['field'] ?? null;
     $priceFrom = $_POST['priceFrom'] ?? null;
     $goi = $_POST['goi'] ?? null;
-    $phoneNumber = $_POST['phoneNumber'] ?? null;
     $location = $_POST['location'] ?? null;
     $postTitle = $_POST['postTitle'] ?? null;
 
-    if (!$postContent || !$role || !$field || !$priceFrom || !$goi || !$phoneNumber || !$location || !$postTitle) {
+    if (!$postContent || !$role || !$field || !$priceFrom || !$goi || !$location || !$postTitle) {
         die("Vui lòng điền đầy đủ thông tin bắt buộc.");
     }
 
@@ -107,8 +104,8 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $expireTime = date('Y-m-d H:i:s', strtotime("$thoiGian + 1 minute"));
 
     try {
-        $sql = "INSERT INTO post (user_id, role, price, linh_vuc, noi_dung, dia_chi, anh_cong_viec, goi_dang_ky, phone, title, expire_time, confirm_status) 
-                VALUES (:userId, :role, :priceFrom, :field, :postContent, :location, :imagePath, :goi, :phoneNumber, :postTitle, :expireTime, 0)";
+        $sql = "INSERT INTO post (user_id, role, price, linh_vuc, noi_dung, dia_chi, anh_cong_viec, goi_dang_ky,title,confirm_status) 
+                VALUES (:userId, :role, :priceFrom, :field, :postContent, :location, :imagePath, :goi, :postTitle, 0)";
         $stmt = $conn->prepare($sql);
         $stmt->execute([
             ':userId' => $_SESSION['user_id'],
@@ -119,13 +116,11 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             ':location' => $location,
             ':imagePath' => $imagePath,
             ':goi' => $goi,
-            ':phoneNumber' => $phoneNumber,
             ':postTitle' => $postTitle,
-            ':expireTime' => $expireTime,
         ]);
 
         echo "Bài đăng đã được gửi thành công và đang xử lý!";
-        header("Location: ../index.php");
+        header("Location: /index.php");
         exit;
     } catch (PDOException $e) {
         die("Lỗi truy vấn: " . $e->getMessage());
@@ -134,4 +129,6 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
 // Lấy danh sách bài viết đã duyệt
 $posts = getPosts();
+header("Location:../index.php");
+exit;
 ?>

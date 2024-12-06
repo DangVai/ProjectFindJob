@@ -34,7 +34,7 @@ include '../controllers/profile_data.php';
           <div class="settings-dropdown">
             <a >Cài đặt</a>
             <div class="dropdown-options">
-              <a href="managePosts.php" >Quản lý bài đăng</a>
+              <a href="edit_post.php" >Quản lý bài đăng</a>
               <a href="#" class="change-password-link">Đổi mật khẩu</a>
               <a href="#" class="text-danger">Xóa tài khoản</a>
             </div>

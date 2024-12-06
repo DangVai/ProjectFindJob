@@ -8,9 +8,7 @@ if (isset($_SESSION['username'])) {
 }
 ?>
 
-
 <?php
-
 require 'config/db.php';
 
 // Lấy thông tin user_id từ session 
@@ -44,8 +42,9 @@ $total_notifications = $conn->query("
     WHERE is_read = 0 AND user_id = $userId
 ")->fetch_assoc();
 $total_pages = ceil($total_notifications['total'] / $limit);
+require './controllers/display_post.php';
+////////////////////////////////////////////
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -57,10 +56,10 @@ $total_pages = ceil($total_notifications['total'] / $limit);
     <link rel="stylesheet" href="cssfile/home.css">
     <link rel="stylesheet" href="cssfile/account.css">
     <link rel="stylesheet" href="cssfile/footer.css">
-    <link rel="stylesheet" href="cssfile/profile.css">
-    <link rel="stylesheet" href="cssfile/edit.css">
     <link rel="stylesheet" href="cssfile/fix-header.css">
+    <link rel="stylesheet" href="cssfile/Post.css">
 </head>
+
 <body>
     <div class="container-homePage">
         <div class="header">
@@ -69,7 +68,7 @@ $total_pages = ceil($total_notifications['total'] / $limit);
             </div>
             <div class="nav">
                 <p><b>Home</b></p>
-                <p><b>About Us</b></p>
+                <p><b><a href="./public/about.php" style="color:#fff">About Us</a></b></p>
                 <p><b>Contact</b></p>
             </div>
             <div class="chatbox">
@@ -96,7 +95,8 @@ $total_pages = ceil($total_notifications['total'] / $limit);
                         <a href=""><i class="fas fa-list fa-sm fa-fw mr-2 text-gray-400"></i> Activity Log</a>
                     </div>
                     <div>
-                        <a href="public/login.php"><i class="fas fa-sign-in-alt fa-sm fa-fw mr-2 text-gray-400"></i> Log in</a>
+                        <a href="public/login.php"><i class="fas fa-sign-in-alt fa-sm fa-fw mr-2 text-gray-400"></i> Log
+                            in</a>
                     </div>
                     <div>
                         <a href="controllers/logout.php"><i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i> Log out</a>
@@ -130,9 +130,7 @@ $total_pages = ceil($total_notifications['total'] / $limit);
         </div>
         <div class="body-top">
             <div class="add">
-                <a href="../public/edit_post.php">
-                    <button>Thêm Bài +</button>
-                </a>
+                <button><a href="./public/create_post.php" style="color:#fff">Thêm Bài +</a></button>
             </div>
 
             <div class="searchBox">
@@ -156,116 +154,162 @@ $total_pages = ceil($total_notifications['total'] / $limit);
                 </div>
                 <div class="fifter-address">
                     <h1>Địa Chỉ</h1>
-                    <h2>Sơn Trà</h2>
+                    <h2>Son Tra</h2>
                     <h2>Cẩm Lệ</h2>
                     <h2>Liên Chiểu</h2>
                     <h2>Khác</h2>
                 </div>
             </div>
-            <div class="box-post">   
+            <div class="box-post">
                 <?php require_once "models/Post2.php" ?>
                 <div class="posts">
                     <?php foreach ($posts as $post): ?>
-                        <?php foreach ($posts_user as $user){
-                            if ($user["user_id"] == $post["user_id"]){
-                              $nameUser =  $user["fullname"];
-                              break;
+                        <?php
+                        $sql1 = "
+                            SELECT 
+                                profile.link_anh
+                            FROM profile
+                            WHERE user_id = :user_id
+                            ";
+
+                        $stmt1 = $conn->prepare($sql1);
+
+                        $stmt1->bindParam(':user_id', $post['user_id'], PDO::PARAM_INT);
+
+                        $stmt1->execute();
+
+                        $link_anh = $stmt1->fetch(PDO::FETCH_ASSOC);
+
+                        $avatarPath = !empty($link_anh['link_anh']) ? htmlspecialchars($link_anh['link_anh']) : './uploads/default_avatar.png';
+
+                        $nameUser = "";
+                        foreach ($posts_user as $user) {
+                            if ($user["user_id"] == $post["user_id"]) {
+                                $nameUser = $user["fullname"];
+                                break;
                             }
-                        }?>
-                        <div class="post" data-address="<?php echo $post['dia_chi']; ?>" data-field="<?php echo $post['linh_vuc']; ?>">
+                        }
+                        ;
+                        ?>
+                        <div class="post" data-address="<?php echo htmlspecialchars($post['dia_chi']); ?>"
+                            data-field="<?php echo htmlspecialchars($post['linh_vuc']); ?>">
                             <div class="card-profile">
-                                <a href="../public/viewProfile.php?user_id=<?php echo $post['user_id'] ?>" >
-                                    <div class="avatar">
-                                        <img src="https://media.istockphoto.com/id/1142192548/vi/vec-to/h%E1%BB%93-s%C6%A1-avatar-ng%C6%B0%E1%BB%9Di-%C4%91%C3%A0n-%C3%B4ng-h%C3%ACnh-b%C3%B3ng-khu%C3%B4n-m%E1%BA%B7t-nam-ho%E1%BA%B7c-bi%E1%BB%83u-t%C6%B0%E1%BB%A3ng-b%E1%BB%8B-c%C3%B4-l%E1%BA%ADp-tr%C3%AAn-n%E1%BB%81n-tr%E1%BA%AFng.jpg?s=170667a&w=0&k=20&c=BJHP79YRvSNDATYVu-SDYae8UWCzGaave5JhBYxsjro="
-                                            alt="">
-                                    </div>
-                                    <div class="name">
-                                        <p><?php echo !empty($nameUser) ? $nameUser : ""; ?></p>
-                                    </div>
-                                </a>
+                        <a href="../public/viewProfile.php?user_id=<?php echo $post['user_id'] ?>" >
+                            <div class="avatar">
+                                    <a href="public/viewProfile.php?user_id=<?php echo $post['user_id']; ?>">
+                                        <img src="<?php echo $avatarPath; ?>" alt="Avatar" class="rounded-circle" width="80"
+                                            height="80">
+                                    </a>
+                                </div>
+                                <div class="name">
+                                    <a href="public/viewProfile.php?user_id=<?php echo $post['user_id']; ?>">
+                                        <p style="color: #000"><?php echo !empty($nameUser) ? htmlspecialchars($nameUser) : ""; ?></p>
+                                    </a>
+                                </div>
                             </div>
 
                             <div class="card-content">
                                 <div class="title-content">
-                                    <h3><?php echo $post["linh_vuc"]?></h3>
-                                    <div class="package"><?php echo $post["goi_dang_ky"]?></div>
+                                    <h3><?php echo htmlspecialchars($post["linh_vuc"]); ?></h3>
+                                    <div class="package"><?php echo htmlspecialchars($post["goi_dang_ky"]); ?></div>
                                     <p class="time-post">
-                                        <?php echo $post["thoi_gian"]?>
+                                        <?php echo htmlspecialchars($post["thoi_gian"]); ?>
                                     </p>
                                 </div>
                                 <div class="main-content">
-                                    <p><b>Price: </b><?php echo $post["price"]?></p>
-                                    <p><b>Address:</b> <?php echo $post["dia_chi"]?></p>
-                                    <p class="content-post"><b>Content: </b><?php echo $post["noi_dung"]?></p>
+                                    <p><b>Price: </b><?php echo htmlspecialchars($post["price"]); ?></p>
+                                    <p><b>Address:</b> <?php echo htmlspecialchars($post["dia_chi"]); ?></p>
+                                    <p class="content-post"><b>Content:</b>
+                                        <?php echo htmlspecialchars($post["noi_dung"]); ?></p>
                                 </div>
                             </div>
+                            <button class="btn-link show-more-btn">
+                                    <a href="./public/details_job.php?id=<?php echo htmlspecialchars($post['id_post']); ?>">Xem
+                                        chi tiết</a>
+                                </button>
                         </div>
                     <?php endforeach; ?>
                 </div>
             </div>
+
         </div>
-        <div class="promote">
-            <h1>QUẢNG BÁ CÔNG VIỆC</h1>
-        </div>
-        <div class="body-foot">
-            <div class="advert">
-                <div class="card-advert">
-                    <div class="advert-img">
-                        <img src="https://kinhtenongthon.vn/data/data/baoinktnt/2023/05/05/8b.jpg" alt="">
-                    </div>
-                    <div class="advert-content">
-                        <p class="text-content">Người làm vườn thường làm việc ngoài trời, sử dụng các dụng cụ như xẻng, cuốc, kéo cắt cỏ để giữ cho cây cối và cảnh quan xanh tốt. Đây là công việc đòi hỏi sự kiên nhẫn, tỉ mỉ và tình yêu thiên nhiên, mang lại không gian sống trong lành và gần gũi với môi trường.</p>
-                    </div>
+    </div>
+    <div class="promote">
+        <h1>QUẢNG BÁ CÔNG VIỆC</h1>
+    </div>
+    <div class="body-foot">
+        <div class="advert">
+            <div class="card-advert">
+                <div class="advert-img">
+                    <img src="https://kinhtenongthon.vn/data/data/baoinktnt/2023/05/05/8b.jpg" alt="">
                 </div>
-                <div class="card-advert">
-                    <div class="advert-img">
-                        <img src="https://afamilycdn.com/150157425591193600/2023/9/20/vc3ac-sao-be1baa1n-ce1baa7n-thuc3aa-ngc6b0e1bb9di-trc3b4ng-tre1babb-te1baa1i-nhc3a03f-16951990556701460520031.jpg" alt="">
-                    </div>
-                    <div class="advert-content">
-                        <p class="text-content">Chăm sóc trẻ chuyên nghiệp và tận tâm, nơi các bé được yêu thương, học hỏi và phát triển trong một môi trường an toàn và ấm áp.  Với không gian vui nhộn, đầy màu sắc cùng các hoạt động giáo dục thú vị, chúng tôi cam kết mang đến cho các bé niềm vui mỗi ngày, giúp phụ huynh hoàn toàn yên tâm khi giao phó những thiên thần nhỏ của mình cho chúng tôi.</p>
-                    </div>
+                <div class="advert-content">
+                    <p class="text-content">Người làm vườn thường làm việc ngoài trời, sử dụng các dụng cụ như xẻng,
+                        cuốc, kéo cắt cỏ để giữ cho cây cối và cảnh quan xanh tốt. Đây là công việc đòi hỏi sự kiên
+                        nhẫn, tỉ mỉ và tình yêu thiên nhiên, mang lại không gian sống trong lành và gần gũi với môi
+                        trường.</p>
                 </div>
-                <div class="card-advert">
-                    <div class="advert-img">
-                        <img src="https://vesinhnhatoancau.com/wp-content/uploads/2022/01/don-nha-theo-gio-dan-phuong-1.jpg" alt="">
-                    </div>
-                    <div class="advert-content">
-                        <p class="text-content">Chúng tôi đảm bảo mang lại không gian sống và làm việc sạch sẽ, gọn gàng và trong lành. Dù là dọn dẹp nhà ở, văn phòng, hay các công trình lớn, chúng tôi luôn cam kết chất lượng vượt mong đợi, giúp bạn tiết kiệm thời gian và tận hưởng cuộc sống thoải mái hơn. Hãy để chúng tôi làm sạch, để bạn sống khỏe!</p>
-                    </div>
+            </div>
+            <div class="card-advert">
+                <div class="advert-img">
+                    <img src="https://afamilycdn.com/150157425591193600/2023/9/20/vc3ac-sao-be1baa1n-ce1baa7n-thuc3aa-ngc6b0e1bb9di-trc3b4ng-tre1babb-te1baa1i-nhc3a03f-16951990556701460520031.jpg"
+                        alt="">
+                </div>
+                <div class="advert-content">
+                    <p class="text-content">Chăm sóc trẻ chuyên nghiệp và tận tâm, nơi các bé được yêu thương, học
+                        hỏi và phát triển trong một môi trường an toàn và ấm áp. Với không gian vui nhộn, đầy màu
+                        sắc cùng các hoạt động giáo dục thú vị, chúng tôi cam kết mang đến cho các bé niềm vui mỗi
+                        ngày, giúp phụ huynh hoàn toàn yên tâm khi giao phó những thiên thần nhỏ của mình cho chúng
+                        tôi.</p>
+                </div>
+            </div>
+            <div class="card-advert">
+                <div class="advert-img">
+                    <img src="https://vesinhnhatoancau.com/wp-content/uploads/2022/01/don-nha-theo-gio-dan-phuong-1.jpg"
+                        alt="">
+                </div>
+                <div class="advert-content">
+                    <p class="text-content">Chúng tôi đảm bảo mang lại không gian sống và làm việc sạch sẽ, gọn gàng
+                        và trong lành. Dù là dọn dẹp nhà ở, văn phòng, hay các công trình lớn, chúng tôi luôn cam
+                        kết chất lượng vượt mong đợi, giúp bạn tiết kiệm thời gian và tận hưởng cuộc sống thoải mái
+                        hơn. Hãy để chúng tôi làm sạch, để bạn sống khỏe!</p>
                 </div>
             </div>
         </div>
-        <div class="top-footer"></div>
-        <div class="footer">
-            <div class="left-footer">
-                <h1>FindJob</h1>
-                <p>FindJob offers unparalleled efficiency in addressing the urgent needs of individuals, connecting them with trusted and professional experts who are dedicated to delivering exceptional service in every field.</p>
+    </div>
+    <div class="top-footer"></div>
+    <div class="footer">
+        <div class="left-footer">
+            <h1>FindJob</h1>
+            <p>FindJob offers unparalleled efficiency in addressing the urgent needs of individuals, connecting them
+                with trusted and professional experts who are dedicated to delivering exceptional service in every
+                field.</p>
+        </div>
+        <div class="right-footer">
+            <div class="components">
+                <h3>Components</h3>
+                <h5>Home</h5>
+                <h5>About Us</h5>
+                <h5>Contact</h5>
             </div>
-            <div class="right-footer">
-                <div class="components">
-                    <h3>Components</h3>
-                    <h5>Home</h5>
-                    <h5>About Us</h5>
-                    <h5>Contact</h5>
-                </div>
-                <div class="feature">
-                    <h3>Feature</h3>
-                    <h5>Post a job search</h5>
-                    <h5>Apply Jobs</h5>
-                    <h5>Job and address filters</h5>
-                    <h5>Post a job looking for a job</h5>
-                </div>
-                <div class="contact">
-                    <h3>Contact</h3>
-                    <div class="logo">
-                        <div><i class="fa-brands fa-facebook"></i></div>
-                        <div><i class="fa-brands fa-square-instagram"></i></div>
-                        <div><i class="fa-solid fa-envelope"></i></div>
-                        <div><i class="fa-brands fa-linkedin"></i></div>
-                    </div>
+            <div class="feature">
+                <h3>Feature</h3>
+                <h5>Post a job search</h5>
+                <h5>Apply Jobs</h5>
+                <h5>Job and address filters</h5>
+                <h5>Post a job looking for a job</h5>
+            </div>
+            <div class="contact">
+                <h3>Contact</h3>
+                <div class="logo">
+                    <div><i class="fa-brands fa-facebook"></i></div>
+                    <div><i class="fa-brands fa-square-instagram"></i></div>
+                    <div><i class="fa-solid fa-envelope"></i></div>
+                    <div><i class="fa-brands fa-linkedin"></i></div>
                 </div>
             </div>
         </div>
+    </div>
 
     <script src="jsfile/slideHomePage.js"></script>
     <script src="jsfile/account.js"></script>
