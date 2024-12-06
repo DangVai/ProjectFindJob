@@ -15,9 +15,52 @@ require_once "../controllers/send_message.php";
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css"
         integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
     <link rel="stylesheet" href="../cssfile/chat.css">
+    <link rel="stylesheet" href="../cssfile/fix-header.css">
 </head>
 
 <body>
+    <div class="header">
+    <div class="box_logo">
+        <img src="img/anh-weblogo.png" alt="">
+    </div>
+    <div class="nav">
+        <p><b><a href="../index.php">Home</a></b></p>
+        <p><b>About Us</b></p>
+        <p><b>Contact</b></p>
+    </div>
+    <div class="chatbox">
+        <a href="public/chat.php"><i class="fa-regular fa-comment-dots"></i></a>
+    </div>
+    <div class="inform">
+        <i class="fa-regular fa-bell"></i>
+    </div>
+    <div class="account">
+        <div class="box-account">
+            <i class="fa-regular fa-user"></i>
+        </div>
+    </div>
+    <div class="name-user">
+        <p><?php echo ($userName) ?></p>
+            <div class="dropdown-menu" id="account-menu">
+                <div>
+                    <a href="../public/profile.php"><i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i> Profile</a>
+                </div>
+                <div>
+                    <a href=""><i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i> Settings</a>
+                </div>
+                <div>
+                    <a href=""><i class="fas fa-list fa-sm fa-fw mr-2 text-gray-400"></i> Activity Log</a>
+                </div>
+                <div>
+                    <a href="public/login.php"><i class="fas fa-sign-in-alt fa-sm fa-fw mr-2 text-gray-400"></i> Log in</a>
+                </div>
+                <div>
+                    <a href="index.php"><i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i> Log out</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <a href="../index.php" class="back">back</a>
 
     <div class="container-fluid h-100">
