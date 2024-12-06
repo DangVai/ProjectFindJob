@@ -27,7 +27,7 @@ if (!$userData) {
 <body>
 <div class="container">
     <h1><i class="fas fa-user"></i> Hồ sơ của <?php echo htmlspecialchars($userData['fullname']); ?></h1>
-
+<img src="<?php echo htmlspecialchars($userData['profile_picture']); ?>" alt="Ảnh đại diện" class="img-thumbnail" width="150">
     <!-- Grid Bố Cục -->
     <div class="grid-container">
         <!-- Thông tin người dùng -->
@@ -72,16 +72,21 @@ if (!$userData) {
        <!-- Đánh giá -->
 <div class="reviews">
     <h2><i class="fas fa-comments"></i> Đánh giá</h2>
-    <?php foreach ($userData['reviews'] as $review): ?>
-        <div class="review">
-            <strong><?php echo htmlspecialchars($review['reviewer_name']); ?></strong>
-            <p>
-                <i class="fas fa-star"></i> Số sao: <?php echo htmlspecialchars($review['soSao']); ?>
-            </p>
-            <p><?php echo htmlspecialchars($review['content']); ?></p>
-        </div>
-    <?php endforeach; ?>
+    <?php if (isset($userData['reviews']) && is_array($userData['reviews']) && count($userData['reviews']) > 0): ?>
+        <?php foreach ($userData['reviews'] as $review): ?>
+            <div class="review">
+                <strong><?php echo htmlspecialchars($review['reviewer_name']); ?></strong>
+                <p>
+                    <i class="fas fa-star"></i> Số sao: <?php echo htmlspecialchars($review['soSao']); ?>
+                </p>
+                <p><?php echo htmlspecialchars($review['content']); ?></p>
+            </div>
+        <?php endforeach; ?>
+    <?php else: ?>
+        <p>Không có đánh giá nào.</p>
+    <?php endif; ?>
 </div>
+
 
     </div>
 

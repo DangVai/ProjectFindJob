@@ -86,7 +86,7 @@ require './controllers/display_post.php';
                 <p><?php echo ($userName) ?></p>
                 <div class="dropdown-menu" id="account-menu">
                     <div>
-                        <a href="../public/profile.php"><i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i> Profile</a>
+                        <a href="../ProjectFindJob/public/profile.php"><i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i> Profile</a>
                     </div>
                     <div>
                         <a href=""><i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i> Settings</a>

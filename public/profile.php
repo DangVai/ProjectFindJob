@@ -34,7 +34,7 @@ include '../controllers/profile_data.php';
           <div class="settings-dropdown">
             <a >Cài đặt</a>
             <div class="dropdown-options">
-              <a href="edit_post.php" >Quản lý bài đăng</a>
+              <a href="managePosts.php" >Quản lý bài đăng</a>
               <a href="#" class="change-password-link">Đổi mật khẩu</a>
               <a href="#" class="text-danger">Xóa tài khoản</a>
             </div>
@@ -72,35 +72,28 @@ include '../controllers/profile_data.php';
       </div>
 
       <!-- Review Table Column -->
-      <div class="col-md-4">
-        <div class="info-box">
-          <h3>Đánh giá</h3>
-          <div class="review-table" style="max-height: 300px; overflow-y: auto;">
-            <?php if ($result_review->num_rows > 0) {
-              echo '<table class="table table-striped">';
-              echo '<thead><tr><th>ID</th><th>Số Sao</th><th>Nội Dung</th></tr></thead>';
-              echo '<tbody>';
-              while ($row = $result_review->fetch_assoc()) {
-                echo '<tr>';
-                echo '<td>' . $row['preview_id'] . '</td>';
-                echo '<td>' . $row['soSao'] . '</td>';
-                echo '<td>' . $row['content'] . '</td>';
-                echo '</tr>';
-              }
-              echo '</tbody>';
-              echo '</table>';
-            } else {
-              echo '<p>Chưa có đánh giá nào.</p>';
-            } ?>
-          </div>
-        </div>
-      </div>
+      <div class="col-md-4 reviews">
+      <h2><i class="fas fa-comments"></i> Đánh giá</h2>
+      <?php if (isset($reviews) && is_array($reviews) && count($reviews) > 0): ?>
+        <?php foreach ($reviews as $index => $review): ?>
+          <?php if ($index < 3): // Hiển thị tối đa 3 đánh giá ?>
+            <div class="review">
+              <strong><?php echo htmlspecialchars($review['reviewer_name']); ?></strong>
+              <p>
+                <i class="fas fa-star"></i> Số sao: <?php echo htmlspecialchars($review['soSao']); ?>
+              </p>
+              <p><?php echo htmlspecialchars($review['content']); ?></p>
+            </div>
+          <?php endif; ?>
+        <?php endforeach; ?>
+      <?php else: ?>
+        <p>Không có đánh giá nào.</p>
+      <?php endif; ?>
+    </div>
+
     </div>
   </div>
 </div>
-
-
-
 <!-- Modal đổi mật khẩu -->
 <div id="changePasswordModal" class="mk" style="display: none;">
     <div class="mk-content">

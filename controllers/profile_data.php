@@ -6,7 +6,7 @@ if (isset($_GET['message']) && $_GET['message'] === 'success') {
     $success_message = "Đã cập nhật thành công!";
 }
 
-$conn = mysqli_connect("localhost", "root", "1234", "mydatabase");
+$conn = mysqli_connect("localhost", "root", "", "mydatabase");
 
 if (!$conn) {
     die("Kết nối thất bại: " . mysqli_connect_error());
@@ -76,8 +76,17 @@ if ($result_profile->num_rows > 0) {
     $birthday = 'Chưa cập nhật';}
 $stmt_profile->close();
 
-// Lấy đánh giá
-$sql_review = "SELECT * FROM preview WHERE user_id = ?";
+// Lấy đánh giá và thông tin người đánh giá
+$sql_review = "
+    SELECT 
+        p.soSao, 
+        p.content, 
+        u.fullname AS reviewer_name
+    FROM 
+        preview p
+    JOIN users u ON p.user_id = u.user_id
+    WHERE p.rated_user_id = ?
+";
 $stmt_review = $conn->prepare($sql_review);
 $stmt_review->bind_param("i", $user_id);
 $stmt_review->execute();
@@ -89,4 +98,5 @@ while ($row = $result_review->fetch_assoc()) {
 }
 
 $stmt_review->close();
+
 ?>
