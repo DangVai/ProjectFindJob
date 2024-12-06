@@ -35,25 +35,28 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $role = $_POST['role'];
     $field = $_POST['field'];
     $priceFrom = $_POST['priceFrom'];
-    $goi_dang_ky = $_POST['goi'];  // Sử dụng đúng tên cột
-    $phoneNumber = $_POST['phoneNumber'];
+    $goi_dang_ky = $_POST['goi'];
     $location = $_POST['location'];
 
     // Xử lý ảnh upload
     if ($_FILES['postImage']['name']) {
-        // $image = '../uploads/'
-        $image = '' . basename($_FILES['postImage']['name']);
-        if (move_uploaded_file($_FILES['postImage']['tmp_name'], $image)) {
+        $targetDir = '../controllers/uploadss/';
+        $imageName = basename($_FILES['postImage']['name']);
+        $targetFilePath = $targetDir . $imageName;
+
+        // Kiểm tra và di chuyển ảnh vào thư mục đích
+        if (move_uploaded_file($_FILES['postImage']['tmp_name'], $targetFilePath)) {
+            $image = $imageName; // Lưu tên tệp vào cơ sở dữ liệu
             echo "Ảnh đã được tải lên thành công.";
         } else {
             echo "Lỗi tải ảnh.";
+            $image = $post['anh_cong_viec']; // Giữ ảnh cũ nếu không tải lên được
         }
     } else {
-        // Nếu không có ảnh mới, giữ lại ảnh cũ
-        $image = $post['anh_cong_viec'];
+        $image = $post['anh_cong_viec']; // Giữ lại ảnh cũ nếu không tải lên ảnh mới
     }
 
-    $updateQuery = "UPDATE post SET title = ?, role = ?, price = ?, linh_vuc = ?, noi_dung = ?, dia_chi = ?, anh_cong_viec = ?, goi_dang_ky = ?, phone = ? WHERE id_post = ?";
+    $updateQuery = "UPDATE post SET title = ?, role = ?, price = ?, linh_vuc = ?, noi_dung = ?, dia_chi = ?, anh_cong_viec = ?, goi_dang_ky = ? WHERE id_post = ?";
     $updateStmt = $conn->prepare($updateQuery);
 
     // Kiểm tra nếu câu lệnh chuẩn bị thành công
@@ -63,7 +66,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     }
 
     // Bind các tham số cho câu truy vấn
-    $updateStmt->bind_param("sssssssssi", $postTitle, $role, $priceFrom, $field, $postContent, $location, $image, $goi_dang_ky, $phoneNumber, $postId);
+    $updateStmt->bind_param("ssssssssi", $postTitle, $role, $priceFrom, $field, $postContent, $location, $image, $goi_dang_ky, $postId);
+
     $updateStmt->execute();
 
     // Kiểm tra nếu cập nhật thành công
@@ -73,7 +77,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         echo "Không có thay đổi.";
     }
     header("Location: /index.php");
-        exit;
+    exit;
 }
 ?>
 
@@ -88,9 +92,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 </head>
 <body>
     <div class="container mt-5">
-        
         <form action="../public/edit_post.php?id=<?php echo $postId; ?>" method="POST" enctype="multipart/form-data">
-        <h2>Edit Post</h2>
+            <h2>Edit Post</h2>
             <div class="mb-3">
                 <label for="postTitle" class="form-label">Post Title</label>
                 <input type="text" class="form-control" id="postTitle" name="postTitle" value="<?php echo htmlspecialchars($post['title']); ?>" required>
@@ -136,11 +139,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             </div>
 
             <div class="mb-3">
-                <label for="phoneNumber" class="form-label">Phone Number</label>
-                <input type="tel" class="form-control" id="phoneNumber" name="phoneNumber" value="<?php echo $post['phone']; ?>" pattern="[0-9]{10}" required>
-            </div>
-
-            <div class="mb-3">
                 <label for="location" class="form-label">Location</label>
                 <select class="form-select" id="location" name="location" required>
                     <option value="Son Tra" <?php if ($post['dia_chi'] == 'Son Tra') echo 'selected'; ?>>Son Tra</option>
@@ -156,7 +154,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             <div class="mb-3">
                 <label for="postImage" class="form-label">Upload Image</label>
                 <input class="form-control" type="file" id="postImage" name="postImage">
-                <small>Hiện tại ảnh: <img src="../controllers/uploadss/ <?php echo $post['anh_cong_viec']; ?>" width="100" alt="Current Image"></small>
+                <small>Hiện tại ảnh: <img src="../controllers/uploadss/<?php echo $post['anh_cong_viec']; ?>" width="100" alt="Current Image"></small>
             </div>
 
             <button type="submit" class="btn btn-primary">Update post</button>

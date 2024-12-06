@@ -1,0 +1,18 @@
+
+.post{
+    position: relative;
+}
+.show-more-btn{
+    position: absolute;
+    bottom: 5px;
+    right: 5px;
+    border: none;
+    padding: 5px;
+}
+.show-more-btn a{
+    color: #000;
+}
+.btn-link{
+    background-color: #98FB98;
+    border-radius: 5px;
+}

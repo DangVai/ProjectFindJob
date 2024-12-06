@@ -165,7 +165,7 @@ try {
             ?>
             <tr>
                 <td>
-                    <img src="<?php echo "../public" . htmlspecialchars($avatarPath); ?>" alt="Avatar" width="50" height="50" class="rounded-circle">
+                    <img src="<?php echo htmlspecialchars($avatarPath); ?>" alt="Avatar" width="50" height="50" class="rounded-circle">
                 </td>
                 <td><?php echo htmlspecialchars($post['fullname']); ?></td>
                 <td><?php echo htmlspecialchars($post['title']); ?></td>

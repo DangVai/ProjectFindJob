@@ -288,11 +288,14 @@
 }
 
 .post {
+    padding: 10px;
     width: 49%;
-    background-color: rgb(240, 253, 236);
+    /* background-color: rgb(240, 253, 236); */
+    background-color: #fff;
     height: 120px;
     display: flex;
     justify-content: space-between;
+    border-radius: 5px;
 }
 
 .card-profile {
@@ -313,12 +316,13 @@
 .avatar {
     height: 75%;
     width: 80%;
-    border: 1px solid black;
 }
 
 .avatar img {
     height: 100%;
     width: 100%;
+    border-radius: 50%;
+    object-fit: cover;
 }
 
 .name {
@@ -362,7 +366,6 @@
 .main-content {
     height: 70%;
     width: 98%;
-    border: 1px solid black;
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
@@ -449,4 +452,10 @@
     font-size: 42px;
     line-height: 38px;
     float: left;
+
+}
+
+
+a{
+    text-decoration: none;
 }

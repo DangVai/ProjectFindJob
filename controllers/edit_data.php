@@ -3,7 +3,7 @@ session_start();
 
 require_once '../config/db.php';
 
-$conn = mysqli_connect("localhost", "root", "", "mydatabase");
+$conn = mysqli_connect("localhost", "root", "1234", "mydatabase");
 
 if (!$conn) {
     die("Kết nối thất bại: " . mysqli_connect_error());

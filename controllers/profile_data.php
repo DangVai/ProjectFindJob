@@ -6,7 +6,7 @@ if (isset($_GET['message']) && $_GET['message'] === 'success') {
     $success_message = "Đã cập nhật thành công!";
 }
 
-$conn = mysqli_connect("localhost", "root", "", "mydatabase");
+$conn = mysqli_connect("localhost", "root", "1234", "mydatabase");
 
 if (!$conn) {
     die("Kết nối thất bại: " . mysqli_connect_error());
