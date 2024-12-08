@@ -14,7 +14,7 @@ include '../controllers/edit_data.php';
   <div class="container-fluid d-flex flex-column justify-content-start align-items-center">
     <!-- Phần Tiêu Đề -->
     <div class="text-center w-100">
-      <h1 class="mb-3 pt-4 text-black">Chỉnh sửa hồ sơ</h1>
+    <h1 class="mb-3 pt-4 text-black">Edit Profile</h1>
     </div>
 
     <!-- Profile Container -->
@@ -22,46 +22,47 @@ include '../controllers/edit_data.php';
       <div class="row gx-5">
         <!-- Profile Edit Form Column -->
         <div class="col-md-8 col-lg-9">
-          <form method="post" action="../controllers/edit_data.php" enctype="multipart/form-data"style="margin-left: 145px;">
-            <div class="form-group">
-              <label for="fullname">Họ và Tên:</label>
-              <input type="text" class="form-control" id="fullname" name="fullname" value="<?php echo htmlspecialchars($fullname); ?>" required>
-            </div>
-            <div class="form-group">
-              <label for="username">Tên Đăng Nhập:</label>
-              <input type="text" class="form-control" id="username" name="username" value="<?php echo htmlspecialchars($username); ?>" required>
-            </div>
-            <div class="form-group">
-              <label for="email">Email:</label>
-              <input type="email" class="form-control" id="email" name="email" value="<?php echo htmlspecialchars($email); ?>" required>
-            </div>
-            <div class="form-group">
-              <label for="phone">Số Điện Thoại:</label>
-              <input type="text" class="form-control" id="phone" name="phone" value="<?php echo htmlspecialchars($phone); ?>">
-            </div>
-            <div class="form-group">
-              <label for="gender">Giới Tính:</label>
-              <select class="form-control" id="gender" name="gender">
-                <option value="Nam" <?php echo ($gender == 'Nam') ? 'selected' : ''; ?>>Nam</option>
-                <option value="Nữ" <?php echo ($gender == 'Nữ') ? 'selected' : ''; ?>>Nữ</option>
-                <option value="Khác" <?php echo ($gender == 'Khác') ? 'selected' : ''; ?>>Khác</option>
-              </select>
-            </div>
-            <div class="form-group">
-              <label for="birthday">Ngày Sinh:</label>
-              <input type="date" class="form-control" id="birthday" name="birthday" value="<?php echo htmlspecialchars($birthday); ?>">
-            </div>
-            <div class="form-group">
-              <label for="address">Địa Chỉ:</label>
-              <input type="text" class="form-control" id="address" name="address" value="<?php echo htmlspecialchars($address); ?>" required>
-            </div>
-            <div class="form-group">
-              <label for="profile_image">Ảnh Đại Diện:</label>
-              <input type="file" class="form-control-file" id="profile_image" name="profile_image">
-            </div>
-            <button type="submit" class="btn btn-primary">Cập Nhật</button>
-            <a href="profile.php" class="btn btn-secondary">Quay Lại Hồ Sơ</a>
-          </form>
+        <form method="post" action="../controllers/edit_data.php" enctype="multipart/form-data" style="margin-left: 145px;">
+    <div class="form-group">
+        <label for="fullname">Full Name:</label>
+        <input type="text" class="form-control" id="fullname" name="fullname" value="<?php echo htmlspecialchars($fullname); ?>" required>
+    </div>
+    <div class="form-group">
+        <label for="username">Username:</label>
+        <input type="text" class="form-control" id="username" name="username" value="<?php echo htmlspecialchars($username); ?>" required>
+    </div>
+    <div class="form-group">
+        <label for="email">Email:</label>
+        <input type="email" class="form-control" id="email" name="email" value="<?php echo htmlspecialchars($email); ?>" required>
+    </div>
+    <div class="form-group">
+        <label for="phone">Phone Number:</label>
+        <input type="text" class="form-control" id="phone" name="phone" value="<?php echo htmlspecialchars($phone); ?>">
+    </div>
+    <div class="form-group">
+        <label for="gender">Gender:</label>
+        <select class="form-control" id="gender" name="gender">
+            <option value="Male" <?php echo ($gender == 'Nam') ? 'selected' : ''; ?>>Male</option>
+            <option value="Female" <?php echo ($gender == 'Nữ') ? 'selected' : ''; ?>>Female</option>
+            <option value="Other" <?php echo ($gender == 'Khác') ? 'selected' : ''; ?>>Other</option>
+        </select>
+    </div>
+    <div class="form-group">
+        <label for="birthday">Birthday:</label>
+        <input type="date" class="form-control" id="birthday" name="birthday" value="<?php echo htmlspecialchars($birthday); ?>">
+    </div>
+    <div class="form-group">
+        <label for="address">Address:</label>
+        <input type="text" class="form-control" id="address" name="address" value="<?php echo htmlspecialchars($address); ?>" required>
+    </div>
+    <div class="form-group">
+        <label for="profile_image">Profile Image:</label>
+        <input type="file" class="form-control-file" id="profile_image" name="profile_image">
+    </div>
+    <button type="submit" class="btn btn-primary">Update</button>
+    <a href="profile.php" class="btn btn-secondary">Back to Profile</a>
+</form>
+
         </div>
       </div>
     </div>

@@ -1,0 +1,143 @@
+/* Thiết lập chung cho toàn bộ trang */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f8ff; 
+    margin: 0;
+    padding: 0;
+    color: #333;
+}
+.containers{
+    display: flex;
+
+}
+.container {
+    width: 80%;
+    margin: 0 auto;
+    padding: 20px 0;
+    text-align: center;
+}
+
+/* Tiêu đề trang */
+.title_full {
+    position: relative;
+    background: url('https://t4.ftcdn.net/jpg/04/43/90/27/360_F_443902791_eZJrvfgUdZqQki9HwrQooIjacppP3EJ6.jpg') no-repeat center center;
+    background-size: cover; 
+    padding: 50px 0; 
+    text-align: center;
+    color: white; 
+    /* opacity: 0.5; */
+}
+
+.title_page {
+    font-size: 50px;
+    font-weight: bold;
+}
+.tittle{
+    text-align: center;
+}
+/* Đường dẫn breadcrumb */
+.bread-crumb ul {
+    list-style: none;
+    padding: 0;
+    display: inline-block;
+}
+
+.bread-crumb ul li {
+    display: inline;
+    font-size: 20px;
+}
+
+.bread-crumb ul li a {
+    text-decoration: none;
+    color: #29b79f;
+  
+}
+
+.bread-crumb ul li a:hover {
+    text-decoration: underline;
+}
+
+/* Thông tin liên hệ */
+.infor ul {
+    list-style: none;
+    padding: 20px;
+}
+
+.infor li {
+    margin: 20px 0;
+    font-size: 16px;
+}
+
+.infor a {
+    text-decoration: none;
+    color: #333;
+    font-size: 20px;
+}
+
+.infor a:hover {
+    color: #0078d7;
+}
+
+/* Form liên hệ */
+.form-signup {
+    background-color: white;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    max-width: 600px;
+    margin: 20px auto;
+}
+
+fieldset {
+    border: none;
+    margin: 15px 0;
+}
+
+.form-control {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #d1d1d1;
+    border-radius: 4px;
+}
+
+textarea {
+    resize: none;
+}
+
+/* Nút gửi liên hệ */
+.submit-button {
+    text-align: center;
+}
+
+.btn-submit {
+    background-color: #60fe4f;
+    background-image: linear-gradient(to right, #4ffe9e, #26fe00);
+    color: white;
+    font-size: 18px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.btn-submit:hover {
+    background-color: #0078d7;
+}
+
+/* Khung Google Map */
+iframe {
+    width: 100%;
+    border-radius: 8px;
+    margin-top: 20px;
+    padding-left: 20px;
+}
+i{
+   color: #29b79f; 
+   margin-left: 10px;
+}
+span{
+    text-decoration: none;
+    color: #fff;
+}

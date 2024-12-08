@@ -21,7 +21,7 @@ require_once "../controllers/send_message.php";
 <body>
     <div class="header">
     <div class="box_logo">
-        <img src="img/anh-weblogo.png" alt="">
+        <img src="../img/anh-weblogo.png" alt="">
     </div>
     <div class="nav">
         <p><b><a href="../index.php">Home</a></b></p>

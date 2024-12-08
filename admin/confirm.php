@@ -56,7 +56,7 @@
         echo "<p class='post-info'><b>By:</b> " . $row['user_id'] . " | <b>Time:</b> " . $row['thoi_gian'] . "</p>";
         echo "<p><b>Salary:</b> " . $row['price'] . " | <b>Field:</b> " . $row['linh_vuc'] . "</p>";
         echo "<p><b>Location:</b> " . $row['dia_chi'] . "</p>";
-        echo "<img src='../images/" . $row['anh_cong_viec'] . "' alt='Image' width='100'>";
+        echo "<img src='../controllers/uploadss/". $row['anh_cong_viec'] . "' alt='Image' width='100'>";
         echo "<p><b>Subscription Plan:</b> " . $row['goi_dang_ky'] . "</p>";
         echo "<div class='post-actions'>";
         echo "<a class='button approve' href='?id=" . $row['id_post'] . "&status=1'>Duyệt bài</a> | ";

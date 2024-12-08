@@ -1,35 +1,79 @@
-/* Đảm bảo body có chiều cao toàn màn hình */
-
-body,
-html {
-    height: 100%;
-    margin: 0;
-}
-
-
-/* Căn giữa container */
-
-.container {
+body {
+    background-color: #f8f9fa; /* Màu nền nhạt */
+    font-family: Arial, sans-serif;
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100%;
-    overflow-y: auto;
-    /* Cho phép cuộn dọc */
+    min-height: 100vh;
+    margin: 0;
 }
 
-
-/* Đảm bảo container có chiều cao tối đa và cuộn khi cần */
-
-.container form {
-    max-height: 80vh;
-    /* 80% chiều cao màn hình */
-    overflow-y: auto;
-    /* Cuộn dọc nếu nội dung quá dài */
-    width: 100%;
-    padding: 20px;
+.container {
+    max-width: 600px;
     background-color: #fff;
-    /* Thêm nền trắng để dễ nhìn */
+    padding: 20px;
     border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    width: 100%;
+}
+
+h2 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 20px;
+    font-weight: bold;
+}
+
+.form-label {
+    font-weight: bold;
+    color: #555;
+}
+
+input[type="text"],
+input[type="number"],
+textarea,
+select {
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    padding: 10px;
+    width: 100%;
+    box-sizing: border-box;
+    transition: border-color 0.3s ease-in-out;
+}
+
+input[type="text"]:focus,
+input[type="number"]:focus,
+textarea:focus,
+select:focus {
+    border-color: #007bff;
+    outline: none;
+}
+
+button {
+    width: 100%;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 10px 15px;
+    font-size: 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+small {
+    display: block;
+    margin-top: 5px;
+    font-size: 14px;
+    color: #666;
+}
+
+img {
+    margin-top: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
 }

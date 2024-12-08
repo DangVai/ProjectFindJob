@@ -2,7 +2,7 @@
 require_once '../config/db.php';
 require_once '../controllers/getProfileData.php';
 
-$conn = new mysqli('localhost', 'root', '', 'mydatabase');
+$conn = new mysqli('localhost', 'root', '1234', 'mydatabase');
 if ($conn->connect_error) {
     die("Kết nối không thành công: " . $conn->connect_error);
 }
@@ -27,7 +27,7 @@ if (!$userData) {
 <body>
 <div class="container">
     <h1><i class="fas fa-user"></i> Hồ sơ của <?php echo htmlspecialchars($userData['fullname']); ?></h1>
-
+<img src="<?php echo htmlspecialchars($userData['profile_picture']); ?>" alt="Ảnh đại diện" class="img-thumbnail" width="150">
     <!-- Grid Bố Cục -->
     <div class="grid-container">
         <!-- Thông tin người dùng -->
@@ -48,40 +48,47 @@ if (!$userData) {
             <div class="review-form">
                 <span class="close-btn" id="closeReviewForm">&times;</span>
                 <h3><i class="fas fa-pencil-alt"></i> Viết đánh giá</h3>
-                <form method="POST" action="../controllers/saveReview.php">
-                    <input type="hidden" name="rated_user_id" value="<?php echo htmlspecialchars($userId); ?>">
+            <form method="POST" action="../controllers/saveReview.php">
+            <input type="hidden" name="id_post" value="ID_BAI_VIET">
+                <input type="hidden" name="rated_user_id" value="<?php echo $userId; ?>">
+                <div class="stars">
+                    <input type="radio" name="soSao" id="star1" value="1" required>
+                    <label class="star" for="star1">&#9733;</label>
+                    <input type="radio" name="soSao" id="star2" value="2">
+                    <label class="star" for="star2">&#9733;</label>
+                    <input type="radio" name="soSao" id="star3" value="3">
+                    <label class="star" for="star3">&#9733;</label>
+                    <input type="radio" name="soSao" id="star4" value="4">
+                    <label class="star" for="star4">&#9733;</label>
+                    <input type="radio" name="soSao" id="star5" value="5">
+                    <label class="star" for="star5">&#9733;</label>
+                </div>
+                <textarea name="content" placeholder="Nội dung đánh giá..." required></textarea>
+                <button type="submit"><i class="fas fa-paper-plane"></i> Gửi Đánh Giá</button>
+        </form>
 
-                    <div class="stars">
-                        <input type="radio" name="soSao" id="star1" value="1" required>
-                        <label class="star" for="star1">&#9733;</label>
-                        <input type="radio" name="soSao" id="star2" value="2">
-                        <label class="star" for="star2">&#9733;</label>
-                        <input type="radio" name="soSao" id="star3" value="3">
-                        <label class="star" for="star3">&#9733;</label>
-                        <input type="radio" name="soSao" id="star4" value="4">
-                        <label class="star" for="star4">&#9733;</label>
-                        <input type="radio" name="soSao" id="star5" value="5">
-                        <label class="star" for="star5">&#9733;</label>
-                    </div>
-                    <textarea name="content" placeholder="Nội dung đánh giá..." required></textarea>
-                    <button type="submit"><i class="fas fa-paper-plane"></i> Gửi Đánh Giá</button>
-                </form>
             </div>
         </div>
  </div>
        <!-- Đánh giá -->
-<div class="reviews">
-    <h2><i class="fas fa-comments"></i> Đánh giá</h2>
-    <?php foreach ($userData['reviews'] as $review): ?>
-        <div class="review">
-            <strong><?php echo htmlspecialchars($review['reviewer_name']); ?></strong>
-            <p>
-                <i class="fas fa-star"></i> Số sao: <?php echo htmlspecialchars($review['soSao']); ?>
-            </p>
-            <p><?php echo htmlspecialchars($review['content']); ?></p>
+        <div class="reviews">
+            <h2><i class="fas fa-comments"></i> Đánh giá</h2>
+            <?php if (!empty($userData['reviews'])): ?>
+                <?php foreach ($userData['reviews'] as $review): ?>
+                    <div class="review">
+                        <strong><?php echo htmlspecialchars($review['reviewer_name']); ?></strong>
+                        <p>
+                            <i class="fas fa-star"></i> Số sao: <?php echo htmlspecialchars($review['soSao']); ?>
+                        </p>
+                        <p><?php echo htmlspecialchars($review['content']); ?></p>
+                    </div>
+                <?php endforeach; ?>
+            <?php else: ?>
+                <p>Không có đánh giá nào.</p>
+            <?php endif; ?>
         </div>
-    <?php endforeach; ?>
-</div>
+
+
 
     </div>
 

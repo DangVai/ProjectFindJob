@@ -14,9 +14,9 @@
         <header>
             <ul>
                 <li>
-                    <a href="">Home</a>
-                    <a href="">About Us</a>
-                    <a href="">Contact</a>
+                    <a href="../index.php">Home</a>
+                    <a href="#">About Us</a>
+                    <a href="../public/contact.php">Contact</a>
                 </li>
             </ul>
         </header>

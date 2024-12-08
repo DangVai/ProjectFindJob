@@ -1,4 +1,4 @@
-/* body {
+body {
     background-image: url('https://cafebiz.cafebizcdn.vn/162123310254002176/2023/5/13/toi-tha-that-nghiep-16838821451021091008356-1683941725981-1683941726142217506185.jpg');
     background-size: cover;
     background-position: center;
@@ -18,7 +18,7 @@ body::before {
     background-image: linear-gradient(to right, rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.8));
     opacity: 0.5;
     z-index: -1;
-    animation: wave 10s ease-in-out infinite;
+    /* animation: wave 10s ease-in-out infinite; */
 }
 
 
@@ -54,8 +54,8 @@ body::before {
 
 .rounded-circle {
     border: 2px solid #007bff;
-    width: 80px;
-    height: 80px;
+    width: 100px;
+    height: 100px;
     transform: scale(1);
     transition: transform 0.3s ease;
 }
@@ -111,8 +111,44 @@ body::before {
 .btn-group .btn {
     margin-left: 1rem;
 }
+.mt-3{
+    /* border: 1px solid #33ac73; */
+  border-radius: 4px;
+  padding: 5px;
+  width: 500px;
+}
+.col-md-10{
+    font-family: Arial, sans-serif;
+    font-size: 20px;
+    
+}
+.img-fluid{
+    width: 400px;
+    height: 400px;
+}
+.item{
+    /* border: 1px solid rgb(94, 91, 91); */
+    border-radius: 10px;
+    width: 600px;
+    margin-bottom: 20px;
+    padding-left: 20px;
+    /* text-align: center; */
+}
+.col-md-10{
+    display: flex;
+    gap: 10px;
+   
+}
+.item .tittle{
+text-align: center;
+font-size: 30px;
 
-.btn-success{
-    
-    
-} */
+}
+.item p {
+    /* border-bottom: 4px solid rgba(206, 66, 34, 0.1); */
+    padding-bottom: 8px; 
+    margin-bottom: 16px; 
+    border-radius: 3px;
+   padding: 10px;
+    background-image: url('https://cellphones.com.vn/sforum/wp-content/uploads/2023/12/hinh-nen-xanh-la-26.jpg')
+}

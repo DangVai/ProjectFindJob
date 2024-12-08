@@ -2,7 +2,7 @@
 // Kết nối cơ sở dữ liệu
 $servername = "localhost";
 $username = "root";
-$password = "";
+$password = "1234";
 $database = "mydatabase";
 
 $conn = new mysqli($servername, $username, $password, $database);

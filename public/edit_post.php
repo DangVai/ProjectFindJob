@@ -91,6 +91,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     <link rel="stylesheet" href="../cssfile/edit_post.css">
 </head>
 <body>
+    
     <div class="container mt-5">
         <form action="../public/edit_post.php?id=<?php echo $postId; ?>" method="POST" enctype="multipart/form-data">
             <h2>Edit Post</h2>
@@ -154,7 +155,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             <div class="mb-3">
                 <label for="postImage" class="form-label">Upload Image</label>
                 <input class="form-control" type="file" id="postImage" name="postImage">
-                <small>Hiện tại ảnh: <img src="../controllers/uploadss/<?php echo $post['anh_cong_viec']; ?>" width="100" alt="Current Image"></small>
+                <small>Current image:<img src="../controllers/uploadss/<?php echo $post['anh_cong_viec']; ?>" width="100" alt="Current Image"></small>
             </div>
 
             <button type="submit" class="btn btn-primary">Update post</button>
