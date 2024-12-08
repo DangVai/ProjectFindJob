@@ -1,0 +1,105 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 20px;
+}
+
+.notification-panel {
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    max-width: 600px;
+    margin: 0 auto;
+    max-height: 600px; /* Chiều cao tối đa cho phần tử */
+    overflow-y: auto; /* Kích hoạt cuộn dọc */
+}
+
+.notification-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px;
+    margin-bottom: 10px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(100, 96, 96, 0.1);
+    transition: background-color 0.3s;
+   gap: 10px;
+}
+
+.notification-item:hover {
+    background-color: #e9f7fe;
+}
+
+/* Avatar người dùng */
+.avatar {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid #ddd;
+}
+
+/* Nội dung thông báo */
+.notification-content {
+    flex: 1;
+    margin-left: 15px;
+    color: #555;
+    text-align: center;
+}
+
+.notification-content p {
+    margin: 0;
+    font-size: 16px;
+}
+
+.notification-content .timestamp {
+    display: block;
+    font-size: 12px;
+    color: #888;
+    margin-top: 5px;
+}
+
+/* Các nút hành động */
+form {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.action-btn {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.action-btn:hover {
+    background-color: #0056b3;
+}
+
+.action-btn[name="decline"] {
+    background-color: #ae3f4f;
+}
+
+.action-btn:hover {
+    background-color: #cfdbde;
+}
+
+/* Thông báo không có */
+.notification-panel p {
+    text-align: center;
+    font-size: 18px;
+    color: #777;
+}
+
+
+
+
+

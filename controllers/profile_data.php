@@ -6,7 +6,6 @@ if (isset($_GET['message']) && $_GET['message'] === 'success') {
     $success_message = "Đã cập nhật thành công!";
 }
 
-$conn = mysqli_connect("localhost", "root", "", "mydatabase");
 
 if (!$conn) {
     die("Kết nối thất bại: " . mysqli_connect_error());
@@ -86,6 +85,8 @@ $sql_review = "
         preview p
     JOIN users u ON p.user_id = u.user_id
     WHERE p.rated_user_id = ?
+    ORDER BY p.preview_id DESC -- Sắp xếp theo thứ tự mới nhất
+
 ";
 $stmt_review = $conn->prepare($sql_review);
 $stmt_review->bind_param("i", $user_id);
@@ -99,4 +100,4 @@ while ($row = $result_review->fetch_assoc()) {
 
 $stmt_review->close();
 
-?>
+

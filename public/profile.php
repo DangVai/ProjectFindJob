@@ -12,7 +12,6 @@ include '../controllers/profile_data.php';
 
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
      <link rel="stylesheet" href="../cssfile/profile.css">
-
 </head>
 <body>
 <div class="container-fluid" style="text-align: center;">
@@ -72,28 +71,31 @@ include '../controllers/profile_data.php';
       </div>
 
       <!-- Review Table Column -->
-      <div class="col-md-4 reviews">
-      <h2><i class="fas fa-comments"></i> Đánh giá</h2>
-      <?php if (isset($reviews) && is_array($reviews) && count($reviews) > 0): ?>
-        <?php foreach ($reviews as $index => $review): ?>
-          <?php if ($index < 3): // Hiển thị tối đa 3 đánh giá ?>
+
+    <!-- Review Table Column -->
+<div class="col-md-4 reviews" style="height: 800px; overflow-y: auto;">
+    <h2><i class="fas fa-comments"></i> Đánh giá</h2>
+    <?php if (!empty($reviews)): ?>
+        <?php foreach ($reviews as $review): ?>
             <div class="review">
-              <strong><?php echo htmlspecialchars($review['reviewer_name']); ?></strong>
-              <p>
-                <i class="fas fa-star"></i> Số sao: <?php echo htmlspecialchars($review['soSao']); ?>
-              </p>
-              <p><?php echo htmlspecialchars($review['content']); ?></p>
+                <strong><?php echo htmlspecialchars($review['reviewer_name']); ?></strong>
+                <p>
+                    <i class="fas fa-star"></i> Số sao: <?php echo htmlspecialchars($review['soSao']); ?>
+                </p>
+                <p><?php echo htmlspecialchars($review['content']); ?></p>
             </div>
-          <?php endif; ?>
         <?php endforeach; ?>
-      <?php else: ?>
+    <?php else: ?>
         <p>Không có đánh giá nào.</p>
-      <?php endif; ?>
-    </div>
+    <?php endif; ?>
+</div>
+
+
 
     </div>
   </div>
 </div>
+
 <!-- Modal đổi mật khẩu -->
 <div id="changePasswordModal" class="mk" style="display: none;">
     <div class="mk-content">

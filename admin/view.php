@@ -46,8 +46,8 @@
                     </tr>
                     <tr>
                         <th>Profile Image</th>
-                        <td><img src="<?php echo htmlspecialchars($row['link_anh']); ?>" alt="Profile Image" class="profile-image">
-                        </td>
+                        <td><img src="<?php echo '../uploads/' . htmlspecialchars($row['link_anh']); ?>" alt="Profile Image" class="profile-image"></td>
+
                     </tr>
                     <tr>
                         <th>Address</th>

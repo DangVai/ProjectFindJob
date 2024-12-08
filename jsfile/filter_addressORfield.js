@@ -20,7 +20,7 @@ document.addEventListener("DOMContentLoaded", () => {
             posts.forEach(post => {
                 const postAddress = post.getAttribute("data-address");
 
-                if (selectedAddress === "Khác") {
+                if (selectedAddress === "Others") {
                     // Hiển thị bài viết không thuộc danh sách filterAddresses
                     if (!filterAddresses.includes(postAddress)) {
                         post.style.display = "flex";
@@ -47,7 +47,7 @@ document.addEventListener("DOMContentLoaded", () => {
             posts.forEach(post => {
                 const postField = post.getAttribute("data-field");
 
-                if (selectedField === "Khác") {
+                if (selectedField === "Others") {
                     // Hiển thị bài viết không thuộc danh sách filterFields
                     if (!filterFields.includes(postField)) {
                         post.style.display = "flex";

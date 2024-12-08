@@ -42,9 +42,9 @@ $total_notifications = $conn->query("
     WHERE is_read = 0 AND user_id = $userId
 ")->fetch_assoc();
 $total_pages = ceil($total_notifications['total'] / $limit);
-require './controllers/display_post.php';
 ////////////////////////////////////////////
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -69,13 +69,13 @@ require './controllers/display_post.php';
             <div class="nav">
                 <p><b>Home</b></p>
                 <p><b><a href="./public/about.php" style="color:#fff">About Us</a></b></p>
-                <p><b>Contact</b></p>
+                <p><b><a href="./public/contact.php">Contact</a></b></p>
             </div>
             <div class="chatbox">
                 <a href="public/chat.php"><i class="fa-regular fa-comment-dots"></i></a>
             </div>
             <div class="inform">
-                <i class="fa-regular fa-bell"></i>
+                <a href="./public/notification.php"><i class="fa-regular fa-bell"></i></a>
             </div>
             <div class="account">
                 <div class="box-account">
@@ -86,7 +86,9 @@ require './controllers/display_post.php';
                 <p><?php echo ($userName) ?></p>
                 <div class="dropdown-menu" id="account-menu">
                     <div>
-                        <a href="../ProjectFindJob/public/profile.php"><i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i> Profile</a>
+
+                        <a href="../public/profile.php"><i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
+                            Profile</a>
                     </div>
                     <div>
                         <a href=""><i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i> Settings</a>
@@ -99,7 +101,8 @@ require './controllers/display_post.php';
                             in</a>
                     </div>
                     <div>
-                        <a href="controllers/logout.php"><i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i> Log out</a>
+                        <a href="controllers/logout.php"><i
+                                class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i> Log out</a>
                     </div>
                 </div>
             </div>
@@ -107,11 +110,11 @@ require './controllers/display_post.php';
         <div class="box_slider">
             <div class="box_img">
                 <div class="title">
-                    <h1>Việc làm Hand and Foot uy tin - Thời gian linh hoạt</h1>
+                    <h1>Reliable Hand and Foot Jobs - Flexible Hours</h1>
                 </div>
                 <div class="content">
-                    <p>Khám phá hàng ngàn việc làm hấp dẫn và những con người uy tín và tài năng chỉ với một cái nhấp
-                        chuột. Công việc gì cũng trở nên dễ dàng và nhanh gọn ngay tại bây giờ!</p>
+                    <p>Discover thousands of exciting job opportunities with trustworthy and talented people, all with
+                        just a click. Any job becomes easy and fast right now!</p>
                 </div>
                 <div class="change">
                     <div class="change1"></div>
@@ -130,7 +133,7 @@ require './controllers/display_post.php';
         </div>
         <div class="body-top">
             <div class="add">
-                <button><a href="./public/create_post.php" style="color:#fff">Thêm Bài +</a></button>
+                <button><a href="./public/create_post.php" style="color:#fff">ADD POST</a></button>
             </div>
 
             <div class="searchBox">
@@ -146,96 +149,73 @@ require './controllers/display_post.php';
         <div class="body-content">
             <div class="fifter">
                 <div class="fifter-job">
-                    <h1>Lĩnh Vực</h1>
-                    <h2>Làm Vườn</h2>
-                    <h2>Dọn Dẹp</h2>
-                    <h2>Bóc Vác</h2>
-                    <h2>Khác</h2>
+                    <h1>Field</h1>
+                    <h2>Gardening</h2>
+                    <h2>Cleaning</h2>
+                    <h2>Labor</h2>
+                    <h2>Others</h2>>
                 </div>
                 <div class="fifter-address">
-                    <h1>Địa Chỉ</h1>
+                    <h1>Address</h1>
                     <h2>Son Tra</h2>
-                    <h2>Cẩm Lệ</h2>
-                    <h2>Liên Chiểu</h2>
-                    <h2>Khác</h2>
+                    <h2>Cam Le</h2>
+                    <h2>Lien Chieu</h2>
+                    <h2>Others</h2>
                 </div>
             </div>
             <div class="box-post">
-                <?php require_once "models/Post2.php" ?>
-                <div class="posts">
-                    <?php foreach ($posts as $post): ?>
-                        <?php
-                        $sql1 = "
-                            SELECT 
-                                profile.link_anh
-                            FROM profile
-                            WHERE user_id = :user_id
-                            ";
-
-                        $stmt1 = $conn->prepare($sql1);
-
-                        $stmt1->bindParam(':user_id', $post['user_id'], PDO::PARAM_INT);
-
-                        $stmt1->execute();
-
-                        $link_anh = $stmt1->fetch(PDO::FETCH_ASSOC);
-
-                        $avatarPath = !empty($link_anh['link_anh']) ? htmlspecialchars($link_anh['link_anh']) : './uploads/default_avatar.png';
-
-                        $nameUser = "";
-                        foreach ($posts_user as $user) {
-                            if ($user["user_id"] == $post["user_id"]) {
-                                $nameUser = $user["fullname"];
-                                break;
-                            }
-                        }
-                        ;
-                        ?>
-                        <div class="post" data-address="<?php echo htmlspecialchars($post['dia_chi']); ?>"
-                            data-field="<?php echo htmlspecialchars($post['linh_vuc']); ?>">
-                            <div class="card-profile">
-                        <a href="../public/viewProfile.php?user_id=<?php echo $post['user_id'] ?>" >
+    <?php require_once "models/Post2.php"; ?>
+    <div class="posts">
+        <?php foreach ($posts as $post): ?>
+            <?php if ($post['confirm_status'] == 1): ?> 
+                <div class="post" data-address="<?php echo htmlspecialchars($post['dia_chi']); ?>"
+                    data-field="<?php echo htmlspecialchars($post['linh_vuc']); ?>">
+                    <div class="card-profile">
+                        <?php require_once './controllers/display_profile.php'; ?> <!-- Đảm bảo cần thiết khi cần thiết -->
+                        <a href="../public/viewProfile.php?user_id=<?php echo $post['user_id']; ?>">
                             <div class="avatar">
-                                    <a href="public/viewProfile.php?user_id=<?php echo $post['user_id']; ?>">
-                                        <img src="<?php echo $avatarPath; ?>" alt="Avatar" class="rounded-circle" width="80"
-                                            height="80">
-                                    </a>
-                                </div>
-                                <div class="name">
-                                    <a href="public/viewProfile.php?user_id=<?php echo $post['user_id']; ?>">
-                                        <p style="color: #000"><?php echo !empty($nameUser) ? htmlspecialchars($nameUser) : ""; ?></p>
-                                    </a>
-                                </div>
+                                <img src="<?php echo $avatarPath; ?>" alt="Avatar" class="rounded-circle"
+                                     width="80" height="80">
                             </div>
-
-                            <div class="card-content">
-                                <div class="title-content">
-                                    <h3><?php echo htmlspecialchars($post["linh_vuc"]); ?></h3>
-                                    <div class="package"><?php echo htmlspecialchars($post["goi_dang_ky"]); ?></div>
-                                    <p class="time-post">
-                                        <?php echo htmlspecialchars($post["thoi_gian"]); ?>
-                                    </p>
-                                </div>
-                                <div class="main-content">
-                                    <p><b>Price: </b><?php echo htmlspecialchars($post["price"]); ?></p>
-                                    <p><b>Address:</b> <?php echo htmlspecialchars($post["dia_chi"]); ?></p>
-                                    <p class="content-post"><b>Content:</b>
-                                        <?php echo htmlspecialchars($post["noi_dung"]); ?></p>
-                                </div>
-                            </div>
-                            <button class="btn-link show-more-btn">
-                                    <a href="./public/details_job.php?id=<?php echo htmlspecialchars($post['id_post']); ?>">Xem
-                                        chi tiết</a>
-                                </button>
+                        </a>
+                        <div class="name">
+                            <a href="public/viewProfile.php?user_id=<?php echo $post['user_id']; ?>">
+                                <p style="color: #000">
+                                    <?php echo !empty($nameUser) ? htmlspecialchars($nameUser) : ""; ?>
+                                </p>
+                            </a>
                         </div>
-                    <?php endforeach; ?>
+                    </div>
+
+                    <div class="card-content">
+                        <div class="title-content">
+                            <h3><?php echo htmlspecialchars($post["linh_vuc"]); ?></h3>
+                            <div class="package"><?php echo htmlspecialchars($post["goi_dang_ky"]); ?></div>
+                            <p class="time-post">
+                                <?php echo htmlspecialchars($post["thoi_gian"]); ?>
+                            </p>
+                        </div>
+                        <div class="main-content">
+                            <p><b>Price: </b><?php echo htmlspecialchars($post["price"]); ?></p>
+                            <p><b>Address:</b> <?php echo htmlspecialchars($post["dia_chi"]); ?></p>
+                            <p class="content-post"><b>Content:</b>
+                                <?php echo htmlspecialchars($post["noi_dung"]); ?></p>
+                        </div>
+                    </div>
+                    <button class="btn-link show-more-btn">
+                        <a href="./public/details_job.php?id=<?php echo htmlspecialchars($post['id_post']); ?>">Xem chi tiết</a>
+                    </button>
                 </div>
-            </div>
+            <?php endif; ?> <!-- Kết thúc kiểm tra confirm_status -->
+        <?php endforeach; ?>
+    </div>
+</div>
+
 
         </div>
     </div>
     <div class="promote">
-        <h1>QUẢNG BÁ CÔNG VIỆC</h1>
+    <h1 style="margin-bottom: 40px; ">JOB ADVERTISEMENT</h1>
     </div>
     <div class="body-foot">
         <div class="advert">
@@ -244,10 +224,8 @@ require './controllers/display_post.php';
                     <img src="https://kinhtenongthon.vn/data/data/baoinktnt/2023/05/05/8b.jpg" alt="">
                 </div>
                 <div class="advert-content">
-                    <p class="text-content">Người làm vườn thường làm việc ngoài trời, sử dụng các dụng cụ như xẻng,
-                        cuốc, kéo cắt cỏ để giữ cho cây cối và cảnh quan xanh tốt. Đây là công việc đòi hỏi sự kiên
-                        nhẫn, tỉ mỉ và tình yêu thiên nhiên, mang lại không gian sống trong lành và gần gũi với môi
-                        trường.</p>
+                <p class="text-content">Gardeners typically work outdoors, using tools such as shovels, hoes, and grass cutters to keep plants and landscapes healthy. This job requires patience, attention to detail, and a love for nature, providing a healthy living space that is close to the environment.</p>
+
                 </div>
             </div>
             <div class="card-advert">
@@ -256,11 +234,7 @@ require './controllers/display_post.php';
                         alt="">
                 </div>
                 <div class="advert-content">
-                    <p class="text-content">Chăm sóc trẻ chuyên nghiệp và tận tâm, nơi các bé được yêu thương, học
-                        hỏi và phát triển trong một môi trường an toàn và ấm áp. Với không gian vui nhộn, đầy màu
-                        sắc cùng các hoạt động giáo dục thú vị, chúng tôi cam kết mang đến cho các bé niềm vui mỗi
-                        ngày, giúp phụ huynh hoàn toàn yên tâm khi giao phó những thiên thần nhỏ của mình cho chúng
-                        tôi.</p>
+                <p class="text-content">Professional and dedicated childcare, where children are loved, learn, and grow in a safe and warm environment. With a fun, colorful space and engaging educational activities, we are committed to bringing joy to the children every day, giving parents peace of mind when entrusting their little ones to us.</p>
                 </div>
             </div>
             <div class="card-advert">
@@ -269,10 +243,8 @@ require './controllers/display_post.php';
                         alt="">
                 </div>
                 <div class="advert-content">
-                    <p class="text-content">Chúng tôi đảm bảo mang lại không gian sống và làm việc sạch sẽ, gọn gàng
-                        và trong lành. Dù là dọn dẹp nhà ở, văn phòng, hay các công trình lớn, chúng tôi luôn cam
-                        kết chất lượng vượt mong đợi, giúp bạn tiết kiệm thời gian và tận hưởng cuộc sống thoải mái
-                        hơn. Hãy để chúng tôi làm sạch, để bạn sống khỏe!</p>
+                <p class="text-content">We guarantee to provide a clean, tidy, and fresh living and working space. Whether it's cleaning homes, offices, or large construction sites, we are always committed to delivering quality that exceeds expectations, helping you save time and enjoy a more comfortable life. Let us clean, so you can live healthier!</p>
+
                 </div>
             </div>
         </div>

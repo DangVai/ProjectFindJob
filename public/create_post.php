@@ -7,6 +7,7 @@
     <title>Post Submission Form</title>
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../cssfile/">
     <style>
         body {
             background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR2Yh6x1fEg8gTx7MtfiWfY7Hd37dPT6-lk4w&s');
@@ -115,8 +116,9 @@
                 <button type="submit" class="btn btn-success text-white">Submit Post</button>
             </div>
         </form>
+        
     </div>
-
+    <?php include '../footer.php'; ?>
     <script>
         document.getElementById('goi').addEventListener('change', function () {
             const selectedPackage = this.value;

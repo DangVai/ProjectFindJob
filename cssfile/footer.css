@@ -11,7 +11,7 @@
     display: flex;
     align-items: center;
     justify-content: space-around;
-    color: yellow;
+    color: #fff;
 }
 
 .left-footer {
@@ -25,7 +25,7 @@
 
 .left-footer h1 {
     margin-bottom: 20px;
-    color: yellow;
+    color: #fff;
 }
 
 .left-footer p {

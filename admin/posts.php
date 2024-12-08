@@ -85,7 +85,7 @@
               <td>' . date("M d, Y", strtotime($row['thoi_gian'])) . '</td>
               <td>' . htmlspecialchars($row['goi_dang_ky']) . '</td>
               <td>
-                  <img src="' . htmlspecialchars($row['anh_cong_viec']) . '" alt="Image" style="width: 50px; height: 50px;">
+                  <img src="../controllers/uploadss/' . htmlspecialchars($row['anh_cong_viec']) . '" alt="Image" style="width: 50px; height: 50px;">
               </td>';
               if ($row['confirm_status'] == 0) {
                 echo '<td style="background-color: yellow">Chờ</td>';
