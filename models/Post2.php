@@ -1,6 +1,6 @@
 <?php
 // Kết nối cơ sở dữ liệu
-$connect = mysqli_connect("localhost", "root", "1234", "mydatabase", 3306);
+$connect = mysqli_connect("localhost", "root", "", "mydatabase", 3306);
 
 // Kiểm tra kết nối
 if (!$connect) {

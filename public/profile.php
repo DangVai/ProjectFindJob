@@ -71,6 +71,7 @@ include '../controllers/profile_data.php';
       </div>
 
       <!-- Review Table Column -->
+
     <!-- Review Table Column -->
 <div class="col-md-4 reviews" style="height: 800px; overflow-y: auto;">
     <h2><i class="fas fa-comments"></i> Đánh giá</h2>
@@ -94,6 +95,7 @@ include '../controllers/profile_data.php';
     </div>
   </div>
 </div>
+
 <!-- Modal đổi mật khẩu -->
 <div id="changePasswordModal" class="mk" style="display: none;">
     <div class="mk-content">

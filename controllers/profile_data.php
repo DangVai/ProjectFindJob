@@ -86,7 +86,7 @@ $sql_review = "
     JOIN users u ON p.user_id = u.user_id
     WHERE p.rated_user_id = ?
     ORDER BY p.preview_id DESC -- Sắp xếp theo thứ tự mới nhất
-    
+
 ";
 $stmt_review = $conn->prepare($sql_review);
 $stmt_review->bind_param("i", $user_id);
@@ -101,4 +101,3 @@ while ($row = $result_review->fetch_assoc()) {
 $stmt_review->close();
 
 
-?>
