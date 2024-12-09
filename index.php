@@ -164,58 +164,68 @@ $total_pages = ceil($total_notifications['total'] / $limit);
                 </div>
             </div>
             <div class="box-post">
-    <?php require_once "models/Post2.php"; ?>
-    <div class="posts">
-        <?php foreach ($posts as $post): ?>
-            <?php if ($post['confirm_status'] == 1): ?> 
-                <div class="post" data-address="<?php echo htmlspecialchars($post['dia_chi']); ?>"
-                    data-field="<?php echo htmlspecialchars($post['linh_vuc']); ?>">
-                    <div class="card-profile">
-                        <?php require_once './controllers/display_profile.php'; ?> <!-- Đảm bảo cần thiết khi cần thiết -->
-                        <a href="../public/viewProfile.php?user_id=<?php echo $post['user_id']; ?>">
-                            <div class="avatar">
-                                <img src="<?php echo $avatarPath; ?>" alt="Avatar" class="rounded-circle"
-                                     width="80" height="80">
-                            </div>
-                        </a>
-                        <div class="name">
-                            <a href="public/viewProfile.php?user_id=<?php echo $post['user_id']; ?>">
-                                <p style="color: #000">
-                                    <?php echo !empty($nameUser) ? htmlspecialchars($nameUser) : ""; ?>
-                                </p>
-                            </a>
-                        </div>
-                    </div>
+                <?php require_once "models/Post2.php"; ?>
+                <?php
+                require_once './controllers/display_post.php';
 
-                    <div class="card-content">
-                        <div class="title-content">
-                            <h3><?php echo htmlspecialchars($post["linh_vuc"]); ?></h3>
-                            <div class="package"><?php echo htmlspecialchars($post["goi_dang_ky"]); ?></div>
-                            <p class="time-post">
-                                <?php echo htmlspecialchars($post["thoi_gian"]); ?>
-                            </p>
-                        </div>
-                        <div class="main-content">
-                            <p><b>Price: </b><?php echo htmlspecialchars($post["price"]); ?></p>
-                            <p><b>Address:</b> <?php echo htmlspecialchars($post["dia_chi"]); ?></p>
-                            <p class="content-post"><b>Content:</b>
-                                <?php echo htmlspecialchars($post["noi_dung"]); ?></p>
-                        </div>
-                    </div>
-                    <button class="btn-link show-more-btn">
-                        <a href="./public/details_job.php?id=<?php echo htmlspecialchars($post['id_post']); ?>">Xem chi tiết</a>
-                    </button>
+                ?>
+
+                <div class="posts">
+                    <?php if (!empty($posts)): ?>
+                        <?php foreach ($posts as $post): ?>
+                            <div class="post" data-address="<?php echo htmlspecialchars($post['dia_chi']); ?>"
+                                data-field="<?php echo htmlspecialchars($post['linh_vuc']); ?>">
+                                <div class="card-profile">
+                                    <a
+                                        href="./public/viewProfile.php?user_id=<?php echo htmlspecialchars($post['user_id']); ?>">
+                                        <div class="avatar">
+                                            <img src="<?php echo htmlspecialchars(!empty($post['link_anh']) ? $post['link_anh'] : './uploads/default_avatar.png'); ?>"
+                                                alt="Avatar" class="rounded-circle" width="80" height="80">
+                                        </div>
+                                    </a>
+                                    <div class="name">
+                                        <a
+                                            href="./public/viewProfile.php?user_id=<?php echo htmlspecialchars($post['user_id']); ?>">
+                                            <p style="color: #000">
+                                                <?php echo htmlspecialchars(!empty($post['fullname']) ? $post['fullname'] : "Unknown User"); ?>
+                                            </p>
+                                        </a>
+                                    </div>
+                                </div>
+
+                                <div class="card-content">
+                                    <div class="title-content">
+                                        <h3><?php echo htmlspecialchars($post['linh_vuc']); ?></h3>
+                                        <div class="package"><?php echo htmlspecialchars($post['goi_dang_ky']); ?></div>
+                                        <p class="time-post"><?php echo htmlspecialchars($post['thoi_gian']); ?></p>
+                                    </div>
+                                    <div class="main-content">
+                                        <p><b>Price:</b> <?php echo htmlspecialchars($post['price']); ?></p>
+                                        <p><b>Address:</b> <?php echo htmlspecialchars($post['dia_chi']); ?></p>
+                                        <p class="content-post"><b>Content:</b>
+                                            <?php echo htmlspecialchars($post['noi_dung']); ?></p>
+                                    </div>
+                                </div>
+                                <button class="btn-link show-more-btn">
+                                    <a href="./public/details_job.php?id=<?php echo htmlspecialchars($post['id_post']); ?>">View
+                                        details</a>
+                                </button>
+                            </div>
+                        <?php endforeach; ?>
+                    <?php else: ?>
+                        <p>No posts available.</p>
+                    <?php endif; ?>
                 </div>
-            <?php endif; ?> <!-- Kết thúc kiểm tra confirm_status -->
-        <?php endforeach; ?>
-    </div>
-</div>
+
+
+
+            </div>
 
 
         </div>
     </div>
     <div class="promote">
-    <h1 style="margin-bottom: 40px; ">JOB ADVERTISEMENT</h1>
+        <h1 style="margin-bottom: 40px; ">JOB ADVERTISEMENT</h1>
     </div>
     <div class="body-foot">
         <div class="advert">
@@ -224,7 +234,10 @@ $total_pages = ceil($total_notifications['total'] / $limit);
                     <img src="https://kinhtenongthon.vn/data/data/baoinktnt/2023/05/05/8b.jpg" alt="">
                 </div>
                 <div class="advert-content">
-                <p class="text-content">Gardeners typically work outdoors, using tools such as shovels, hoes, and grass cutters to keep plants and landscapes healthy. This job requires patience, attention to detail, and a love for nature, providing a healthy living space that is close to the environment.</p>
+                    <p class="text-content">Gardeners typically work outdoors, using tools such as shovels, hoes, and
+                        grass cutters to keep plants and landscapes healthy. This job requires patience, attention to
+                        detail, and a love for nature, providing a healthy living space that is close to the
+                        environment.</p>
 
                 </div>
             </div>
@@ -234,7 +247,10 @@ $total_pages = ceil($total_notifications['total'] / $limit);
                         alt="">
                 </div>
                 <div class="advert-content">
-                <p class="text-content">Professional and dedicated childcare, where children are loved, learn, and grow in a safe and warm environment. With a fun, colorful space and engaging educational activities, we are committed to bringing joy to the children every day, giving parents peace of mind when entrusting their little ones to us.</p>
+                    <p class="text-content">Professional and dedicated childcare, where children are loved, learn, and
+                        grow in a safe and warm environment. With a fun, colorful space and engaging educational
+                        activities, we are committed to bringing joy to the children every day, giving parents peace of
+                        mind when entrusting their little ones to us.</p>
                 </div>
             </div>
             <div class="card-advert">
@@ -243,7 +259,10 @@ $total_pages = ceil($total_notifications['total'] / $limit);
                         alt="">
                 </div>
                 <div class="advert-content">
-                <p class="text-content">We guarantee to provide a clean, tidy, and fresh living and working space. Whether it's cleaning homes, offices, or large construction sites, we are always committed to delivering quality that exceeds expectations, helping you save time and enjoy a more comfortable life. Let us clean, so you can live healthier!</p>
+                    <p class="text-content">We guarantee to provide a clean, tidy, and fresh living and working space.
+                        Whether it's cleaning homes, offices, or large construction sites, we are always committed to
+                        delivering quality that exceeds expectations, helping you save time and enjoy a more comfortable
+                        life. Let us clean, so you can live healthier!</p>
 
                 </div>
             </div>

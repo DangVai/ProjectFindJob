@@ -5,9 +5,7 @@ body {
 }
 
 .container {
-    margin-left: auto;
-    margin-right: auto;
-    margin: 10px 0px 0px 180px;
+    margin-left: 120px;
     padding: 0;
     height: 100%;
     width: 100%;
@@ -386,6 +384,12 @@ body {
 .close-btn:hover {
     color: red;
 }
+<<<<<<< HEAD
+
+.fa-star{
+    color: #FFD700;
+}
+=======
 =======
     body {
         font-family: 'Montserrat', sans-serif;
@@ -814,3 +818,4 @@ body {
         color: red;
     }
 
+>>>>>>> c1e96dff5753efbff870bada32b04798bfd75476

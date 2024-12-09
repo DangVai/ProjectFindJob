@@ -9,9 +9,51 @@ include '../controllers/edit_data.php';
     <title>Chỉnh Sửa Hồ Sơ</title>
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="../cssfile/edit.css">
+    <link rel="stylesheet" href="../cssfile/fix-header.css">
+    <link rel="stylesheet" href="../cssfile/footer.css">
 </head>
 <body>
-  <div class="container-fluid d-flex flex-column justify-content-start align-items-center">
+<div class="header">
+    <div class="box_logo">
+        <img src="img/anh-weblogo.png" alt="">
+    </div>
+    <div class="nav">
+        <p><b>Home</b></p>
+        <p><b>About Us</b></p>
+        <p><b>Contact</b></p>
+    </div>
+    <div class="chatbox">
+        <a href="public/chat.php"><i class="fa-regular fa-comment-dots"></i></a>
+    </div>
+    <div class="inform">
+        <i class="fa-regular fa-bell"></i>
+    </div>
+    <div class="account">
+        <div class="box-account">
+            <i class="fa-regular fa-user"></i>
+        </div>
+    </div>
+    <div class="name-user">
+        <div class="dropdown-menu" id="account-menu">
+            <div>
+                <a href="../public/profile.php"><i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i> Profile</a>
+            </div>
+            <div>
+                <a href=""><i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i> Settings</a>
+            </div>
+            <div>
+                <a href=""><i class="fas fa-list fa-sm fa-fw mr-2 text-gray-400"></i> Activity Log</a>
+            </div>
+            <div>
+                <a href="public/login.php"><i class="fas fa-sign-in-alt fa-sm fa-fw mr-2 text-gray-400"></i> Log in</a>
+            </div>
+            <div>
+                <a href="controllers/logout.php"><i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i> Log out</a>
+            </div>
+        </div>
+    </div>
+</div>
+  <div class="container-fluid d-flex flex-column justify-content-start align-items-center" style="margin-top:80px; margin-bottom:50px;">
     <!-- Phần Tiêu Đề -->
     <div class="text-center w-100">
     <h1 class="mb-3 pt-4 text-black">Edit Profile</h1>
@@ -66,8 +108,12 @@ include '../controllers/edit_data.php';
         </div>
       </div>
     </div>
-  </div>
 
+
+  </div>
+<?php
+require_once '../footer.php';
+?>
   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>

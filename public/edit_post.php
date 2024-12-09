@@ -89,10 +89,52 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     <title>Edit Post</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="../cssfile/edit_post.css">
+    <link rel="stylesheet" href="../cssfile/footer.css">
+    <link rel="stylesheet" href="../cssfile/fix-header.css">
 </head>
 <body>
-    
-    <div class="container mt-5">
+    <div class="container-flut">
+    <div class="header">
+    <div class="box_logo">
+        <img src="img/anh-weblogo.png" alt="">
+    </div>
+    <div class="nav">
+        <p><b>Home</b></p>
+        <p><b>About Us</b></p>
+        <p><b>Contact</b></p>
+    </div>
+    <div class="chatbox">
+        <a href="./chat.php"><i class="fa-regular fa-comment-dots"></i></a>
+    </div>
+    <div class="inform">
+        <a href="./notification.php"><i class="fa-regular fa-bell"></i></a>
+    </div>
+    <div class="account">
+        <div class="box-account">
+            <i class="fa-regular fa-user"></i>
+        </div>
+    </div>
+    <div class="name-user">
+        <div class="dropdown-menu" id="account-menu">
+            <div>
+                <a href="../public/profile.php"><i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i> Profile</a>
+            </div>
+            <div>
+                <a href=""><i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i> Settings</a>
+            </div>
+            <div>
+                <a href=""><i class="fas fa-list fa-sm fa-fw mr-2 text-gray-400"></i> Activity Log</a>
+            </div>
+            <div>
+                <a href="public/login.php"><i class="fas fa-sign-in-alt fa-sm fa-fw mr-2 text-gray-400"></i> Log in</a>
+            </div>
+            <div>
+                <a href="controllers/logout.php"><i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i> Log out</a>
+            </div>
+        </div>
+    </div>
+</div>
+    <div class="container mt-9" style="margin-top: 100px;" >
         <form action="../public/edit_post.php?id=<?php echo $postId; ?>" method="POST" enctype="multipart/form-data">
             <h2>Edit Post</h2>
             <div class="mb-3">
@@ -161,7 +203,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             <button type="submit" class="btn btn-primary">Update post</button>
         </form>
     </div>
-
+    <?php
+  require_once '../footer.php';
+  ?>
+    </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
