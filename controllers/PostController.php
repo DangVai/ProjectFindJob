@@ -53,20 +53,17 @@ function getPosts($filter = 'all') {
 
     if ($filter === 'vip') {
         $sql .= " AND goi_dang_ky = 'vip'";
-    } elseif ($filter === 'premium') {
-        $sql .= " AND goi_dang_ky = 'premium'";
-    } elseif ($filter === 'basic') {
+    }{
         $sql .= " AND goi_dang_ky = 'basic'";
     }
 
     $sql .= " ORDER BY 
         CASE 
             WHEN goi_dang_ky = 'vip' THEN 1
-            WHEN goi_dang_ky = 'premium' THEN 2
-            WHEN goi_dang_ky = 'basic' THEN 3
-            ELSE 4
+            WHEN goi_dang_ky = 'basic' THEN 2
+            ELSE  3
         END,
-        thoi_gian DESC";
+        thoi_gian ASC";
 
     try {
         $stmt = $conn->prepare($sql);

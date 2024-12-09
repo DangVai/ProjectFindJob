@@ -70,10 +70,10 @@ WHERE
         <p><b>Contact</b></p>
     </div>
     <div class="chatbox">
-        <a href="public/chat.php"><i class="fa-regular fa-comment-dots"></i></a>
+        <a href="./chat.php"><i class="fa-regular fa-comment-dots"></i></a>
     </div>
     <div class="inform">
-        <i class="fa-regular fa-bell"></i>
+        <a href="./notification.php"><i class="fa-regular fa-bell"></i></a>
     </div>
     <div class="account">
         <div class="box-account">
@@ -102,51 +102,52 @@ WHERE
     </div>
 
     <div class="container mt-5">
-        <div class="card shadow p-4">
-            <div class="row">
-                <div class="col-md-2 text-center">
-                    <img src="<?php echo htmlspecialchars($avatarPath); ?>" alt="Avatar" class="rounded-circle" width="80" height="80">
-                    <p class="mt-2"><strong><?php echo htmlspecialchars($post['username']); ?></strong></p>
+    <div class="card shadow p-4">
+        <div class="row">
+            <div class="col-md-2 text-center">
+                <img src="<?php echo htmlspecialchars($avatarPath); ?>" alt="Avatar" class="rounded-circle" width="80" height="80">
+                <p class="mt-2"><strong><?php echo htmlspecialchars($post['username']); ?></strong></p>
+            </div>
+            <div class="col-md-10">
+                <div class="item">
+                    <p><strong>Title:</strong> <?php echo htmlspecialchars($post['title']); ?></p>
+                    <p><strong>Content:</strong> <?php echo nl2br(htmlspecialchars($post['noi_dung'])); ?></p>
+                    <p><strong>Role:</strong> <?php echo htmlspecialchars($post['role']); ?></p>
+                    <p><strong>Field:</strong> <?php echo htmlspecialchars($post['linh_vuc']); ?></p>
+                    <p><strong>Phone Number:</strong> <?php echo htmlspecialchars($post['phone']); ?></p>
+                    <p><strong>Price:</strong> <?php echo htmlspecialchars($post['price']); ?> VND</p>
+                    <p><strong>Address:</strong> <?php echo htmlspecialchars($post['dia_chi']); ?></p>
+                    <p><strong>Subscription Plan:</strong> <?php echo htmlspecialchars($post['goi_dang_ky']); ?></p>
+                    <p><strong>Posted On:</strong> <?php echo htmlspecialchars($post['thoi_gian']); ?></p>
                 </div>
-                <div class="col-md-10">
-                    <div class="item">
-                    <p><strong>Tiêu đề:</strong> <?php echo htmlspecialchars($post['title']); ?></p>
-                    <p><strong>Nội Dung:</strong> <?php echo nl2br(htmlspecialchars($post['noi_dung'])); ?></p>
-                    <p><strong>Vai trò:</strong> <?php echo htmlspecialchars($post['role']); ?></p>
-                    <p><strong>Lĩnh Vực:</strong> <?php echo htmlspecialchars($post['linh_vuc']); ?></p>
-                    <p><strong>Số điện thoại:</strong> <?php echo htmlspecialchars($post['phone']); ?></p>
-                    <p><strong>Giá:</strong> <?php echo htmlspecialchars($post['price']); ?> VND</p>
-                    <p><strong>Địa Chỉ:</strong> <?php echo htmlspecialchars($post['dia_chi']); ?></p>
-                    <p><strong>Gói Đăng Ký:</strong> <?php echo htmlspecialchars($post['goi_dang_ky']); ?></p>
-                    <p><strong>Thời Gian Đăng:</strong> <?php echo htmlspecialchars($post['thoi_gian']); ?></p>
-                    </div>
-                    <div class="mt-3">
-                        <img src="<?php echo htmlspecialchars($jobImagePath); ?>" alt="Hình Ảnh Công Việc" class="img-fluid" />
-                    </div>
+                <div class="mt-3">
+                    <img src="<?php echo htmlspecialchars($jobImagePath); ?>" alt="Job Image" class="img-fluid" />
                 </div>
             </div>
-            <div class="d-flex justify-content-between mt-4">
-            <?php if ($_SESSION['user_id'] !== $post['user_id']): ?> <!-- Kiểm tra nếu người đăng nhập khác người đăng bài -->
-                <form action="../controllers/receive_job.php" method="POST">
-                    <input type="hidden" name="id_post" value="<?php echo htmlspecialchars($post['id_post']); ?>">
-                    <input type="hidden" name="job_title" value="<?php echo htmlspecialchars($post['title']); ?>">
-                    <input type="hidden" name="receiver_id" value="<?php echo htmlspecialchars($post['user_id']); ?>">
-                    <button type="submit" class="btn btn-primary">
-                        Nhận Công Việc
-                    </button>
-                </form>
-                <?php else: ?>
-                <!-- Thông báo không thể nhận công việc của chính mình -->
-                <div class="alert alert-info" role="alert">
-                     <!-- Bạn là người đăng bài này. Không thể nhận công việc -->
-                </div>
-            <?php endif; ?>
-            <button class="btn btn-primary">
-                <a href="../public/chat.php" class="text-white"><i class="fas fa-comment-alt" style="font-size: 20px"></i></a>
-            </button>
         </div>
-        </div>
+        <div class="d-flex justify-content-between mt-4">
+        <?php if ($_SESSION['user_id'] !== $post['user_id']): ?> <!-- Check if the logged-in user is different from the one who posted -->
+            <form action="../controllers/receive_job.php" method="POST">
+                <input type="hidden" name="id_post" value="<?php echo htmlspecialchars($post['id_post']); ?>">
+                <input type="hidden" name="job_title" value="<?php echo htmlspecialchars($post['title']); ?>">
+                <input type="hidden" name="receiver_id" value="<?php echo htmlspecialchars($post['user_id']); ?>">
+                <button type="submit" class="btn btn-primary">
+                    Accept Job
+                </button>
+            </form>
+            <?php else: ?>
+            <!-- Notification that you cannot accept your own job post -->
+            <div class="alert alert-info" role="alert">
+                <!-- You are the one who posted this job. You cannot accept your own job. -->
+            </div>
+        <?php endif; ?>
+        <button class="btn btn-primary">
+            <a href="../public/chat.php" class="text-white"><i class="fas fa-comment-alt" style="font-size: 20px"></i></a>
+        </button>
     </div>
+    </div>
+</div>
+
     <?php include '../footer.php'; ?>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>

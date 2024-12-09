@@ -7,7 +7,8 @@
     <title>Post Submission Form</title>
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="../cssfile/">
+    <link rel="stylesheet" href="../cssfile/footer.css">
+    <link rel="stylesheet" href="../cssfile/fix-header.css">
     <style>
         body {
             background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR2Yh6x1fEg8gTx7MtfiWfY7Hd37dPT6-lk4w&s');
@@ -21,7 +22,11 @@
             font-family: Arial, sans-serif;
         }
 
+        
         .form-container {
+            margin-bottom: 50px;
+            margin-top: 100px;
+            margin-left: 400px;
             max-width: 600px;
             width: 100%;
             padding: 20px;
@@ -39,6 +44,47 @@
 </head>
 
 <body>
+    <div class="container-fluid">
+    <div class="header">
+    <div class="box_logo">
+        <img src="img/anh-weblogo.png" alt="">
+    </div>
+    <div class="nav">
+        <p><b>Home</b></p>
+        <p><b>About Us</b></p>
+        <p><b>Contact</b></p>
+    </div>
+    <div class="chatbox">
+        <a href="chat.php"><i class="fa-regular fa-comment-dots"></i></a>
+    </div>
+    <div class="inform">
+        <a href="./notification.php"><i class="fa-regular fa-bell"></i></a>
+    </div>
+    <div class="account">
+        <div class="box-account">
+            <i class="fa-regular fa-user"></i>
+        </div>
+    </div>
+    <div class="name-user">
+        <div class="dropdown-menu" id="account-menu">
+            <div>
+                <a href="../public/profile.php"><i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i> Profile</a>
+            </div>
+            <div>
+                <a href=""><i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i> Settings</a>
+            </div>
+            <div>
+                <a href=""><i class="fas fa-list fa-sm fa-fw mr-2 text-gray-400"></i> Activity Log</a>
+            </div>
+            <div>
+                <a href="public/login.php"><i class="fas fa-sign-in-alt fa-sm fa-fw mr-2 text-gray-400"></i> Log in</a>
+            </div>
+            <div>
+                <a href="controllers/logout.php"><i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i> Log out</a>
+            </div>
+        </div>
+    </div>
+</div>
     <div class="form-container">
         <h2 class="text-center mb-4">Create New Post</h2>
         <form action="../controllers/PostController.php" method="POST" enctype="multipart/form-data">
@@ -119,6 +165,7 @@
         
     </div>
     <?php include '../footer.php'; ?>
+    </div>
     <script>
         document.getElementById('goi').addEventListener('change', function () {
             const selectedPackage = this.value;
