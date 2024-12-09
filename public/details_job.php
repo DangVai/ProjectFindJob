@@ -142,8 +142,10 @@ WHERE
             </div>
         <?php endif; ?>
         <button class="btn btn-primary">
-            <a href="../public/chat.php" class="text-white"><i class="fas fa-comment-alt" style="font-size: 20px"></i></a>
+            <a href="../public/chat.php?receiver_id=<?php echo htmlspecialchars($post['user_id']); ?>" class="text-white"><i
+                class="fas fa-comment-alt" style="font-size: 20px"></i></a>
         </button>
+
     </div>
     </div>
 </div>

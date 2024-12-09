@@ -1,7 +1,11 @@
 <?php
 require_once '../config/db.php';
-
 function getUserProfile($userId, $conn) {
+    // Kiểm tra kết nối cơ sở dữ liệu
+    if ($conn->connect_error) {
+        die("Connection failed: " . $conn->connect_error);
+    }
+
     // Truy vấn thông tin người dùng và profile
     $query = "
         SELECT 
@@ -16,7 +20,12 @@ function getUserProfile($userId, $conn) {
         LEFT JOIN profile pr ON u.user_id = pr.user_id
         WHERE u.user_id = ?
     ";
+
     $stmt = $conn->prepare($query);
+    if ($stmt === false) {
+        die('MySQL prepare error: ' . $conn->error);
+    }
+
     $stmt->bind_param("i", $userId);
     $stmt->execute();
     $user = $stmt->get_result()->fetch_assoc();
@@ -25,6 +34,9 @@ function getUserProfile($userId, $conn) {
         // Truy vấn các bài viết của người dùng
         $postsQuery = "SELECT * FROM post WHERE user_id = ?";
         $postsStmt = $conn->prepare($postsQuery);
+        if ($postsStmt === false) {
+            die('MySQL prepare error: ' . $conn->error);
+        }
         $postsStmt->bind_param("i", $userId);
         $postsStmt->execute();
         $user['posts'] = $postsStmt->get_result()->fetch_all(MYSQLI_ASSOC);
@@ -41,6 +53,9 @@ function getUserProfile($userId, $conn) {
             WHERE p.rated_user_id = ?
         ";
         $reviewsStmt = $conn->prepare($reviewsQuery);
+        if ($reviewsStmt === false) {
+            die('MySQL prepare error: ' . $conn->error);
+        }
         $reviewsStmt->bind_param("i", $userId);
         $reviewsStmt->execute();
         $user['reviews'] = $reviewsStmt->get_result()->fetch_all(MYSQLI_ASSOC);
@@ -48,4 +63,5 @@ function getUserProfile($userId, $conn) {
 
     return $user;
 }
+
 ?>

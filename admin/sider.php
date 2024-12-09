@@ -18,9 +18,6 @@
 						<a href="index.php"><span class="fa fa-home mr-3"></span> Home</a>
 					</li>
 					<li class="menu-item">
-						<a href="#"><span class="fa fa-user mr-3"></span> About</a>
-					</li>
-					<li class="menu-item">
 						<a href="posts.php"><span class="fa fa-briefcase mr-3"></span> Posts</a>
 					</li>
 					<li class="menu-item">
@@ -34,7 +31,7 @@
 						<a href="map.php"><span class="fa fa-cogs mr-3"></span> Diagram</a>
 					</li>
 					<li class="menu-item">
-						<a href="#"><span class="fa fa-paper-plane mr-3"></span> Contacts</a>
+						<a href="contact.php"><span class="fa fa-paper-plane mr-3"></span> Contacts</a>
 					</li>
 				</ul>
 			</div>

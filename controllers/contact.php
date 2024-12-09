@@ -11,13 +11,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $email = $conn->real_escape_string($_POST["email"]);
     $message = $conn->real_escape_string($_POST["message"]);
 
-    $sql = "INSERT INTO contact_messages (usename, email, message, created_at) 
+    $sql = "INSERT INTO contact_messages (username, email, message, created_at) 
             VALUES ('$name', '$email', '$message', NOW())";
 
     if ($conn->query($sql) === TRUE) {
-        echo "Gửi liên hệ thành công!";
+        header("Location: ../public/contact.php?message=success");
     } else {
-        echo "Lỗi: " . $conn->error;
+        header("Location: ../public/contact.php?message=error");
     }
 
     $conn->close();

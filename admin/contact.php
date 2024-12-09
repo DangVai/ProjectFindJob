@@ -16,11 +16,15 @@ $result = $conn->query($sql);
     <title>Danh Sách Liên Hệ</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css">
 <style>
-    body {
-        font-family: Arial, sans-serif;
-        margin: 0 auto;
-        padding: 20px;
-    }
+ .containers {
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 8px;
+    text-align: center;
+    width: 80%;
+    margin-top: 40px;
+    margin-left: 250px;
+}
 </style>
 </head>
 
@@ -31,7 +35,7 @@ $result = $conn->query($sql);
 <div>
     <?php include_once "./sider.php"; ?>
 </div>
-    <div class="container">
+    <div class="containers">
         <h1>Danh Sách Liên Hệ</h1>
 
         <?php

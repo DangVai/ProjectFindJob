@@ -7,7 +7,7 @@ if (!isset($_SESSION['user_id'])) {
     die("Bạn cần đăng nhập để gửi đánh giá.");
 }
 
-$conn = new mysqli('localhost', 'root', '1234', 'mydatabase');  // Kết nối cơ sở dữ liệu
+$conn = new mysqli('localhost', 'root', '', 'mydatabase');  // Kết nối cơ sở dữ liệu
 
 // Kiểm tra kết nối
 if ($conn->connect_error) {

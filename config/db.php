@@ -5,7 +5,7 @@ $host = "localhost";
 $db_name = "mydatabase";
 
 $username = "root";
-$password = "1234";
+$password = "";
 
 // Kết nối mysqli
  $conn = mysqli_connect($host, $username, $password, $db_name);
