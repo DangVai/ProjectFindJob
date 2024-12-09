@@ -68,8 +68,14 @@
                             <td>' . htmlspecialchars($row['phone']) . '</td>
                             <td>' . htmlspecialchars($row['created_at']) . '</td>
                             <td>
-                                <button onclick="viewUser(' . htmlspecialchars($row['user_id']) . ')">View</button>
-                                <button onclick="deleteRow(' . htmlspecialchars($row['user_id']) . ')">Delete</button>
+                                <button onclick="viewUser(' . htmlspecialchars($row['user_id']) . ')" 
+                                        style="background-color: #007bff; color: white;">
+                                    View
+                                </button>
+                                <button onclick="deleteRow(' . htmlspecialchars($row['user_id']) . ')" 
+                                        style="background-color: #dc3545; color: white; transition: background-color 0.3s ease;">
+                                    Delete
+                                </button>
                             </td>
                         </tr>';
                     }
