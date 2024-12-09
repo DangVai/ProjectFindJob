@@ -111,6 +111,7 @@ include '../controllers/profile_data.php';
             </p>
           </div>
 
+
         </div>
 
         <!-- Review Table Column -->
@@ -134,8 +135,10 @@ include '../controllers/profile_data.php';
       </div>
     </div>
   </div>
+
   <!-- Modal Change Password -->
   <div id="changePasswordModal" class="mk" style="display: none;">
+
     <div class="mk-content">
       <span class="close-btn">&times;</span>
       <h2>Change Password</h2>

@@ -86,6 +86,7 @@ $total_pages = ceil($total_notifications['total'] / $limit);
                 <p><?php echo ($userName) ?></p>
                 <div class="dropdown-menu" id="account-menu">
                     <div>
+
                         <a href="../public/profile.php"><i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
                             Profile</a>
                     </div>

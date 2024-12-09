@@ -110,7 +110,7 @@ if (!$userData) {
             </div>
         </div>
  </div>
-       <!-- Reviews -->
+
         <div class="reviews">
             <h2><i class="fas fa-comments"></i> Reviews</h2>
             <?php if (!empty($userData['reviews'])): ?>
