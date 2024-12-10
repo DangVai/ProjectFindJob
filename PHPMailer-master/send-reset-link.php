@@ -19,7 +19,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 
     // Kết nối cơ sở dữ liệu
-    $conn = new mysqli('localhost', 'root', '1234', 'mydatabase');
+    $conn = new mysqli('localhost', 'root', '', 'mydatabase');
     if ($conn->connect_error) {
         die("Connection failed: " . $conn->connect_error);
     }
@@ -53,7 +53,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $mail->Body = "
                 <h3>Password Reset Request</h3>
                 <p>Click the link below to reset your password:</p>
-                <a href='http://localhost:3000/Code-Hoan-Chinh-php/ProjectFindJob/public/reset-password.php?email=$email'>Reset Password</a>
+                <a href='http://localhost/findjob3/ProjectFindJob/public/reset-password.php?email=$email'>Reset Password</a>
             ";
 
             // Gửi email
