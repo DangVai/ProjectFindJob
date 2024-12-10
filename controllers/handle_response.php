@@ -1,4 +1,23 @@
 <?php
+if (isset($_POST['delete'])) { 
+    require_once('../config/db.php');
+    $notification_id = $_POST['notification_id'];
+
+    $delete_query = "DELETE FROM notifications WHERE id = ?";
+    $stmt = $conn->prepare($delete_query);
+    $stmt->bind_param("i", $notification_id);
+
+    if ($stmt->execute()) {
+        echo "Thông báo đã được xóa.";
+    } else {
+        echo "Lỗi khi xóa thông báo.";
+    }
+    header("Location: ../public/notification.php");
+    exit();
+}
+?>
+
+<?php
     session_start();
     require_once("../config/db.php");
 

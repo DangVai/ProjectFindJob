@@ -58,84 +58,87 @@ include '../controllers/profile_data.php';
         </div>
       </div>
     </div>
-    <div class="text-center w-100" style="margin-top: 100px">
-      <h1 class="mb-3 pt-5 text-black text-center">Your Profile</h1>
-    </div>
+    <div class="div" style="margin-top: 100px; margin-bottom: 100px">
+      <div class="text-center w-100" ">
+      <h1 class=" mb-3 pt-5 text-black text-center">Your Profile</h1>
+      </div>
 
-    <div class="container profile-container-bluid mt-4" style="text-align: center">
-      <div class="row justify-content-center">
-        <!-- Profile Menu Column -->
-        <div class="col-md-3 profile-menu">
-          <img src="<?php echo htmlspecialchars($link_anh); ?>" alt="Profile Image"
-            class="profile-image img-fluid rounded-circle mb-3">
-          <div class="menu">
-            <a href="profile.php">Information</a>
-            <a href="edit.php">Edit Profile</a>
-            <div class="settings-dropdown">
-              <a>Settings</a>
-              <div class="dropdown-options">
-                <a href="./edit_post.php">Manage Posts</a>
-                <a href="#" class="change-password-link">Change Password</a>
-                <a href="#" class="text-danger">Delete Account</a>
+      <div class="container profile-container-bluid mt-4" style="text-align: center">
+        <div class="row justify-content-center">
+          <!-- Profile Menu Column -->
+          <div class="col-md-3 profile-menu">
+            <img src="<?php echo htmlspecialchars($link_anh); ?>" alt="Profile Image"
+              class="profile-image img-fluid rounded-circle mb-3">
+            <div class="menu">
+              <a href="profile.php">Information</a>
+              <a href="edit.php">Edit Profile</a>
+              <div class="settings-dropdown">
+                <a>Settings</a>
+                <div class="dropdown-options">
+                  <a href="./edit_post.php">Manage Posts</a>
+                  <a href="#" class="change-password-link">Change Password</a>
+                  <a href="#" class="text-danger">Delete Account</a>
+                </div>
               </div>
             </div>
           </div>
+
+          <!-- Profile Info Column -->
+          <div class="col-md-5 profile-info">
+            <div class="info-box">
+              <p><i class="fas fa-user"></i> <strong>Full Name:</strong> <?php echo htmlspecialchars($fullname); ?></p>
+            </div>
+            <div class="info-box">
+              <p><i class="fas fa-user-tag"></i> <strong>Username:</strong> <?php echo htmlspecialchars($username); ?>
+              </p>
+            </div>
+            <div class="info-box">
+              <p><i class="fas fa-lock"></i> <strong>Password:</strong> <em>********</em> (not displayed)</p>
+            </div>
+            <div class="info-box">
+              <p><i class="fas fa-envelope"></i> <strong>Email:</strong> <?php echo htmlspecialchars($email); ?></p>
+            </div>
+            <div class="info-box">
+              <p><i class="fas fa-phone"></i> <strong>Phone Number:</strong> <?php echo htmlspecialchars($phone); ?></p>
+            </div>
+            <div class="info-box">
+              <p><i class="fas fa-venus-mars"></i> <strong>Gender:</strong> <?php echo htmlspecialchars($gender); ?></p>
+            </div>
+            <div class="info-box">
+              <p><i class="fas fa-birthday-cake"></i> <strong>Date of Birth:</strong>
+                <?php echo htmlspecialchars($birthday); ?></p>
+            </div>
+            <div class="info-box">
+              <p><i class="fas fa-map-marker-alt"></i> <strong>Address:</strong>
+                <?php echo htmlspecialchars($address); ?>
+              </p>
+            </div>
+
+
+          </div>
+
+          <!-- Review Table Column -->
+          <div class="col-md-4 reviews" style="height: 800px; overflow-y: auto;">
+            <h2><i class="fas fa-comments"></i> Reviews</h2>
+            <?php if (!empty($reviews)): ?>
+              <?php foreach ($reviews as $review): ?>
+                <div class="review">
+                  <strong><?php echo htmlspecialchars($review['reviewer_name']); ?></strong>
+                  <p>
+                    <i class="fas fa-star"></i> Rating: <?php echo htmlspecialchars($review['soSao']); ?>
+                  </p>
+                  <p><?php echo htmlspecialchars($review['content']); ?></p>
+                </div>
+              <?php endforeach; ?>
+            <?php else: ?>
+              <p>No reviews available.</p>
+            <?php endif; ?>
+          </div>
+
         </div>
-
-        <!-- Profile Info Column -->
-        <div class="col-md-5 profile-info">
-          <div class="info-box">
-            <p><i class="fas fa-user"></i> <strong>Full Name:</strong> <?php echo htmlspecialchars($fullname); ?></p>
-          </div>
-          <div class="info-box">
-            <p><i class="fas fa-user-tag"></i> <strong>Username:</strong> <?php echo htmlspecialchars($username); ?></p>
-          </div>
-          <div class="info-box">
-            <p><i class="fas fa-lock"></i> <strong>Password:</strong> <em>********</em> (not displayed)</p>
-          </div>
-          <div class="info-box">
-            <p><i class="fas fa-envelope"></i> <strong>Email:</strong> <?php echo htmlspecialchars($email); ?></p>
-          </div>
-          <div class="info-box">
-            <p><i class="fas fa-phone"></i> <strong>Phone Number:</strong> <?php echo htmlspecialchars($phone); ?></p>
-          </div>
-          <div class="info-box">
-            <p><i class="fas fa-venus-mars"></i> <strong>Gender:</strong> <?php echo htmlspecialchars($gender); ?></p>
-          </div>
-          <div class="info-box">
-            <p><i class="fas fa-birthday-cake"></i> <strong>Date of Birth:</strong>
-              <?php echo htmlspecialchars($birthday); ?></p>
-          </div>
-          <div class="info-box">
-            <p><i class="fas fa-map-marker-alt"></i> <strong>Address:</strong> <?php echo htmlspecialchars($address); ?>
-            </p>
-          </div>
-
-
-        </div>
-
-        <!-- Review Table Column -->
-        <div class="col-md-4 reviews" style="height: 800px; overflow-y: auto;">
-          <h2><i class="fas fa-comments"></i> Reviews</h2>
-          <?php if (!empty($reviews)): ?>
-            <?php foreach ($reviews as $review): ?>
-              <div class="review">
-                <strong><?php echo htmlspecialchars($review['reviewer_name']); ?></strong>
-                <p>
-                  <i class="fas fa-star"></i> Rating: <?php echo htmlspecialchars($review['soSao']); ?>
-                </p>
-                <p><?php echo htmlspecialchars($review['content']); ?></p>
-              </div>
-            <?php endforeach; ?>
-          <?php else: ?>
-            <p>No reviews available.</p>
-          <?php endif; ?>
-        </div>
-
       </div>
     </div>
   </div>
-
   <!-- Modal Change Password -->
   <div id="changePasswordModal" class="mk" style="display: none;">
 

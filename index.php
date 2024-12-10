@@ -150,9 +150,9 @@ $total_pages = ceil($total_notifications['total'] / $limit);
             <div class="fifter">
                 <div class="fifter-job">
                     <h1>Field</h1>
-                    <h2>Gardening</h2>
-                    <h2>Cleaning</h2>
-                    <h2>Labor</h2>
+                    <h2>Gardener</h2>
+                    <h2>Cleaner</h2>
+                    <h2>Driver</h2>
                     <h2>Others</h2>>
                 </div>
                 <div class="fifter-address">
@@ -164,7 +164,7 @@ $total_pages = ceil($total_notifications['total'] / $limit);
                 </div>
             </div>
             <div class="box-post">
-                <?php require_once "models/Post2.php"; ?>
+
                 <?php
                 require_once './controllers/display_post.php';
 

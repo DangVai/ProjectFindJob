@@ -70,6 +70,7 @@ $total_pages = ceil($total_posts['total'] / $limit);
 </head>
 
 <body>
+    
     <h2>List of Posted Articles</h2>
     <table class="table">
         <thead>
@@ -120,7 +121,7 @@ $total_pages = ceil($total_posts['total'] / $limit);
                         <!-- Add edit and delete buttons -->
                         <td>
                             <a href="edit_post.php?id=<?php echo $post['id_post']; ?>" class="btn btn-warning btn-sm">Edit</a>
-                            <a href="delete_post.php?id=<?php echo $post['id_post']; ?>" class="btn btn-danger btn-sm"
+                            <a href="../controllers/delete_post.php?id=<?php echo $post['id_post']; ?>" class="btn btn-danger btn-sm"
                                 onclick="return confirm('Are you sure you want to delete this post?');">
                                 Delete
                             </a>
