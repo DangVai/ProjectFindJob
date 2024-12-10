@@ -1,5 +1,12 @@
 <?php
 try {
+    if (isset($_POST['search-button'])) {
+        $seTitle = $_POST['search-title'];
+        $seAddress = $_POST['search-address'];
+    } else {
+        $seTitle = "";
+        $seAddress = "";
+    }
     // Cấu hình kết nối cơ sở dữ liệu
     include './config/db.php';
 
@@ -17,7 +24,7 @@ try {
         FROM post
         JOIN users ON post.user_id = users.user_id
         JOIN profile ON users.user_id = profile.user_id
-        WHERE post.confirm_status = 1
+        WHERE post.confirm_status = 1 and linh_vuc like '%$seTitle%'  and dia_chi like '%$seAddress%'
         ORDER BY 
             -- Ưu tiên bài viết có gói đăng ký 'vip', 'premium', 'basic'
             CASE 
@@ -41,4 +48,15 @@ try {
 } catch (PDOException $e) {
     die("Lỗi kết nối cơ sở dữ liệu hoặc truy vấn: " . $e->getMessage());
 }
+// if (isset($_POST['search-button'])) {
+//     $seTitle = $_POST['search-title'];
+//     $seAddress = $_POST['search-address'];
+// } else {
+//     $seTitle = "";
+//     $seAddress = "";
+// }
+
+// // Truy vấn dữ liệu
+// $sql = "SELECT * FROM post where confirm_status = 1 and linh_vuc like '%$seTitle%'  and dia_chi like '%$seAddress%'";
+// $result = mysqli_query($connect, $sql);
 ?>

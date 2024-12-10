@@ -1,6 +1,6 @@
 <?php
 // Kết nối cơ sở dữ liệu
-$connect = mysqli_connect("localhost", "root", "", "mydatabase", 3306);
+$connect = mysqli_connect("localhost", "root", "1234", "mydatabase", 3306);
 
 // Kiểm tra kết nối
 if (!$connect) {
@@ -15,19 +15,18 @@ else {
     $seTitle = "";
     $seAddress = "";
 }
-
 // Truy vấn dữ liệu
 $sql = "SELECT * FROM post where linh_vuc like '%$seTitle%'  and dia_chi like '%$seAddress%'";
 $result = mysqli_query($connect, $sql);
-
 // Đảm bảo có dữ liệu
 $posts = [];
 if (mysqli_num_rows($result) > 0) {
     while ($row = mysqli_fetch_assoc($result)) {
         $posts[] = $row;
     }
+}else{
+    $posts=[];
 }
-
 // Truy vấn dữ liệu
 $sql = "SELECT * FROM users";
 $result = mysqli_query($connect, $sql);

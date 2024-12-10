@@ -41,8 +41,8 @@
           <th>Created</th>
           <th>Type</th>
           <th>Image</th>
+          <th>Status</th>
           <th>Actions</th>
-          <th>Confirm</th>
         </tr>
       </thead>
       <tbody>
@@ -71,8 +71,12 @@
               p.user_id ASC";
         $result = $conn->query($sql);
 
-        if ($result->num_rows > 0) {
+        if ($result && $result->num_rows > 0) {
           while ($row = $result->fetch_assoc()) {
+            // Ép kiểu các giá trị cần thiết
+            $row['id_post'] = intval($row['id_post']);
+            $row['user_id'] = intval($row['user_id']);
+            
             echo '<tr id="row-' . htmlspecialchars($row['id_post']) . '">
               <td>' . htmlspecialchars($row['user_id']) . '</td>
               <td>' . htmlspecialchars($row['fullname']) . '</td>
@@ -87,21 +91,23 @@
               <td>
                   <img src="../controllers/uploadss/' . htmlspecialchars($row['anh_cong_viec']) . '" alt="Image" style="width: 50px; height: 50px;">
               </td>';
-              if ($row['confirm_status'] == 0) {
-                echo '<td style="background-color: yellow">Chờ</td>';
-              } elseif ($row['confirm_status'] == 1) {
-                echo '<td style="background-color: green">Đã duyệt</td>';
-              } elseif ($row['confirm_status'] == 2) {
-                echo '<td style="background-color: red">Từ chối</td>';
-              }
-              echo '<td>
-                      <button class="button small green" onclick="window.location.href = \'edit.php?id_post=' . htmlspecialchars($row['id_post']) . '\';">View</button>
-                      <button class="button small red" onclick="deleteRow(' . htmlspecialchars($row['id_post']) . ')">Delete</button>
-                    </td>';
+            // Hiển thị trạng thái
+            if ($row['confirm_status'] == 0) {
+              echo '<td style="background-color: yellow">Chờ</td>';
+            } elseif ($row['confirm_status'] == 1) {
+              echo '<td style="background-color: green">Đã duyệt</td>';
+            } elseif ($row['confirm_status'] == 2) {
+              echo '<td style="background-color: red">Từ chối</td>';
             }
-        } 
-          else {
-            echo "<tr><td colspan='13'>No data available</td></tr>";
+            // Nút hành động
+            echo '<td>
+                      <button class="button small green" onclick="window.location.href=\'../public/details_job.php?id=' . $row['id_post'] . '\';">View</button>
+                      <button class="button small red" onclick="deleteRow(' . $row['id_post'] . ')">Delete</button>
+                  </td>
+              </tr>';
+          }
+        } else {
+          echo "<tr><td colspan='13'>No data available</td></tr>";
         }
 
         $conn->close();

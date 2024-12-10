@@ -58,6 +58,49 @@ WHERE
     <link rel="stylesheet" href="../cssfile/details_job.css">
     <link rel="stylesheet" href="../cssfile/fix-header.css">
     <link rel="stylesheet" href="../cssfile/footer.css">
+    <style>
+        .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+}
+
+.account {
+    position: relative;
+    cursor: pointer;
+}
+
+.dropdown-menu {
+    position: absolute;
+    top: 50px; /* Đặt vị trí menu con */
+    right: 0;
+    background-color: white;
+    /* box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); */
+    border-radius: 8px;
+    display: none; /* Ẩn menu con */
+    z-index: 1000;
+    width: 200px;
+}
+
+.dropdown-menu div {
+    padding: 10px;
+}
+
+.dropdown-menu div:last-child {
+    border-bottom: none;
+}
+
+.dropdown-menu a {
+    text-decoration: none;
+    color: #333;
+    display: flex;
+    align-items: center;
+    font-size: 14px;
+}
+
+
+    </style>
 </head>
 <body>
 <div class="header">
@@ -75,37 +118,36 @@ WHERE
     <div class="inform">
         <a href="./notification.php"><i class="fa-regular fa-bell"></i></a>
     </div>
-    <div class="account">
+    <div class="account" id="account-button">
         <div class="box-account">
             <i class="fa-regular fa-user"></i>
         </div>
-    </div>
-    <div class="name-user">
-            <div class="dropdown-menu" id="account-menu">
-                <div>
-                    <a href="../public/profile.php"><i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i> Profile</a>
-                </div>
-                <div>
-                    <a href=""><i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i> Settings</a>
-                </div>
-                <div>
-                    <a href=""><i class="fas fa-list fa-sm fa-fw mr-2 text-gray-400"></i> Activity Log</a>
-                </div>
-                <div>
-                    <a href="public/login.php"><i class="fas fa-sign-in-alt fa-sm fa-fw mr-2 text-gray-400"></i> Log in</a>
-                </div>
-                <div>
-                    <a href="index.php"><i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i> Log out</a>
-                </div>
+        <div class="dropdown-menu" id="account-menu">
+            <div>
+                <a href="../public/profile.php"><i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i> Profile</a>
+            </div>
+            <div>
+                <a href=""><i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i> Settings</a>
+            </div>
+            <div>
+                <a href=""><i class="fas fa-list fa-sm fa-fw mr-2 text-gray-400"></i> Activity Log</a>
+            </div>
+            <div>
+                <a href="public/login.php"><i class="fas fa-sign-in-alt fa-sm fa-fw mr-2 text-gray-400"></i> Log in</a>
+            </div>
+            <div>
+                <a href="index.php"><i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i> Log out</a>
             </div>
         </div>
     </div>
+</div>
+
 
     <div class="container mt-5">
     <div class="card shadow p-4">
         <div class="row">
             <div class="col-md-2 text-center">
-                <img src="<?php echo htmlspecialchars($avatarPath); ?>" alt="Avatar" class="rounded-circle" width="80" height="80">
+                <a href="./profile.php"><img src="<?php echo htmlspecialchars($avatarPath); ?>" alt="Avatar" class="rounded-circle" width="80" height="80"></a>
                 <p class="mt-2"><strong><?php echo htmlspecialchars($post['username']); ?></strong></p>
             </div>
             <div class="col-md-10">
@@ -153,5 +195,22 @@ WHERE
     <?php include '../footer.php'; ?>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        document.getElementById("account-button").addEventListener("click", function () {
+    const menu = document.getElementById("account-menu");
+    menu.style.display = menu.style.display === "block" ? "none" : "block";
+});
+
+// Ẩn menu khi nhấp ra ngoài
+document.addEventListener("click", function (event) {
+    const accountButton = document.getElementById("account-button");
+    const accountMenu = document.getElementById("account-menu");
+
+    if (!accountButton.contains(event.target)) {
+        accountMenu.style.display = "none";
+    }
+});
+
+    </script>
 </body>
 </html>

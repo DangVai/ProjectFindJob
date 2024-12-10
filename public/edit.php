@@ -15,7 +15,7 @@ include '../controllers/edit_data.php';
 <body>
 <div class="header">
     <div class="box_logo">
-        <img src="img/anh-weblogo.png" alt="">
+        <img src="../img/anh-weblogo.png" alt="">
     </div>
     <div class="nav">
         <p><b>Home</b></p>

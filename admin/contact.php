@@ -15,26 +15,52 @@ $result = $conn->query($sql);
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Danh Sách Liên Hệ</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css">
-<style>
- .containers {
-    background-color: #ffffff;
-    padding: 20px;
-    border-radius: 8px;
-    text-align: center;
-    width: 80%;
-    margin-top: 40px;
-    margin-left: 250px;
-}
-</style>
+    <style>
+        .containers {
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 8px;
+            text-align: center;
+            width: 80%;
+            margin-top: 40px;
+            margin-left: 250px;
+        }
+
+        table {
+            width: 100%;
+            margin: 20px 0;
+        }
+
+        tr th {
+            text-align: center;
+    background:  #54d400 ;
+        }
+
+        th,
+        td {
+            padding: 10px;
+            text-align: center;
+        }
+
+        th {
+            background-color: #f2f2f2;
+            font-weight: bold;
+        }
+
+        .message {
+            font-style: italic;
+            color: #888;
+        }
+    </style>
 </head>
 
 <body>
-  <div class="container">
-    <?php include_once "./header.php"; ?>
-</div>
-<div>
-    <?php include_once "./sider.php"; ?>
-</div>
+    <div class="container">
+        <?php include_once "./header.php"; ?>
+    </div>
+    <div>
+        <?php include_once "./sider.php"; ?>
+    </div>
     <div class="containers">
         <h1>Danh Sách Liên Hệ</h1>
 
